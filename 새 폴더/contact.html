@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="최원혁 연락처 - Product Manager 포트폴리오">
+    <title>Contact - 최원혁 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --success: #10b981;
+            
+            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 헤더 및 네비게이션 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+            background-color: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            padding-top: calc(80px + var(--spacing-xl));
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 연락처 정보 */
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-lg);
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* 소셜 링크 */
+        .social-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .social-section h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--text-primary);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .linkedin { background: #0077b5; }
+        .github { background: #333; }
+        .email { background: #ea4335; }
+        .portfolio { background: var(--primary-color); }
+
+        .social-text h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .social-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 다운로드 섹션 */
+        .download-section {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary-color);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                border-top: 1px solid var(--border);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html">최원혁</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="projects.html">프로젝트</a></li>
+                <li><a href="leadership.html">리더십</a></li>
+                <li><a href="contact.html" class="active">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Contact</h1>
+            <p class="page-subtitle">
+                추가 문의사항이나 면접 관련 연락이 필요하시면 아래 정보를 이용해 주세요.
+            </p>
+
+            <section class="contact-section">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>이메일</h3>
+                            <p><a href="mailto:jarelrs@gmail.com">jarelrsi@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>전화번호</h3>
+                            <p><a href="tel:+82-10-3810-9130">010-3810-9130</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>위치</h3>
+                            <p>서울, 대한민국</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>현재 직장</h3>
+                            <p>인터파크커머스 SRM팀<br>Product Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           
+
+            <section class="download-section">
+                <h2>이력서 다운로드</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    상세한 이력서와 포트폴리오 PDF를 다운로드할 수 있습니다.
+                </p>
+                <div class="download-buttons">
+                    <a href="assets/downloads/최원혁_이력서.pdf" class="btn btn-primary" download>
+                        📄 이력서 다운로드 (PDF)
+                    </a>
+                    <a href="assets/downloads/최원혁_포트폴리오.pdf" class="btn btn-outline" download>
+                        📊 포트폴리오 다운로드 (PDF)
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // 카드 호버 애니메이션
+        const cards = document.querySelectorAll('.contact-item, .social-link');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

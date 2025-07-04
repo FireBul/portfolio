@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="최저가 쿠폰 자동화 시스템 프로젝트 - 월 50억원 거래액 달성">
+    <title>최저가 쿠폰 자동화 시스템 - 최원혁 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 헤더 및 네비게이션 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+            background-color: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            padding-top: calc(80px + var(--spacing-xl));
+            padding-bottom: var(--spacing-xl);
+        }
+
+        /* 브레드크럼 */
+        .breadcrumb {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: var(--spacing-sm);
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            margin: 0 var(--spacing-xs);
+        }
+
+        .breadcrumb-current {
+            color: var(--primary-color);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* 프로젝트 히어로 */
+        .project-hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .meta-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .meta-value {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .meta-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .content-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        .content-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .content-text p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .content-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* 아키텍처 다이어그램 */
+        .architecture-diagram {
+            background: var(--surface);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .diagram-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .diagram-step {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .diagram-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .diagram-step:last-child::after {
+            display: none;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .step-title {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        /* 데이터 플로우 */
+        .data-flow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .flow-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .flow-number {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* 기술 스택 */
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .tech-category {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .tech-category h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.3rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .tech-item {
+            background: var(--surface);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-medium);
+            border: 2px solid var(--primary-color);
+        }
+
+        /* 성과 지표 */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            border-left: 4px solid var(--success);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--success);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .metric-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* 하이라이트 박스 */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .highlight-box h4 {
+            color: #92400e;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        .highlight-box p {
+            color: #92400e;
+        }
+
+        /* 버튼 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 네비게이션 */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--surface);
+            border-radius: var(--border-radius);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                border-top: 1px solid var(--border);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-step::after {
+                content: '↓';
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+
+            .project-nav {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .project-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html">최원혁</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="projects.html" class="active">프로젝트</a></li>
+                <li><a href="leadership.html">리더십</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- 브레드크럼 -->
+            <nav class="breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">홈</a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item">
+                        <a href="projects.html">프로젝트</a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-current">최저가 쿠폰 자동화 시스템</li>
+                </ol>
+            </nav>
+
+            <!-- 프로젝트 히어로 -->
+            <section class="project-hero">
+                <h1 class="project-title">최저가 쿠폰 자동화 시스템</h1>
+                <p class="project-subtitle">
+                    네이버 EP API 활용과 데이터 기반 의사결정으로 구축한 월 50억원 거래액 수준의 쿠폰 시스템
+                </p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-value">50억원</div>
+                        <div class="meta-label">월 거래액</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">24개월</div>
+                        <div class="meta-label">프로젝트 기간</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">4명</div>
+                        <div class="meta-label">팀 구성</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">PM</div>
+                        <div class="meta-label">담당 역할</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 개요 -->
+            <section class="section">
+                <h2 class="section-title">프로젝트 개요</h2>
+                <div class="content-card">
+                    <div class="content-grid">
+                        <div class="content-text">
+                            <h3>배경 및 필요성</h3>
+                            <p>
+                                인터파크 SRM팀에서 네이버, 에누리, 다나와 등 가격 비교 채널에서 
+                                실시간 자동화 쿠폰을 기획하고 운영하는 프로젝트를 담당했습니다. 
+                                기존 수동 프로세스의 한계를 극복하고 효율성을 극대화하기 위해 시작되었습니다.
+                            </p>
+                            <p>
+                                네이버 EP API를 활용하여 제휴사에서 지급되는 EP 데이터를 기준으로 
+                                쿠폰을 자동 발행하는 시스템을 구축했습니다.
+                            </p>
+                        </div>
+                        <div class="content-image">
+                            <img src="assets/images/projects/coupon-overview.png" alt="쿠폰 자동화 시스템 개요" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 시스템 아키텍처 -->
+            <section class="section">
+                <h2 class="section-title">시스템 아키텍처</h2>
+                <div class="content-card">
+                    <div class="architecture-diagram">
+                        <h3>데이터 수집 및 처리 플로우</h3>
+                        <div class="diagram-steps">
+                            <div class="diagram-step">
+                                <div class="step-icon">🔍</div>
+                                <div class="step-title">데이터 수집</div>
+                                <p>네이버 EP API<br>가격 비교 채널</p>
+                            </div>
+                            <div class="diagram-step">
+                                <div class="step-icon">⚙️</div>
+                                <div class="step-title">데이터 처리</div>
+                                <p>정규화 및 검증<br>Kafka 연동</p>
+                            </div>
+                            <div class="diagram-step">
+                                <div class="step-icon">🧠</div>
+                                <div class="step-title">분석 엔진</div>
+                                <p>가격 비교 분석<br>수익성 계산</p>
+                            </div>
+                            <div class="diagram-step">
+                                <div class="step-icon">🎯</div>
+                                <div class="step-title">쿠폰 생성</div>
+                                <p>자동 할인율 계산<br>채널별 최적화</p>
+                            </div>
+                            <div class="diagram-step">
+                                <div class="step-icon">📤</div>
+                                <div class="step-title">배포</div>
+                                <p>다중 채널 발행<br>실시간 모니터링</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 핵심 기능 -->
+            <section class="section">
+                <h2 class="section-title">핵심 기능</h2>
+                <div class="data-flow">
+                    <div class="flow-item">
+                        <div class="flow-number">01</div>
+                        <h3>실시간 데이터 수집</h3>
+                        <p>네이버 EP API를 통한 실시간 상품 정보 수집 및 가격 비교 채널 데이터 연동</p>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-number">02</div>
+                        <h3>지능형 가격 분석</h3>
+                        <p>데이터 분석을 통한 최적 할인율 계산 및 수익성 기반 쿠폰 전략 수립</p>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-number">03</div>
+                        <h3>자동화 발행</h3>
+                        <p>설정된 규칙에 따른 자동 쿠폰 생성 및 다중 채널 동시 배포</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 기술 스택 -->
+            <section class="section">
+                <h2 class="section-title">사용 기술 및 도구</h2>
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>데이터 수집</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">네이버 EP API</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>데이터 처리</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">Kafka</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Excel</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>분석 도구</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">Tableau</span>
+                            <span class="tech-item">Power BI</span>
+                            <span class="tech-item">GA4</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>협업 도구</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">JIRA</span>
+                            <span class="tech-item">Confluence</span>
+                            <span class="tech-item">Slack</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 성과 -->
+            <section class="section">
+                <h2 class="section-title">주요 성과</h2>
+                <div class="content-card">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">50억원</div>
+                            <div class="metric-label">월 거래액</div>
+                            <div class="metric-description">가격 비교 채널 전체</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">30%</div>
+                            <div class="metric-label">YoY 성장</div>
+                            <div class="metric-description">데이터 수집 구조 개선</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">20%</div>
+                            <div class="metric-label">수익성 개선</div>
+                            <div class="metric-description">상품별 관리 최적화</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">자동화</div>
+                            <div class="metric-label">업무 효율</div>
+                            <div class="metric-description">수동 작업 최소화</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 도전과제 및 해결방법 -->
+            <section class="section">
+                <h2 class="section-title">주요 도전과제 및 해결방법</h2>
+                <div class="content-card">
+                    <h3>🔥 주요 도전과제</h3>
+                    <ul style="margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); color: var(--text-secondary); line-height: 1.7;">
+                        <li><strong>이익율 하락:</strong> 쿠폰 발행으로 인한 수익성 저하 문제</li>
+                        <li><strong>데이터 정합성:</strong> 다양한 채널에서 수집되는 데이터의 일관성 확보</li>
+                        <li><strong>실시간 처리:</strong> 대용량 데이터의 실시간 분석 및 처리</li>
+                        <li><strong>채널별 정책:</strong> 각 가격 비교 채널의 상이한 정책 대응</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">💡 해결 방법</h3>
+                    <div style="margin-top: var(--spacing-md);">
+                        <div class="highlight-box">
+                            <h4>체계적인 개선 전략</h4>
+                            <p>
+                                소카테고리별 상품 등급 세팅과 쿠폰 마진율 조정을 통해 YoY 월평균 20% 개선을 달성했습니다. 
+                                또한 Kafka 신규 topic 생성을 통한 데이터 수집 구조 변경으로 
+                                YoY 월평균 거래액 30% 증가를 이뤄냈습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 배운 점 -->
+            <section class="section">
+                <h2 class="section-title">배운 점 (Key Learnings)</h2>
+                <div class="content-card">
+                    <div class="highlight-box">
+                        <h4>🚀 데이터 기반 자동화의 가치</h4>
+                        <p>
+                            네이버 EP API와 Kafka를 활용한 자동화 시스템 구축을 통해 
+                            월 50억원 규모의 거래액을 효율적으로 관리할 수 있었습니다. 
+                            데이터 기반 의사결정이 비즈니스에 미치는 강력한 임팩트를 실감했습니다.
+                        </p>
+                    </div>
+
+                    <h3>세부 인사이트</h3>
+                    <ul style="margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); color: var(--text-secondary); line-height: 1.7;">
+                        <li><strong>자동화의 중요성:</strong> 반복적인 업무의 자동화를 통한 효율성 극대화</li>
+                        <li><strong>데이터 품질 관리:</strong> 정확한 데이터가 전체 시스템의 성공 요인</li>
+                        <li><strong>점진적 개선:</strong> 단계별 최적화를 통한 지속적인 성과 향상</li>
+                        <li><strong>크로스 도메인 협업:</strong> 개발, 마케팅, 영업팀과의 긴밀한 협업 경험</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 프로젝트 네비게이션 -->
+            <nav class="project-nav">
+                <a href="project-detail-ads.html" class="btn btn-outline">← 이전 프로젝트: 광고 지면 개선</a>
+                <a href="projects.html" class="btn btn-primary">프로젝트 목록으로 →</a>
+            </nav>
+        </div>
+    </main>
+
+    <script>
+        // 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 애니메이션 대상 요소들 관찰
+        document.querySelectorAll('.content-card, .flow-item, .metric-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
