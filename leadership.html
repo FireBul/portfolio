@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="최원혁 리더십 여정 - 모드앙상블 창단과 운영을 통한 조직 리더십 경험">
+    <title>Leadership - 최원혁 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --purple: #8b5cf6;
+            
+            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 헤더 및 네비게이션 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+            background-color: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            padding-top: calc(80px + var(--spacing-xl));
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 히어로 섹션 */
+        .leadership-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 400px;
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 통계 섹션 */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* 모드앙상블 소개 */
+        .ensemble-intro {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .ensemble-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        .ensemble-image {
+            width: 300px;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .ensemble-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ensemble-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--purple);
+        }
+
+        .ensemble-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--purple);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--purple);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* 조직 구성 */
+        .organization-section {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .instrument-card {
+            background: var(--surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .instrument-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .instrument-name {
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .instrument-count {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+        }
+
+        /* 타임라인 */
+        .timeline-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--purple));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+            padding-left: var(--spacing-lg);
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-xs);
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 공연 일정 */
+        .schedule-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .schedule-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .schedule-status {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .status-completed {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-scheduled {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .schedule-date {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .schedule-title {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .schedule-venue {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 갤러리 섹션 */
+        .gallery-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: var(--spacing-md);
+        }
+
+        .gallery-caption h4 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .gallery-caption p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                border-top: 1px solid var(--border);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .ensemble-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .ensemble-image {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .timeline {
+                padding-left: var(--spacing-md);
+            }
+
+            .timeline-item {
+                padding-left: var(--spacing-md);
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .instruments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html">최원혁</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="projects.html">프로젝트</a></li>
+                <li><a href="leadership.html" class="active">리더십</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Leadership Journey</h1>
+            <p class="page-subtitle">
+                음악을 통한 사회 기여와 조직 운영 경험을 통해 성장한 리더십 여정을 소개합니다.
+            </p>
+
+            <section class="leadership-hero">
+                <div class="hero-image">
+                    <img src="assets/images/music/mode-ensemble.jpg" alt="모드앙상블 20명 전체 멤버" loading="lazy">
+                </div>
+                <div class="hero-content">
+                    <h2>모드앙상블 (MODE)</h2>
+                    <p>
+                        음악에서 사용되는 음계(Modes)에서 영감을 받아, 다양한 음악적 스펙트럼을 통해 
+                        관객과 함께 호흡하고자 하는 의미를 담고 있습니다. 
+                        각기 다른 환경과 경험 속에서 소중한 음표를 하나씩 쌓아가며, 
+                        함께 어우러지는 아름다운 하모니로 동반 성장을 이루어가는 앙상블입니다.
+                    </p>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">20명</div>
+                    <div class="stat-label">총 멤버 수</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2024.11</div>
+                    <div class="stat-label">창단일</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4회</div>
+                    <div class="stat-label">2025년 공연 계획</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20년</div>
+                    <div class="stat-label">악기 연주 경력</div>
+                </div>
+            </section>
+
+            <section class="ensemble-intro">
+                <h2 class="section-title">모드앙상블 창단 스토리</h2>
+                <div class="ensemble-grid">
+                    <div class="ensemble-image">
+                        <img src="assets/images/music/first-rehearsal.jpg" alt="모드앙상블 창단 기념 첫 연습" loading="lazy">
+                    </div>
+                    <div class="ensemble-content">
+                        <h3>작은 시작에서 큰 변화까지</h3>
+                        <p>
+                            저는 작은 음악 모임인 mode 앙상블을 직접 창단하면서 한 걸음 한 걸음 시작했습니다. 
+                            몇 명의 친구들과 함께 모여 아무것도 없던 상태에서 차근차근 음악을 쌓아 올렸지요. 
+                            불과 몇 마디의 멜로디와 어색한 박자에서 시작된 우리 모임은, 
+                            서로에게 응원의 박수를 보내며 꿈틀거리는 유기체처럼 성장했습니다.
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>창단 배경</h4>
+                            <p>
+                                기존 MGOP 오케스트라에서 함께 병원 봉사를 해왔던 멤버들이 코로나 이후에도 
+                                꾸준히 봉사를 이어가고자 뜻을 모아 2024년 11월에 '모드(MODE)'를 창단했습니다. 
+                                MGOP뿐 아니라 다양한 음악 단체에서 활동하는 주요 인원들이 합류하여 
+                                더욱 다채로운 음악을 선보이고자 노력하고 있습니다.
+                            </p>
+                        </div>
+
+                        <p>
+                            그리고 어느 날, 우리는 음악으로 사회에 기여하고 싶은 마음을 실천에 옮기기로 했습니다. 
+                            병원에서 관객을 만나면 어떨까 하는 생각이 떠올랐습니다. 
+                            저는 주저 없이 병원 담당자에게 전화를 걸어 작은 공연이라도 좋으니 
+                            환자들과 의료진에게 위로가 되는 시간을 마련하고 싶다고 말씀드렸습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="organization-section">
+                <h2 class="section-title">조직 구성</h2>
+                <div class="instruments-grid">
+                    <div class="instrument-card">
+                        <div class="instrument-name">바이올린</div>
+                        <div class="instrument-count">9명</div>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-name">비올라</div>
+                        <div class="instrument-count">3명</div>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-name">첼로</div>
+                        <div class="instrument-count">3명</div>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-name">플루트</div>
+                        <div class="instrument-count">2명</div>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-name">클라리넷</div>
+                        <div class="instrument-count">3명</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>협력 네트워크</h4>
+                    <p>
+                        '비영리 법인 포레스트(Forrest) 오케스트라', '루메 앙상블' 등 협력 단체와 함께 
+                        왕성한 활동을 이어가고 있습니다. 여러 단체 및 행사에서도 꾸준히 공연해온 경험을 기반으로, 
+                        더욱 완성도 높은 병원 공연을 선보이고자 합니다.
+                    </p>
+                </div>
+            </section>
+
+            <section class="timeline-section">
+                <h2 class="section-title">리더십 발전 과정</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2005 (11세)</div>
+                        <div class="timeline-title">플룻과의 첫 만남</div>
+                        <div class="timeline-description">
+                            부모님의 "남자는 악기를 하나 할 줄 알아야 멋져"라는 말씀을 따라 플룻을 시작했습니다. 
+                            이것이 음악을 통한 리더십 여정의 시작이었습니다.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2014</div>
+                        <div class="timeline-title">MGOP 오케스트라 입단</div>
+                        <div class="timeline-description">
+                            대학 입학과 함께 MGOP 오케스트라에 입단하여 본격적인 오케스트라 활동을 시작했습니다. 
+                            대학 동기들과 함께 음악으로 소통하며 협업의 가치를 배웠습니다.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018 - 2019</div>
+                        <div class="timeline-title">MGOP 오케스트라 단장 및 병원 봉사 시작</div>
+                        <div class="timeline-description">
+                            단장직을 맡으며 첫 리더십 경험을 쌓았습니다. 
+                            이 시기에 넥슨어린이재활병원에서 병원 봉사를 처음 시작하여 
+                            음악이 환자들에게 전하는 치유의 힘을 직접 경험했습니다.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - 2021</div>
+                        <div class="timeline-title">코로나 팬데믹과 새로운 도전</div>
+                        <div class="timeline-description">
+                            코로나로 인해 병원 봉사가 중단되었지만, 2021년 새로운 음악적 도전으로 
+                            비올라를 시작했습니다. 플룻과는 다른 현악기의 매력에 빠져 
+                            더욱 다양한 음악적 표현을 익혔습니다.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - 2024</div>
+                        <div class="timeline-title">비올라 연주와 음악적 성장</div>
+                        <div class="timeline-description">
+                            인터파크에서 일하며 바쁜 와중에도 비올라 연주를 이어갔습니다. 
+                            플룻 16년 경력에 더해 현악기까지 익히며 음악적 이해도가 깊어졌고, 
+                            이는 훗날 모드앙상블에서 여러 파트를 조율하는 데 큰 도움이 되었습니다.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.11 - 현재</div>
+                        <div class="timeline-title">모드앙상블 창단 및 병원 봉사 재개</div>
+                        <div class="timeline-description">
+                            20명 규모의 자원봉사 음악 단체를 직접 창단했습니다. 
+                            코로나로 중단되었던 병원 봉사를 재개하여 다시 한 번 음악을 통한 
+                            사회 기여의 가치를 실현하고 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="schedule-section">
+                <h2 class="section-title">2025년 공연 일정</h2>
+                <div class="schedule-grid">
+                    <div class="schedule-card">
+                        <div class="schedule-status status-completed">완료</div>
+                        <div class="schedule-date">2025년 1월</div>
+                        <div class="schedule-title">푸르메재단 넥슨재활어린이병원 공연</div>
+                        <div class="schedule-venue">어린이 재활병원 봉사 공연</div>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-status status-completed">완료</div>
+                        <div class="schedule-date">2025년 6월</div>
+                        <div class="schedule-title">넥슨 도토리하우스 형제자매 프로그램</div>
+                        <div class="schedule-venue">가족 대상 특별 프로그램</div>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-status status-scheduled">예정</div>
+                        <div class="schedule-date">2025년 7월</div>
+                        <div class="schedule-title">대전·세종 지역 넥슨 후원 병원 공연</div>
+                        <div class="schedule-venue">지역 확대 봉사 공연</div>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-status status-scheduled">예정</div>
+                        <div class="schedule-date">2025년 11월</div>
+                        <div class="schedule-title">넥슨 후원 도토리하우스 2주년 행사</div>
+                        <div class="schedule-venue">기념 행사 축하 공연</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <h2 class="section-title">활동 갤러리</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/hospital-performance.jpg" alt="2025년 1월 넥슨재활어린이병원 공연" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>넥슨재활어린이병원 공연</h4>
+                            <p>2025년 첫 공연으로 어린이들에게 희망의 선율을 전달했습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/mgop-orchestra.jpg" alt="2018-2019년 MGOP 오케스트라 단장 시절" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>MGOP 오케스트라 단장 시절</h4>
+                            <p>넥슨어린이재활병원에서의 지속적인 봉사 활동</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/2506_dotorihouse.jpg" alt="25년 6월 도토리하우스" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>도토리하우스 음악 교육</h4>
+                            <p>2025년 6월 2회 거쳐 환아 형제자매들을 대상으로 음악 교육 프로그램 진행</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/first-meeting.jpg" alt="모드앙상블 창단 기념 첫 연습" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>모드앙상블 창단 기념</h4>
+                            <p>20명의 멤버들과 함께한 첫 회식</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/instruments.jpg" alt="개인 연주 활동 플루트와 비올라" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>개인 연주 활동</h4>
+                            <p>11살부터 시작한 플루트와 회사 입사 후 시작한 비올라</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="assets/images/music/first-flute-performance.jpg" alt="11살 첫 플룻 공연" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>첫 플룻 공연 (11세)</h4>
+                            <p>20년 음악 여정의 시작, 떨리는 마음으로 무대에 선 첫 공연</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 애니메이션 대상 요소들 관찰
+        document.querySelectorAll('.timeline-item, .stat-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // 갤러리 호버 효과
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

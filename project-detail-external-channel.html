@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="외부 채널 추가 프로젝트 - 넥스트페이퍼, 노티플러스 등 신규 채널 확장">
+    <title>외부 채널 추가 프로젝트 - 최원혁 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 헤더 및 네비게이션 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+            background-color: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            padding-top: calc(80px + var(--spacing-xl));
+            padding-bottom: var(--spacing-xl);
+        }
+
+        /* 브레드크럼 */
+        .breadcrumb {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: var(--spacing-sm);
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            margin: 0 var(--spacing-xs);
+        }
+
+        .breadcrumb-current {
+            color: var(--primary-color);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* 프로젝트 히어로 */
+        .project-hero {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .meta-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .meta-value {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--warning);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .meta-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .content-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .content-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--warning);
+        }
+
+        .content-text p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* 채널 비교 */
+        .channel-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .channel-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--warning);
+        }
+
+        .channel-name {
+            font-size: 1.3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--warning);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .channel-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .channel-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .channel-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-label {
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+        }
+
+        /* 프로세스 단계 */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .process-step {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--warning);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 성과 지표 */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            border-left: 4px solid var(--success);
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--success);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .result-label {
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* 하이라이트 박스 */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde047 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .highlight-box h4 {
+            color: #92400e;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        .highlight-box p {
+            color: #92400e;
+        }
+
+        /* 버튼 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 네비게이션 */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--surface);
+            border-radius: var(--border-radius);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                border-top: 1px solid var(--border);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .channel-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .project-nav {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .project-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html">최원혁</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="projects.html" class="active">프로젝트</a></li>
+                <li><a href="leadership.html">리더십</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- 브레드크럼 -->
+            <nav class="breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">홈</a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item">
+                        <a href="projects.html">프로젝트</a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-current">외부 채널 추가 프로젝트</li>
+                </ol>
+            </nav>
+
+            <!-- 프로젝트 히어로 -->
+            <section class="project-hero">
+                <h1 class="project-title">외부 채널 추가 프로젝트</h1>
+                <p class="project-subtitle">
+                    넥스트페이퍼, 노티플러스 등 신규 외부 채널 연동을 통한 광고 채널 다변화 프로젝트
+                </p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-value">2개</div>
+                        <div class="meta-label">신규 채널</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">4개월</div>
+                        <div class="meta-label">프로젝트 기간</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">다변화</div>
+                        <div class="meta-label">채널 확장</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">PM</div>
+                        <div class="meta-label">담당 역할</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 개요 -->
+            <section class="section">
+                <h2 class="section-title">프로젝트 개요</h2>
+                <div class="content-card">
+                    <div class="content-text">
+                        <h3>배경 및 필요성</h3>
+                        <p>
+                            인터파크 SRM팀에서 운영하는 CPC 광고의 채널 다변화가 필요한 상황이었습니다. 
+                            기존 채널에만 의존하는 리스크를 줄이고 새로운 트래픽 소스를 확보하여 
+                            광고 수익을 확대하고자 했습니다.
+                        </p>
+                        <p>
+                            넥스트페이퍼와 노티플러스는 각각 다른 특성을 가진 광고 채널로, 
+                            이들과의 연동을 통해 더욱 다양한 사용자층에게 접근할 수 있는 
+                            기회를 확보하고자 했습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 신규 채널 분석 -->
+            <section class="section">
+                <h2 class="section-title">신규 채널 분석</h2>
+                <div class="content-card">
+                    <div class="channel-comparison">
+                        <div class="channel-card">
+                            <h3 class="channel-name">넥스트페이퍼</h3>
+                            <ul class="channel-features">
+                                <li><span class="feature-label">채널 특성:</span> 뉴스/미디어 기반 광고 플랫폼</li>
+                                <li><span class="feature-label">타겟 유저:</span> 뉴스 소비층, 중장년층</li>
+                                <li><span class="feature-label">광고 형태:</span> 네이티브 광고, 배너 광고</li>
+                                <li><span class="feature-label">연동 방식:</span> API 기반 실시간 연동</li>
+                                <li><span class="feature-label">예상 효과:</span> 새로운 사용자층 확보</li>
+                            </ul>
+                        </div>
+                        <div class="channel-card">
+                            <h3 class="channel-name">노티플러스</h3>
+                            <ul class="channel-features">
+                                <li><span class="feature-label">채널 특성:</span> 푸시 알림 기반 광고 네트워크</li>
+                                <li><span class="feature-label">타겟 유저:</span> 모바일 앱 사용자</li>
+                                <li><span class="feature-label">광고 형태:</span> 푸시 알림, 인앱 광고</li>
+                                <li><span class="feature-label">연동 방식:</span> SDK 및 API 연동</li>
+                                <li><span class="feature-label">예상 효과:</span> 모바일 트래픽 증대</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 진행 과정 -->
+            <section class="section">
+                <h2 class="section-title">프로젝트 진행 과정</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">채널 분석</h3>
+                        <p class="step-description">
+                            각 채널의 특성과 연동 방식을 
+                            상세히 분석하고 검토했습니다.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">기술 검토</h3>
+                        <p class="step-description">
+                            API 연동 방식과 기술적 요구사항을 
+                            개발팀과 함께 검토했습니다.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">계약 및 협상</h3>
+                        <p class="step-description">
+                            수익 분배율과 광고 정책에 대한 
+                            협상을 진행했습니다.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">연동 개발</h3>
+                        <p class="step-description">
+                            API 연동 개발과 테스트를 
+                            단계적으로 진행했습니다.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">운영 최적화</h3>
+                        <p class="step-description">
+                            채널별 성과를 모니터링하고 
+                            최적화 작업을 수행했습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주요 성과 -->
+            <section class="section">
+                <h2 class="section-title">주요 성과</h2>
+                <div class="content-card">
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-value">2개</div>
+                            <div class="result-label">신규 채널 확보</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">다변화</div>
+                            <div class="result-label">리스크 분산</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">확장</div>
+                            <div class="result-label">사용자층 확대</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">안정화</div>
+                            <div class="result-label">수익 구조</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>💡 핵심 성과</h4>
+                        <p>
+                            신규 외부 채널 추가를 통해 광고 채널 포트폴리오를 다변화하고, 
+                            새로운 사용자층에게 접근할 수 있는 기회를 확보했습니다. 
+                            또한 단일 채널 의존도를 줄여 리스크 분산 효과를 얻었습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 배운 점 -->
+            <section class="section">
+                <h2 class="section-title">배운 점 (Key Learnings)</h2>
+                <div class="content-card">
+                    <div class="highlight-box">
+                        <h4>🤝 파트너십 관리의 중요성</h4>
+                        <p>
+                            새로운 외부 채널과의 협업을 통해 파트너십 관리의 중요성을 깨달았습니다. 
+                            각 채널의 특성을 이해하고 상호 윈-윈할 수 있는 구조를 만드는 것이 
+                            성공적인 채널 확장의 핵심임을 배웠습니다.
+                        </p>
+                    </div>
+
+                    <h3>세부 인사이트</h3>
+                    <ul style="margin: var(--spacing-md) 0; padding-left: var(--spacing-lg); color: var(--text-secondary); line-height: 1.7;">
+                        <li><strong>채널 다변화:</strong> 리스크 분산과 성장 기회 확보의 중요성</li>
+                        <li><strong>기술적 이해:</strong> API 연동과 기술적 요구사항 파악 능력</li>
+                        <li><strong>협상 능력:</strong> 상호 이익을 고려한 계약 조건 협상</li>
+                        <li><strong>성과 측정:</strong> 채널별 성과 분석과 최적화 방법론</li>
+                        <li><strong>프로젝트 관리:</strong> 여러 이해관계자와의 협업 프로젝트 관리</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 프로젝트 네비게이션 -->
+            <nav class="project-nav">
+                <a href="projects.html" class="btn btn-outline">← 프로젝트 목록으로</a>
+                <a href="project-detail-coupon.html" class="btn btn-primary">다음 프로젝트: 쿠폰 자동화 →</a>
+            </nav>
+        </div>
+    </main>
+
+    <script>
+        // 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 애니메이션 대상 요소들 관찰
+        document.querySelectorAll('.content-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
