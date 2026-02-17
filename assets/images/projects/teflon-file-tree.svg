@@ -1,14 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
-  <rect width="1200" height="700" fill="#111827"/>
-  <text x="40" y="60" fill="#67e8f9" font-size="28" font-family="Menlo, monospace">Teflon Inspection project tree (sanitized)</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#111827"/>
+  <text x="40" y="60" fill="#67e8f9" font-size="30" font-family="Menlo, monospace">Teflon Inspection tree (sanitized, expanded)</text>
   <text x="40" y="110" fill="#e5e7eb" font-size="22" font-family="Menlo, monospace">teflon-inspection-automation/</text>
   <text x="80" y="150" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── src/</text>
-  <text x="80" y="185" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── scripts/</text>
-  <text x="80" y="220" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── ops/blueprints/</text>
-  <text x="80" y="255" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── config.yaml</text>
-  <text x="80" y="290" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── main.py</text>
-  <text x="80" y="325" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── web_standalone.py</text>
-  <text x="80" y="360" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">└── FIELD_DEPLOYMENT_GUIDE.md</text>
-  <text x="40" y="470" fill="#86efac" font-size="20" font-family="Menlo, monospace">Focus: camera reliability, deployment UX, upgrade safety</text>
-  <text x="40" y="520" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">* Structure shown for portfolio explanation only. Sensitive details omitted.</text>
+  <text x="120" y="185" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">├── detection pipeline modules</text>
+  <text x="120" y="215" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">└── UI/service handlers</text>
+  <text x="80" y="250" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── scripts/</text>
+  <text x="120" y="285" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">├── bootstrap/start/quick_setup</text>
+  <text x="120" y="315" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">└── consensus/export utilities</text>
+  <text x="80" y="350" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── ops/blueprints/</text>
+  <text x="120" y="385" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">├── upgrade consensus files</text>
+  <text x="120" y="415" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">└── top-applied tracking</text>
+  <text x="80" y="450" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── config.yaml</text>
+  <text x="80" y="485" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── main.py</text>
+  <text x="80" y="520" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── web_standalone.py</text>
+  <text x="80" y="555" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── FIELD_DEPLOYMENT_GUIDE.md</text>
+  <text x="80" y="590" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">└── UPGRADE_GUIDE.md</text>
+  <text x="40" y="770" fill="#86efac" font-size="20" font-family="Menlo, monospace">Focus: camera reliability · operation UI · deployment safety · upgrade governance</text>
+  <text x="40" y="820" fill="#9ca3af" font-size="17" font-family="Menlo, monospace">* Portfolio-safe structure only. Sensitive customer/model details omitted.</text>
 </svg>

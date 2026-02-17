@@ -3,41 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teflon Inspection Automation (Private Summary) - 최원혁 Portfolio</title>
-  <meta name="description" content="Teflon Inspection Automation 프로젝트 요약: 비전 모델 기반 검사 자동화와 현장 배포/운영 고도화." />
+  <title>Teflon Inspection Automation (Private Deep Summary) - 최원혁 Portfolio</title>
+  <meta name="description" content="Teflon Inspection Automation 프로젝트의 현장 적용/데이터 파이프라인/운영 서버 관점 요약." />
   <style>
     body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;margin:0;background:#f8fafc;color:#0f172a}
-    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
     .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:14px}
-    h1,h2{margin:0 0 10px} .muted{color:#475569} .kpi{display:flex;gap:8px;flex-wrap:wrap}
+    h1,h2,h3{margin:0 0 10px} .muted{color:#475569} .kpi{display:flex;gap:8px;flex-wrap:wrap}
     .kpi span{background:#ecfeff;color:#155e75;padding:6px 10px;border-radius:999px;font-size:.88rem}
     img{width:100%;border-radius:10px;border:1px solid #e2e8f0}
     a{color:#2563eb;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+    .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
+    ul{line-height:1.7}
   </style>
 </head>
 <body>
   <div class="wrap">
     <p><a href="projects.html">← Projects로 돌아가기</a></p>
+
     <div class="card">
-      <h1>Teflon Inspection Automation (Private Summary)</h1>
-      <p class="muted">민감정보를 제외한 현장 적용형 자동화 요약</p>
+      <h1>Teflon Inspection Automation (Private Deep Summary)</h1>
+      <p class="muted">민감정보를 제외한 현장 운영·구조 중심 요약</p>
       <div class="kpi">
-        <span>핵심 기술: 비전 기반 검사 자동화</span>
-        <span>핵심 성과: 현장 적용성 향상</span>
-        <span>핵심 가치: 모델+운영 UI 통합</span>
+        <span>핵심: 비전 기반 검사 자동화</span>
+        <span>운영 성과: 현장 적용성 향상</span>
+        <span>특징: 모델 + UI + 배포 흐름 통합</span>
       </div>
     </div>
+
     <div class="card">
-      <h2>문제</h2>
-      <p>검사 자동화는 모델 정확도만 높다고 끝나지 않습니다. 카메라 연결 안정성, 운영 UI 사용성, 업데이트 흐름이 함께 안정적이어야 현장에서 쓰입니다.</p>
-      <h2>실행</h2>
-      <p>검사 파이프라인과 운영 인터페이스를 함께 설계하고, 배포·업그레이드 시나리오를 분리해 운영 리스크를 낮췄습니다.</p>
-      <h2>성과</h2>
-      <p>현장 운영에서 반복되던 장애 요인을 줄이고, 사용자가 실제로 지속 사용 가능한 수준의 운영 경험을 만들었습니다.</p>
+      <h2>프로젝트 배경</h2>
+      <p>검사 자동화는 모델 정확도 외에도 카메라 연결, 운영자 인터페이스, 배포 안정성이 함께 갖춰져야 실제로 돌아갑니다. 이 프로젝트는 “실험 성공”보다 “현장 동작”을 목표로 설계했습니다.</p>
+      <h3>핵심 문제</h3>
+      <ul>
+        <li>카메라 소스 다양성(USB/IP/RTSP)으로 인한 연결 불안정</li>
+        <li>운영자가 즉시 판단하기 어려운 UI/알림 구조</li>
+        <li>업데이트 시 현장 중단 리스크</li>
+      </ul>
     </div>
+
     <div class="card">
-      <h2>구조(요약)</h2>
+      <h2>실행 방식 (What we changed)</h2>
+      <div class="grid">
+        <div class="tile"><strong>카메라 연결성 강화</strong><br/>소스별 프리셋/진단 플로우 정리</div>
+        <div class="tile"><strong>운영 UI 개선</strong><br/>설정/모니터링/가이드 동선 분리</div>
+        <div class="tile"><strong>업그레이드 체계</strong><br/>적용/해제/검증 흐름을 표준화</div>
+        <div class="tile"><strong>알람 연동</strong><br/>telegram/webhook 등 후속 모듈 확장 가능</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>데이터 규모 & 학습/검증 깊이 (공개 가능 범위)</h2>
+      <ul>
+        <li><strong>코드베이스 관측 규모:</strong> Python 파일 약 22개, 문서 약 11개(로컬 스캔 기준)</li>
+        <li><strong>운영 자산:</strong> 설정 파일/현장 배포 가이드/업그레이드 블루프린트 포함</li>
+        <li><strong>학습 깊이:</strong> 모델 정확도 + 현장 운영성(연결/알람/업데이트) 복합 검증</li>
+        <li><strong>검증 관점:</strong> 데모 모드와 실운영 모드를 분리해 리스크를 낮춘 배포 흐름 설계</li>
+      </ul>
+      <p class="muted">※ 원본 학습 데이터/고객 현장 식별정보/민감 운영 파라미터는 보안상 비공개입니다.</p>
+    </div>
+
+    <div class="card">
+      <h2>서버/운영 상태 관점 (포트폴리오용)</h2>
+      <ul>
+        <li>현장 실행은 bootstrap/start 스크립트 기반으로 표준화</li>
+        <li>설정·카메라·알람 모듈을 분리해 문제구간 진단 속도 향상</li>
+        <li>업데이트 전후 체크리스트 운영으로 다운타임 리스크 완화</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>파일 트리/구조 (Sanitized)</h2>
       <img src="assets/images/projects/teflon-file-tree.svg" alt="Teflon Inspection 파일 트리 요약" loading="lazy" />
+    </div>
+
+    <div class="card">
+      <h2>결론</h2>
+      <p>이 프로젝트의 성과는 정확도 숫자 하나가 아니라, 현장에서 반복 가능하고 유지 가능한 시스템으로 정착시킨 데 있습니다. PM 관점에서 기술·운영·배포를 하나로 묶는 설계 역량을 증명했습니다.</p>
     </div>
   </div>
 </body>
