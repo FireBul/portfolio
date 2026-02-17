@@ -1,0 +1,15 @@
+{
+  "profile": {
+    "name": "최원혁",
+    "positioning": "Product Strategy · AI/ML · Growth Execution",
+    "career_note": "인터파크 SRM팀 PM 경력 후 2025년 12월 퇴사"
+  },
+  "highlights": [
+    {"topic":"성과","keywords":["성과","kpi","result","impact"],"answer":"핵심 성과는 광고액 80% 상승, CTR 100% 상승, 월 50억원 거래액 쿠폰 시스템 구축, 데이터 파이프라인 개선으로 YoY 성장 기여입니다."},
+    {"topic":"퇴사","keywords":["퇴사","interpark","인터파크","경력"],"answer":"인터파크는 2025년 12월에 퇴사했습니다. 현재는 독립 프로젝트와 포트폴리오 고도화, AI/ML 기반 프로젝트에 집중하고 있습니다."},
+    {"topic":"연락","keywords":["연락","문의","contact","email","전화"],"answer":"Contact 페이지에서 이메일/전화 문의가 가능하고 CRM형 문의 흐름으로 기록·관리됩니다."},
+    {"topic":"AI","keywords":["ai","ml","머신","유전자","bio"],"answer":"AI/ML 및 Bio 관련 프로젝트는 민감정보를 제외하고 문제정의·접근방식·성과 중심으로 큐레이션해 공개합니다."},
+    {"topic":"광고지표","keywords":["cpc","ctr","광고","클릭","전환"],"answer":"광고 프로젝트는 CTR/CPC/클릭/전환 지표 중심으로 평가하고, 프로젝트 페이지에서 KPI 맥락을 강화하고 있습니다."}
+  ],
+  "fallback": "질문을 조금 더 구체적으로 말해줘요. 예: 성과 / 퇴사 시점 / 연락방법 / AI 프로젝트"
+}

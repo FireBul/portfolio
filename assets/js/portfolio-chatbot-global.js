@@ -14,24 +14,26 @@
   `;
   document.head.appendChild(style);
 
-  const trained = {
-    profile: '최원혁(ben)은 Product Strategy·AI/ML 중심으로 프로젝트를 고도화 중이며, 전문가 톤 포트폴리오를 지향합니다.',
-    career: '인터파크는 2025년 12월에 퇴사했고, 현재는 독립 프로젝트와 포트폴리오 고도화에 집중합니다.',
-    projects: '광고 최적화, 쿠폰 자동화, 데이터 파이프라인, 운영 대시보드, AI/ML 및 연구형 프로젝트를 수행했습니다.',
-    contact: 'Contact 페이지에서 이메일/전화로 연락 가능하며 CRM형 문의 흐름으로 확장 중입니다.',
-    metrics: '포트폴리오는 CTR/CPC/클릭/전환 등 KPI 중심 사례 구성을 강화하고 있습니다.'
-  };
+  let kb = null;
+  fetch('assets/data/portfolio-knowledge.json').then(r=>r.json()).then(j=>kb=j).catch(()=>{});
 
   function answer(q){
     const t=(q||'').toLowerCase().trim();
     if(!t || t.length < 2) return '질문이 너무 짧아요. 예: 성과 / 연락방법 / AI 프로젝트 / 퇴사 시점';
-    if(/누구|소개|profile|about/.test(t)) return trained.profile;
-    if(/퇴사|경력|career|interpark|인터파크/.test(t)) return trained.career;
-    if(/프로젝트|project|ai|ml|유전자|bio/.test(t)) return trained.projects;
-    if(/연락|문의|contact|email|전화/.test(t)) return trained.contact;
-    if(/cpc|ctr|클릭|지표|성과|metric/.test(t)) return trained.metrics;
     if(/법|legal|규정|컴플라이언스/.test(t)) return '법률 자문은 제공하지 않지만, 운영 정책/거버넌스 설계 경험은 프로젝트 사례로 설명할 수 있습니다.';
-    return '질문 의도를 더 구체화해줘요. 예: "성과 정리", "퇴사 시점", "연락 방법", "AI 프로젝트"';
+
+    if (kb && Array.isArray(kb.highlights)) {
+      let best = null;
+      let score = 0;
+      for (const h of kb.highlights) {
+        const s = (h.keywords || []).reduce((acc,k)=> acc + (t.includes(String(k).toLowerCase()) ? 1 : 0), 0);
+        if (s > score) { score = s; best = h; }
+      }
+      if (best && score > 0) return best.answer;
+      return kb.fallback || '질문을 조금 더 구체적으로 말해줘요.';
+    }
+
+    return '질문을 조금 더 구체적으로 말해줘요. 예: 성과 / 퇴사 시점 / 연락방법 / AI 프로젝트';
   }
 
   const fab=document.createElement('button'); fab.className='pc-fab'; fab.textContent='💬 Ask';
