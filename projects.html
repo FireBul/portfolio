@@ -457,6 +457,7 @@
                     <button class="filter-btn" data-filter="data">데이터</button>
                     <button class="filter-btn" data-filter="crm">CRM</button>
                     <button class="filter-btn" data-filter="policy">정책</button>
+                    <button class="filter-btn" data-filter="private">Private</button>
                 </div>
             </section>
 
@@ -473,16 +474,6 @@
                     <span>🔎 검색 이벤트: <strong id="searchEventCount">-</strong></span>
                     <span>🖱️ 프로젝트 클릭: <strong id="projectClickCountProjects">-</strong></span>
                 </div>
-            </section>
-
-            <section style="margin-bottom:1.2rem; background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
-                <h3 style="font-size:1.1rem;margin-bottom:8px;">선별 공개: 프라이빗 프로젝트</h3>
-                <ul style="padding-left:1rem; line-height:1.7; color:#334155;">
-                    <li><strong>AURORA</strong> — 모델 실험/검증/운영을 연결한 자동화 파이프라인 운영 경험</li>
-                    <li><strong>Teflon Inspection Automation</strong> — 비전 기반 검사 시스템의 현장 배포형 개선</li>
-                    <li><strong>Universal Architecture Lab</strong> — 대규모 아이디어·아티팩트 우선순위화 실험</li>
-                </ul>
-                <p style="margin-top:8px;color:#64748b;font-size:.9rem;">※ 보안상 민감한 코드/데이터는 제외하고, 문제 해결 방식과 결과 중심으로만 공개합니다.</p>
             </section>
 
             <section style="margin-bottom:1.2rem;">
@@ -901,9 +892,9 @@
                 </article>
 
                 <!-- 프로젝트 카드 9: AURORA 운영 자동화 (Private Summary) -->
-                <article class="project-card" data-category="automation">
+                <article class="project-card" data-category="private">
                     <div class="project-image">
-                        <img src="assets/images/projects/ads-overview.png" alt="AURORA 운영 자동화" loading="lazy">
+                        <img src="assets/images/projects/data-structure.png" alt="AURORA 운영 자동화" loading="lazy">
                     </div>
                     <div class="project-content">
                         <header class="project-header">
@@ -938,9 +929,9 @@
                 </article>
 
                 <!-- 프로젝트 카드 10: Teflon Inspection Automation (Private Summary) -->
-                <article class="project-card" data-category="data">
+                <article class="project-card" data-category="private">
                     <div class="project-image">
-                        <img src="assets/images/projects/external-channel.png" alt="Teflon Inspection Automation" loading="lazy">
+                        <img src="assets/images/projects/seller-admin.png" alt="Teflon Inspection Automation" loading="lazy">
                     </div>
                     <div class="project-content">
                         <header class="project-header">
@@ -973,62 +964,6 @@
                     </div>
                 </article>
 
-            </section>
-
-            <section style="margin-top:1.5rem; background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:16px;">
-                <h2 style="font-size:1.3rem; margin-bottom:10px;">프로젝트 상세 진행 기록 (요약)</h2>
-                <p style="color:#475569; margin-bottom:14px;">아래 내용은 각 프로젝트에서 실제로 어떤 문제를 해결했고, 어떤 방식으로 실행했는지 면접관 관점에서 빠르게 파악할 수 있도록 정리한 버전입니다.</p>
-
-                <div style="display:grid; gap:12px;">
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/ads-result.png" alt="상품 최종 지면 광고 개선" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">1) 상품 최종 지면 광고 개선</h3>
-                        <p><strong>문제:</strong> 기존 상품 상세 페이지 광고 지면은 노출 대비 클릭 효율이 낮고, 광고주 입장에서 집행 매력도가 떨어졌습니다.</p>
-                        <p><strong>실행:</strong> 가설 기반 A/B 테스트를 설계해 지면 배치/카피/시각 우선순위를 재구성하고, CTR·체류·이탈 지표를 주 단위로 추적했습니다.</p>
-                        <p><strong>결과:</strong> 광고액 80% 상승, CTR 100% 상승. 단기 클릭 유도보다 지면 신뢰도를 함께 올리는 구조가 유효하다는 인사이트를 확보했습니다.</p>
-                    </article>
-
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/coupon-flow.png" alt="최저가 쿠폰 자동화 시스템" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">2) 최저가 쿠폰 자동화 시스템</h3>
-                        <p><strong>문제:</strong> 가격 비교 채널별 운영 룰이 분절되어 쿠폰 의사결정이 수작업에 의존했고, 반응 속도와 일관성이 낮았습니다.</p>
-                        <p><strong>실행:</strong> 네이버 EP API 기반으로 가격/상품 상태를 수집하고 쿠폰 발행 조건을 규칙화해 자동화 파이프라인을 설계했습니다.</p>
-                        <p><strong>결과:</strong> 월 50억원 거래액 규모 운영, YoY 성장/수익성 개선. 운영 자동화가 매출뿐 아니라 의사결정 품질을 올린다는 점을 검증했습니다.</p>
-                    </article>
-
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/viral-ads-system.png" alt="바이럴 광고 CPS 모델 도입" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">3) 바이럴 광고 CPS 모델 도입</h3>
-                        <p><strong>문제:</strong> 기존 실적 관리 체계는 파트너별 기여도와 수익성 분석이 어려워 확장 가능한 모델로 이어지지 못했습니다.</p>
-                        <p><strong>실행:</strong> CPS 모델을 도입하고 백오피스 정산/검수/성과 관리 흐름을 재설계해 운영 표준을 만들었습니다.</p>
-                        <p><strong>결과:</strong> 제휴사 확장성과 정산 투명성이 개선되었고, 비즈니스 모델 레벨에서 수익 구조를 재정의하는 경험을 확보했습니다.</p>
-                    </article>
-
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/crm-campaign.jpg" alt="CRM 개인화 광고 운영" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">4) CRM 개인화 광고 운영</h3>
-                        <p><strong>문제:</strong> 동일 메시지 대량 발송 방식은 반응률이 빠르게 둔화되고 비용 효율이 낮아졌습니다.</p>
-                        <p><strong>실행:</strong> Braze+GA 데이터를 연결해 세그먼트별 메시지/타이밍/채널 전략을 분리하고, 캠페인 단위 실험 루프를 운영했습니다.</p>
-                        <p><strong>결과:</strong> 개인화 시나리오의 성과 편차를 수치로 확인했고, 메시지-세그먼트 적합도가 KPI를 좌우한다는 점을 체계화했습니다.</p>
-                    </article>
-
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/data-structure.png" alt="데이터 수집 구조 개선" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">5) 데이터 수집 구조 개선 (Kafka)</h3>
-                        <p><strong>문제:</strong> 데이터 수집 지연/누락으로 분석 신뢰도가 떨어지고, 실험 결과 해석에 시간이 오래 걸렸습니다.</p>
-                        <p><strong>실행:</strong> Kafka 토픽 구조를 재설계하고 수집 파이프라인 안정성을 높여 분석-실행 사이클을 단축했습니다.</p>
-                        <p><strong>결과:</strong> YoY 월평균 거래액 30% 증가 기여. 기반 인프라 품질이 제품 성과와 직결된다는 점을 확인했습니다.</p>
-                    </article>
-
-                    <article style="border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
-                        <img src="assets/images/projects/seller-admin.png" alt="판매자 광고 센터 ADMIN 운영" loading="lazy" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                        <h3 style="margin-bottom:6px;">6) 판매자 광고 센터 ADMIN 운영/정책</h3>
-                        <p><strong>문제:</strong> 운영·검수·정책 기준이 명확히 정리되지 않아 품질 관리와 확장 속도에 제약이 있었습니다.</p>
-                        <p><strong>실행:</strong> 광고 검수, RTB 과금, 채널별 운영 정책을 표준화하고, 예외 대응 기준까지 문서화했습니다.</p>
-                        <p><strong>결과:</strong> 운영 안정성과 파트너 신뢰도를 동시에 개선. PM이 정책과 시스템을 함께 설계해야 한다는 원칙을 강화했습니다.</p>
-                    </article>
-
-                </div>
             </section>
         </div>
     </main>
