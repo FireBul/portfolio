@@ -457,9 +457,30 @@
                 </div>
             </section>
 
-           
+            <section class="contact-section" style="margin-top:1.5rem;">
+                <h2 style="font-size:1.4rem; margin-bottom:0.8rem;">CRM Inquiry (Demo)</h2>
+                <form id="crmContactForm" style="display:grid; gap:10px; background:#fff; border:1px solid #e2e8f0; padding:14px; border-radius:12px;">
+                    <input name="name" required placeholder="이름" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                    <input name="email" type="email" required placeholder="이메일" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                    <select name="inquiryType" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                        <option value="project">프로젝트 협업</option>
+                        <option value="hiring">채용/인터뷰</option>
+                        <option value="consulting">컨설팅</option>
+                    </select>
+                    <select name="budget" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                        <option value="unknown">예산 미정</option>
+                        <option value="lt10m">1천만원 이하</option>
+                        <option value="10m-50m">1천~5천만원</option>
+                        <option value="gt50m">5천만원 이상</option>
+                    </select>
+                    <input name="timeline" placeholder="희망 일정 (예: 2주 내 시작)" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                    <input name="source" placeholder="유입 경로 (예: GitHub, 추천, 검색)" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;">
+                    <textarea name="message" rows="4" placeholder="요청 내용" style="padding:10px; border:1px solid #e2e8f0; border-radius:8px;"></textarea>
+                    <button type="submit" style="padding:10px 12px; border:none; border-radius:8px; background:#2563eb; color:#fff; font-weight:700; cursor:pointer;">문의 저장</button>
+                    <p id="crmResult" style="font-size:0.92rem; color:#334155; margin:0;"></p>
+                </form>
+            </section>
 
-           
         </div>
     </main>
 
@@ -495,6 +516,7 @@
         });
     </script>
     <script src="assets/js/portfolio-analytics.js"></script>
+    <script src="assets/js/portfolio-crm.js"></script>
     <script src="assets/js/portfolio-chatbot-global.js"></script>
 </body>
 </html>
