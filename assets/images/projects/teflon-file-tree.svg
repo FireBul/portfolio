@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#111827"/>
+  <text x="40" y="60" fill="#67e8f9" font-size="28" font-family="Menlo, monospace">Teflon Inspection project tree (sanitized)</text>
+  <text x="40" y="110" fill="#e5e7eb" font-size="22" font-family="Menlo, monospace">teflon-inspection-automation/</text>
+  <text x="80" y="150" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── src/</text>
+  <text x="80" y="185" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── scripts/</text>
+  <text x="80" y="220" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── ops/blueprints/</text>
+  <text x="80" y="255" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── config.yaml</text>
+  <text x="80" y="290" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── main.py</text>
+  <text x="80" y="325" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">├── web_standalone.py</text>
+  <text x="80" y="360" fill="#e5e7eb" font-size="20" font-family="Menlo, monospace">└── FIELD_DEPLOYMENT_GUIDE.md</text>
+  <text x="40" y="470" fill="#86efac" font-size="20" font-family="Menlo, monospace">Focus: camera reliability, deployment UX, upgrade safety</text>
+  <text x="40" y="520" fill="#9ca3af" font-size="18" font-family="Menlo, monospace">* Structure shown for portfolio explanation only. Sensitive details omitted.</text>
+</svg>

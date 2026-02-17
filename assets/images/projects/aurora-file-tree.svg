@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="40" y="60" fill="#93c5fd" font-size="28" font-family="Menlo, monospace">AURORA project tree (sanitized)</text>
+  <text x="40" y="110" fill="#e2e8f0" font-size="22" font-family="Menlo, monospace">aurora/</text>
+  <text x="80" y="150" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── live/</text>
+  <text x="80" y="185" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── run/</text>
+  <text x="80" y="220" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── models/</text>
+  <text x="80" y="255" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── training/</text>
+  <text x="80" y="290" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── experiments/</text>
+  <text x="80" y="325" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── scripts/verify_*.py</text>
+  <text x="80" y="360" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">├── README.md</text>
+  <text x="80" y="395" fill="#e2e8f0" font-size="20" font-family="Menlo, monospace">└── NOW_EDITING.md</text>
+  <text x="40" y="470" fill="#86efac" font-size="20" font-family="Menlo, monospace">Focus: promotion guardrails, run_id continuity, safety verification</text>
+  <text x="40" y="520" fill="#94a3b8" font-size="18" font-family="Menlo, monospace">* Structure shown for portfolio explanation only. Sensitive details omitted.</text>
+</svg>
