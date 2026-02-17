@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://firebul.github.io/portfolio/sitemap.xml
