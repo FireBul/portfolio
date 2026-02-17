@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스/광고 최적화와 고급 프로젝트 실행 사례를 담았습니다.">
+    <meta name="description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스·광고·CRM 고도화와 KPI 중심 케이스 스터디를 제공합니다.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="author" content="최원혁">
+    <meta name="keywords" content="Product Strategy, AI/ML, PM, Growth, CRM, 포트폴리오, 최원혁">
     
     <link rel="canonical" href="https://firebul.github.io/portfolio/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:site_name" content="최원혁 Portfolio">
-    <meta property="og:title" content="최원혁 - Product Strategy &amp; AI Portfolio">
-    <meta property="og:description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스/광고 최적화와 고급 프로젝트 실행 사례를 담았습니다.">
+    <meta property="og:title" content="최원혁 | Product Strategy · AI/ML · Growth Portfolio">
+    <meta property="og:description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스·광고·CRM 고도화와 KPI 중심 케이스 스터디를 제공합니다.">
     <meta property="og:url" content="https://firebul.github.io/portfolio/">
     <meta property="og:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
+    <meta property="og:image:alt" content="최원혁 Product Strategy AI 포트폴리오 대표 이미지">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="최원혁 - Product Strategy &amp; AI Portfolio">
-    <meta name="twitter:description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스/광고 최적화와 고급 프로젝트 실행 사례를 담았습니다.">
+    <meta name="twitter:site" content="@FireBul">
+    <meta name="twitter:title" content="최원혁 | Product Strategy · AI/ML · Growth Portfolio">
+    <meta name="twitter:description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스·광고·CRM 고도화와 KPI 중심 케이스 스터디를 제공합니다.">
     <meta name="twitter:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
-<title>최원혁 - Product Strategy & AI Portfolio</title>
+<title>최원혁 | Product Strategy · AI/ML · Growth Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,6 +222,12 @@
             background-color: var(--primary-color);
             color: white;
         }
+
+        .quick-links-section { padding: var(--spacing-lg) 0; background: #fff; }
+        .quick-links-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:var(--spacing-md); }
+        .quick-link-card { border:1px solid var(--border); border-radius:12px; padding:14px; text-decoration:none; color:var(--text-primary); background:#fff; transition:var(--transition); }
+        .quick-link-card:hover { transform:translateY(-3px); box-shadow:var(--box-shadow); border-color:#bfdbfe; }
+        .quick-link-card strong { color:#1d4ed8; display:block; margin-bottom:6px; }
 
         /* 핵심 역량 섹션 */
         .core-competence {
@@ -573,12 +584,29 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "최원혁",
-      "url": "https://firebul.github.io/portfolio/",
-      "jobTitle": "Product Strategy & AI PM",
-      "sameAs": [
-        "https://github.com/FireBul"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://firebul.github.io/portfolio/#person",
+          "name": "최원혁",
+          "url": "https://firebul.github.io/portfolio/",
+          "jobTitle": "Product Strategy & AI PM",
+          "sameAs": ["https://github.com/FireBul"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://firebul.github.io/portfolio/#website",
+          "url": "https://firebul.github.io/portfolio/",
+          "name": "최원혁 Portfolio",
+          "inLanguage": "ko-KR",
+          "publisher": {"@id": "https://firebul.github.io/portfolio/#person"}
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://firebul.github.io/portfolio/"}
+          ]
+        }
       ]
     }
     </script>
@@ -626,6 +654,29 @@
                     <div class="hero-photo">
                         <img src="assets/images/profile.jpg" alt="최원혁 프로필 사진" loading="lazy">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links-section" aria-label="인터뷰어 빠른 탐색">
+            <div class="container">
+                <div class="quick-links-grid">
+                    <a class="quick-link-card" href="projects.html">
+                        <strong>케이스 스터디 바로가기</strong>
+                        KPI 기준으로 정리된 대표 프로젝트만 빠르게 검토할 수 있습니다.
+                    </a>
+                    <a class="quick-link-card" href="about.html">
+                        <strong>핵심 역량 요약</strong>
+                        의사결정 방식, 운영 철학, 문제 해결 접근을 간결하게 확인할 수 있습니다.
+                    </a>
+                    <a class="quick-link-card" href="leadership.html">
+                        <strong>리더십 검증 사례</strong>
+                        팀 빌딩과 운영 체계화 역량을 실제 사례로 확인할 수 있습니다.
+                    </a>
+                    <a class="quick-link-card" href="contact.html">
+                        <strong>인터뷰/협업 문의</strong>
+                        일정·예산·목적 기반으로 빠르게 컨텍스트를 전달할 수 있습니다.
+                    </a>
                 </div>
             </div>
         </section>
