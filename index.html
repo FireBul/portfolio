@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="인터파크 SRM팀 PM 최원혁의 포트폴리오 - 데이터 기반 의사결정과 리더십을 통한 성과 창출">
-    <title>최원혁 - Product Manager Portfolio</title>
+    <meta name="description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스/광고 최적화와 고급 프로젝트 실행 사례를 담았습니다.">
+    <title>최원혁 - Product Strategy & AI Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -319,6 +319,55 @@
             color: white;
         }
 
+        .blueprint-section,
+        .rd-highlights,
+        .intelligence-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .blueprint-section { background: #eef4ff; }
+        .rd-highlights { background: #ffffff; }
+        .intelligence-section { background: #f8fafc; }
+
+        .blueprint-grid,
+        .rd-grid,
+        .intel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .blueprint-card,
+        .rd-card,
+        .intel-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+        }
+
+        .blueprint-card h3,
+        .rd-card h3,
+        .intel-card h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: var(--spacing-sm);
+        }
+
+        .pill {
+            font-size: 0.85rem;
+            background: #e2e8f0;
+            color: #0f172a;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -458,14 +507,15 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1>안녕하세요,<br><strong>최원혁</strong>입니다</h1>
-                        <p class="subtitle">데이터 기반 의사결정으로 성과를 만드는 Product Manager</p>
+                        <p class="subtitle">Product Strategy · AI/ML · Growth Execution</p>
                         <p class="description">
-                            인터파크 SRM팀에서 데이터 분석과 사용자 중심 기획을 통해 
-                            광고액 80% 상승, 월 50억원 거래액 쿠폰 시스템 운영, 
-                            모드앙상블 20명 조직 운영 등 제품과 조직 모두에서 성과를 창출하고 있습니다.
+                            데이터 기반 제품 전략으로 광고/커머스 성과를 만든 PM입니다. 
+                            인터파크에서 2025년 12월까지 핵심 프로젝트를 리드했고,
+                            현재는 AI·ML 및 고난도 R&D 프로젝트까지 확장해 실무형 임팩트를 설계하고 있습니다.
                         </p>
                         <div class="hero-cta">
                             <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
+                            <a href="#blueprint" class="btn btn-secondary">2026 청사진</a>
                             <a href="contact.html" class="btn btn-secondary">연락하기</a>
                         </div>
                     </div>
@@ -509,12 +559,79 @@
                     </div>
                     <div class="stat-item">
                         <h3>3.5년+</h3>
-                        <p>인터파크 PM 경력</p>
+                        <p>커머스 PM 리드 경험</p>
                     </div>
                     <div class="stat-item">
                         <h3>20명</h3>
                         <p>모드앙상블 조직 규모</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blueprint" class="blueprint-section">
+            <div class="container">
+                <h2 class="section-title">Portfolio Blueprint 2026</h2>
+                <div class="blueprint-grid">
+                    <article class="blueprint-card">
+                        <h3>전문가 포지셔닝</h3>
+                        <p>PM + AI/ML + 실험 기반 그로스 역량을 하나의 스토리로 통합합니다.</p>
+                    </article>
+                    <article class="blueprint-card">
+                        <h3>프라이빗 프로젝트 큐레이션</h3>
+                        <p>민감정보를 제외하고, 아키텍처/문제해결/성과 중심으로 선택 공개합니다.</p>
+                    </article>
+                    <article class="blueprint-card">
+                        <h3>챗봇형 Q&A</h3>
+                        <p>방문자가 프로젝트/역량을 질문하면 답변하는 인터랙티브 섹션을 추가합니다.</p>
+                    </article>
+                    <article class="blueprint-card">
+                        <h3>CRM형 리드 흐름</h3>
+                        <p>문의·클릭·관심 프로젝트 데이터를 추적해 리드 품질을 높입니다.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="rd-highlights">
+            <div class="container">
+                <h2 class="section-title">Private R&D Highlights (Selected)</h2>
+                <div class="rd-grid">
+                    <article class="rd-card">
+                        <h3>AI Applied Systems</h3>
+                        <p>현업 문제를 AI 워크플로우로 연결하고 운영 가능한 형태로 전환.</p>
+                        <div class="pill-row"><span class="pill">AI Automation</span><span class="pill">Ops Design</span></div>
+                    </article>
+                    <article class="rd-card">
+                        <h3>Machine Learning Experiments</h3>
+                        <p>실험 설계, 지표 검증, 모델 운영 가드레일까지 포함한 ML 실행 경험.</p>
+                        <div class="pill-row"><span class="pill">ML</span><span class="pill">Validation</span></div>
+                    </article>
+                    <article class="rd-card">
+                        <h3>Bio/Genetic Engineering (Applied Research)</h3>
+                        <p>AI 기반 분석과 공학적 접근을 결합한 연구형 프로젝트를 진행.</p>
+                        <div class="pill-row"><span class="pill">Bio</span><span class="pill">Research</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="intelligence-section">
+            <div class="container">
+                <h2 class="section-title">Product Intelligence Layer (Preview)</h2>
+                <div class="intel-grid">
+                    <article class="intel-card">
+                        <h3>Project KPI View</h3>
+                        <p>프로젝트별 CTR/CPC/클릭수/전환율을 한 번에 확인하는 요약 패널.</p>
+                    </article>
+                    <article class="intel-card">
+                        <h3>Engagement Tracking</h3>
+                        <p>방문자의 프로젝트 클릭 흐름과 관심 영역을 세련된 대시보드로 시각화.</p>
+                    </article>
+                    <article class="intel-card">
+                        <h3>Contact CRM Flow</h3>
+                        <p>문의 타입/유입 채널/응답 상태를 추적하는 경량 CRM 구조.</p>
+                    </article>
                 </div>
             </div>
         </section>
