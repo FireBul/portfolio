@@ -381,6 +381,80 @@
             padding: 6px 10px;
         }
 
+        .insight-strip {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-top: var(--spacing-md);
+            display: inline-flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 0.92rem;
+        }
+
+        .chatbot-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1100;
+            border: none;
+            border-radius: 999px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 16px;
+            font-weight: 700;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .chatbot-modal {
+            position: fixed;
+            right: 20px;
+            bottom: 78px;
+            width: min(380px, calc(100vw - 30px));
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(2, 6, 23, 0.25);
+            z-index: 1200;
+            display: none;
+            overflow: hidden;
+        }
+
+        .chatbot-modal.active { display: block; }
+
+        .chatbot-head {
+            background: #0f172a;
+            color: #fff;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-body { padding: 12px; }
+
+        .chatbot-log {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            min-height: 130px;
+            max-height: 240px;
+            overflow: auto;
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-row { display: flex; gap: 8px; }
+        .chatbot-row input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -542,6 +616,11 @@
                             <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
                             <a href="#blueprint" class="btn btn-secondary">2026 청사진</a>
                             <a href="contact.html" class="btn btn-secondary">연락하기</a>
+                        </div>
+                        <div class="insight-strip">
+                            <span>👀 누적 페이지 조회: <strong id="viewCount">-</strong></span>
+                            <span>🔎 프로젝트 클릭: <strong id="projectClickCount">-</strong></span>
+                            <span>💬 챗봇 질문: <strong id="chatQuestionCount">-</strong></span>
                         </div>
                     </div>
                     <div class="hero-photo">
@@ -728,6 +807,21 @@
         </div>
     </footer>
 
+    <button class="chatbot-fab" id="chatbotFab">💬 Ask Portfolio</button>
+    <div class="chatbot-modal" id="chatbotModal" aria-hidden="true">
+        <div class="chatbot-head">
+            <strong>Portfolio Q&A</strong>
+            <button id="chatbotClose" style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;">✕</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chatbot-log" id="chatbotLog">안녕하세요. 프로젝트/성과/연락 방법을 물어보세요.</div>
+            <div class="chatbot-row">
+                <input id="chatbotInput" type="text" placeholder="예: AI 프로젝트, CPC 성과, 연락 방법">
+                <button class="btn btn-primary" id="chatbotSend" style="padding:10px 12px;">전송</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // 네비게이션 토글
         const navToggle = document.querySelector('.nav-toggle');
@@ -769,6 +863,75 @@
                     });
                 }
             });
+        });
+
+        // ===== Simple analytics counters (localStorage demo) =====
+        const getNum = (k) => Number(localStorage.getItem(k) || '0');
+        const setNum = (k, v) => localStorage.setItem(k, String(v));
+
+        setNum('portfolio_view_count', getNum('portfolio_view_count') + 1);
+
+        document.querySelectorAll('.project-preview-content a').forEach(a => {
+            a.addEventListener('click', () => {
+                setNum('portfolio_project_click_count', getNum('portfolio_project_click_count') + 1);
+            });
+        });
+
+        const renderCounters = () => {
+            const viewEl = document.getElementById('viewCount');
+            const clickEl = document.getElementById('projectClickCount');
+            const qEl = document.getElementById('chatQuestionCount');
+            if (viewEl) viewEl.textContent = getNum('portfolio_view_count').toLocaleString();
+            if (clickEl) clickEl.textContent = getNum('portfolio_project_click_count').toLocaleString();
+            if (qEl) qEl.textContent = getNum('portfolio_chat_question_count').toLocaleString();
+        };
+        renderCounters();
+
+        // ===== Chatbot modal =====
+        const chatbotFab = document.getElementById('chatbotFab');
+        const chatbotModal = document.getElementById('chatbotModal');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotLog = document.getElementById('chatbotLog');
+
+        const answerPortfolio = (q) => {
+            const text = q.toLowerCase();
+            if (text.includes('ai') || text.includes('ml') || text.includes('머신')) return 'AI/ML 및 고급 R&D 프로젝트를 Private Highlights 섹션에 요약해두었고, 상세 범위는 보안 기준에 맞춰 공유합니다.';
+            if (text.includes('유전자') || text.includes('bio')) return '유전자공학/바이오 관련 프로젝트는 민감정보를 제외하고 문제정의·접근방법·성과 중심으로 큐레이션 예정입니다.';
+            if (text.includes('cpc') || text.includes('ctr') || text.includes('광고')) return '광고 프로젝트는 CPC/CTR/클릭/전환 같은 KPI 중심으로 성과를 보여주도록 설계 중입니다.';
+            if (text.includes('연락') || text.includes('contact')) return 'Contact 페이지에서 문의 가능하며, CRM형 흐름(문의 유형·유입 경로·응답 관리)으로 개선 중입니다.';
+            return '좋은 질문입니다. 현재 포트폴리오는 전문가 톤, KPI 중심 케이스 스터디, 챗봇 Q&A, CRM형 문의 흐름으로 고도화 중입니다.';
+        };
+
+        const appendChat = (user, bot) => {
+            chatbotLog.innerHTML += `<hr style="border:none;border-top:1px solid #e2e8f0;margin:8px 0;"><div><strong>Q.</strong> ${user}</div><div style="margin-top:4px;"><strong>A.</strong> ${bot}</div>`;
+            chatbotLog.scrollTop = chatbotLog.scrollHeight;
+        };
+
+        chatbotFab.addEventListener('click', () => {
+            chatbotModal.classList.add('active');
+            chatbotModal.setAttribute('aria-hidden', 'false');
+            setNum('portfolio_chat_open_count', getNum('portfolio_chat_open_count') + 1);
+        });
+        chatbotClose.addEventListener('click', () => {
+            chatbotModal.classList.remove('active');
+            chatbotModal.setAttribute('aria-hidden', 'true');
+        });
+
+        const sendQuestion = () => {
+            const q = (chatbotInput.value || '').trim();
+            if (!q) return;
+            const a = answerPortfolio(q);
+            appendChat(q, a);
+            chatbotInput.value = '';
+            setNum('portfolio_chat_question_count', getNum('portfolio_chat_question_count') + 1);
+            renderCounters();
+        };
+
+        chatbotSend.addEventListener('click', sendQuestion);
+        chatbotInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') sendQuestion();
         });
     </script>
 </body>
