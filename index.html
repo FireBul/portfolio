@@ -896,12 +896,16 @@
         const chatbotLog = document.getElementById('chatbotLog');
 
         const answerPortfolio = (q) => {
-            const text = q.toLowerCase();
+            const text = (q || '').toLowerCase().trim();
+            if (!text || text.length < 2) return '질문이 너무 짧아요. 예: "성과", "연락방법", "AI 프로젝트", "퇴사 시점"';
+            if (text.includes('성과') || text.includes('result') || text.includes('kpi')) return '핵심 성과는 광고액 80% 상승, CTR 100% 상승, 월 50억 거래액 쿠폰 시스템 구축입니다. 프로젝트별 KPI는 계속 고도화 중입니다.';
+            if (text.includes('퇴사') || text.includes('interpark') || text.includes('인터파크') || text.includes('경력')) return '인터파크는 2025년 12월에 퇴사했습니다. 현재는 독립 프로젝트와 포트폴리오 고도화에 집중하고 있습니다.';
             if (text.includes('ai') || text.includes('ml') || text.includes('머신')) return 'AI/ML 및 고급 R&D 프로젝트를 Private Highlights 섹션에 요약해두었고, 상세 범위는 보안 기준에 맞춰 공유합니다.';
-            if (text.includes('유전자') || text.includes('bio')) return '유전자공학/바이오 관련 프로젝트는 민감정보를 제외하고 문제정의·접근방법·성과 중심으로 큐레이션 예정입니다.';
-            if (text.includes('cpc') || text.includes('ctr') || text.includes('광고')) return '광고 프로젝트는 CPC/CTR/클릭/전환 같은 KPI 중심으로 성과를 보여주도록 설계 중입니다.';
-            if (text.includes('연락') || text.includes('contact')) return 'Contact 페이지에서 문의 가능하며, CRM형 흐름(문의 유형·유입 경로·응답 관리)으로 개선 중입니다.';
-            return '좋은 질문입니다. 현재 포트폴리오는 전문가 톤, KPI 중심 케이스 스터디, 챗봇 Q&A, CRM형 문의 흐름으로 고도화 중입니다.';
+            if (text.includes('유전자') || text.includes('bio')) return '유전자공학/바이오 관련 프로젝트는 민감정보를 제외하고 문제정의·접근방법·성과 중심으로 큐레이션되어 있습니다.';
+            if (text.includes('cpc') || text.includes('ctr') || text.includes('광고')) return '광고 프로젝트는 CPC/CTR/클릭/전환 KPI 중심으로 정리되어 있고, 프로젝트 페이지에서 지표형 설명을 강화 중입니다.';
+            if (text.includes('연락') || text.includes('contact') || text.includes('이메일') || text.includes('전화')) return 'Contact 페이지에서 바로 문의할 수 있고, CRM형 흐름(문의 유형·유입 경로·응답 관리)으로 기록됩니다.';
+            if (text.includes('법') || text.includes('legal') || text.includes('규정')) return '법률 자문은 제공하지 않지만, 프로젝트 거버넌스/정책 수립 경험은 포트폴리오의 정책/운영 사례로 확인할 수 있습니다.';
+            return '좋은 질문이에요. 아래처럼 물어보면 더 정확히 답할 수 있어요: "성과", "연락방법", "AI 프로젝트", "퇴사 시점"';
         };
 
         const appendChat = (user, bot) => {

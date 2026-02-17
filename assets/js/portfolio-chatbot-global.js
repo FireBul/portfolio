@@ -23,13 +23,15 @@
   };
 
   function answer(q){
-    const t=q.toLowerCase();
+    const t=(q||'').toLowerCase().trim();
+    if(!t || t.length < 2) return '질문이 너무 짧아요. 예: 성과 / 연락방법 / AI 프로젝트 / 퇴사 시점';
     if(/누구|소개|profile|about/.test(t)) return trained.profile;
     if(/퇴사|경력|career|interpark|인터파크/.test(t)) return trained.career;
     if(/프로젝트|project|ai|ml|유전자|bio/.test(t)) return trained.projects;
     if(/연락|문의|contact|email|전화/.test(t)) return trained.contact;
     if(/cpc|ctr|클릭|지표|성과|metric/.test(t)) return trained.metrics;
-    return '좋은 질문이에요. 이 포트폴리오는 Product Strategy + AI/ML 성과 중심으로 구성되며, 프로젝트/지표/문의 흐름을 계속 고도화하고 있습니다.';
+    if(/법|legal|규정|컴플라이언스/.test(t)) return '법률 자문은 제공하지 않지만, 운영 정책/거버넌스 설계 경험은 프로젝트 사례로 설명할 수 있습니다.';
+    return '질문 의도를 더 구체화해줘요. 예: "성과 정리", "퇴사 시점", "연락 방법", "AI 프로젝트"';
   }
 
   const fab=document.createElement('button'); fab.className='pc-fab'; fab.textContent='💬 Ask';
