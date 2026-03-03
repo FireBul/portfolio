@@ -1,116 +1,300 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teflon Inspection Automation (Private Deep Summary) - 최원혁 Portfolio</title>
-  <meta name="description" content="Teflon Inspection Automation 프로젝트의 현장 적용/데이터 파이프라인/운영 서버 관점 요약." />
-  <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;margin:0;background:#f8fafc;color:#0f172a}
-    .wrap{max-width:1080px;margin:0 auto;padding:24px}
-    .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:14px}
-    h1,h2,h3{margin:0 0 10px} .muted{color:#475569} .kpi{display:flex;gap:8px;flex-wrap:wrap}
-    .kpi span{background:#ecfeff;color:#155e75;padding:6px 10px;border-radius:999px;font-size:.88rem}
-    img{width:100%;border-radius:10px;border:1px solid #e2e8f0}
-    a{color:#2563eb;text-decoration:none}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
-    .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
-    .flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
-    .flowstep{border:1px solid #cffafe;border-radius:10px;background:#f0fdff;padding:10px;text-align:center;font-size:.9rem}
-    .flowarrow{text-align:center;color:#64748b;font-weight:700}
-    ul{line-height:1.7}
-    @media (max-width: 720px){
-      .flowline{grid-template-columns:1fr}
-      .flowarrow{transform:rotate(90deg)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teflon 검사 자동화 - YOLOv8 기반 산업용 비전 검사 시스템. 34K 라인 Python, 97 API 라우트, 5종 결함 분류">
+
+    <link rel="canonical" href="https://firebul.github.io/portfolio/detail/detail-teflon-private.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="최원혁 Portfolio">
+    <meta property="og:title" content="Teflon 검사 자동화 - 최원혁 Portfolio">
+    <meta property="og:description" content="YOLOv8 비전 검사 시스템 - 34K 라인 Python, 97 API 라우트, 13ms 추론, 5종 결함 분류">
+    <meta property="og:url" content="https://firebul.github.io/portfolio/detail/detail-teflon-private.html">
+    <meta property="og:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
+    <title>Teflon 검사 자동화 - 최원혁 Portfolio</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Teflon 검사 자동화 - 최원혁 Portfolio",
+      "url": "https://firebul.github.io/portfolio/detail/detail-teflon-private.html",
+      "author": {"@type": "Person", "name": "최원혁"}
     }
-  </style>
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-  <div class="wrap">
-    <p><a href="../projects.html">← Projects로 돌아가기</a></p>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand"><a href="../index.html">최원혁</a></div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="../about.html">소개</a></li>
+                <li><a href="../projects.html" class="active">프로젝트</a></li>
+                <li><a href="../leadership.html">리더십</a></li>
+                <li><a href="../contact.html">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
 
-    <div class="card">
-      <h1>Teflon Inspection Automation (Private Deep Summary)</h1>
-      <p class="muted">민감정보를 제외한 현장 운영·구조 중심 요약</p>
-      <div class="kpi">
-        <span>핵심: 비전 기반 검사 자동화</span>
-        <span>운영 성과: 현장 적용성 향상</span>
-        <span>특징: 모델 + UI + 배포 흐름 통합</span>
-      </div>
-    </div>
+    <main class="main-content">
+        <div class="container">
+            <nav class="breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../index.html">홈</a></li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item"><a href="../projects.html">프로젝트</a></li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-current">Teflon 검사 자동화</li>
+                </ol>
+            </nav>
 
-    <div class="card">
-      <h2>프로젝트 배경</h2>
-      <p>검사 자동화는 모델 정확도 외에도 카메라 연결, 운영자 인터페이스, 배포 안정성이 함께 갖춰져야 실제로 돌아갑니다. 이 프로젝트는 “실험 성공”보다 “현장 동작”을 목표로 설계했습니다.</p>
-      <h3>핵심 문제</h3>
-      <ul>
-        <li>카메라 소스 다양성(USB/IP/RTSP)으로 인한 연결 불안정</li>
-        <li>운영자가 즉시 판단하기 어려운 UI/알림 구조</li>
-        <li>업데이트 시 현장 중단 리스크</li>
-      </ul>
-    </div>
+            <!-- 히어로 -->
+            <section class="project-hero">
+                <h1 class="project-title">Teflon 검사 자동화</h1>
+                <p class="project-subtitle">
+                    반도체 공정용 PFA/PTFE 튜브의 표면 결함을 YOLOv8로 실시간 검출하는 산업용 비전 검사 시스템
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-value">34.7K</div>
+                        <div class="meta-label">Python 코드 라인</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">13ms</div>
+                        <div class="meta-label">프레임당 추론 속도</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">97</div>
+                        <div class="meta-label">REST API 라우트</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">113+</div>
+                        <div class="meta-label">유닛 테스트</div>
+                    </div>
+                </div>
+            </section>
 
-    <div class="card">
-      <h2>실행 방식 (What we changed)</h2>
-      <div class="grid">
-        <div class="tile"><strong>카메라 연결성 강화</strong><br/>소스별 프리셋/진단 플로우 정리</div>
-        <div class="tile"><strong>운영 UI 개선</strong><br/>설정/모니터링/가이드 동선 분리</div>
-        <div class="tile"><strong>업그레이드 체계</strong><br/>적용/해제/검증 흐름을 표준화</div>
-        <div class="tile"><strong>알람 연동</strong><br/>telegram/webhook 등 후속 모듈 확장 가능</div>
-      </div>
-    </div>
+            <!-- 1. 프로젝트 배경 -->
+            <div class="pd-section">
+                <h2>프로젝트 배경</h2>
+                <p>반도체 제조 공정에서 사용되는 PFA/PTFE 튜브는 미세한 표면 결함도 공정 오염으로 이어질 수 있습니다. 기존 육안 검사는 작업자 피로도와 일관성 문제가 있었고, 단순한 모델 정확도가 아니라 <strong>현장에서 실제로 돌아가는 시스템</strong>이 필요했습니다.</p>
 
-    <div class="card">
-      <h2>운영 플로우차트</h2>
-      <div class="flowline" role="img" aria-label="Teflon 운영 플로우">
-        <div class="flowstep"><strong>입력 수집</strong><br/>카메라/설정 상태 확인</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>품질 판정</strong><br/>전처리 + 추론 + 판단</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>운영 반영</strong><br/>리포트/알림/백업</div>
-      </div>
-    </div>
+                <div class="pd-insight">
+                    <div class="pd-insight-title">핵심 인사이트: "현장은 모델만으로 돌아가지 않는다"</div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag situation">현상</span>
+                        <span class="pd-insight-text">카메라 소스 다양성(USB/IP/RTSP), 운영자 즉시 판단 어려운 UI, 업데이트 시 현장 중단 리스크</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">조치</span>
+                        <span class="pd-insight-text">HAL 추상화 + 멀티카메라 핫플러그 + 웹 기반 운영 UI + OTA 원격 업데이트</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag result">결과</span>
+                        <span class="pd-insight-text">13ms 추론, 14,551건/세션 검사 처리, 무중단 모델 업데이트 가능</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>현장 데이터 파이프라인 (Sanitized)</h2>
-      <div class="grid">
-        <div class="tile"><strong>Capture Layer</strong><br/>카메라 입력 + 장치 상태 체크</div>
-        <div class="tile"><strong>Inference Layer</strong><br/>전처리/추론/판정 규칙 적용</div>
-        <div class="tile"><strong>Action Layer</strong><br/>리포트 기록 + 알림 트리거</div>
-        <div class="tile"><strong>Ops Layer</strong><br/>백업/재시도/업데이트 관리</div>
-      </div>
-      <p class="muted">※ 라인 식별 정보/현장 식별자/원본 이미지 메타는 보안상 비공개입니다.</p>
-    </div>
+            <!-- 2. 시스템 규모 -->
+            <div class="pd-section">
+                <h2>시스템 규모</h2>
+                <div class="pd-stat-grid">
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">41</div>
+                        <div class="pd-stat-label">Python 소스 파일</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">34,781</div>
+                        <div class="pd-stat-label">총 코드 라인</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">20</div>
+                        <div class="pd-stat-label">독립 소스 모듈</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">17+</div>
+                        <div class="pd-stat-label">웹 페이지</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">12</div>
+                        <div class="pd-stat-label">테스트 파일</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">55</div>
+                        <div class="pd-stat-label">Git 커밋 (12일)</div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>데이터 규모 & 학습/검증 깊이 (공개 가능 범위)</h2>
-      <ul>
-        <li><strong>코드베이스 관측 규모:</strong> Python 파일 약 22개, 문서 약 11개(로컬 스캔 기준)</li>
-        <li><strong>운영 자산:</strong> 설정 파일/현장 배포 가이드/업그레이드 블루프린트 포함</li>
-        <li><strong>학습 깊이:</strong> 모델 정확도 + 현장 운영성(연결/알람/업데이트) 복합 검증</li>
-        <li><strong>검증 관점:</strong> 데모 모드와 실운영 모드를 분리해 리스크를 낮춘 배포 흐름 설계</li>
-      </ul>
-      <p class="muted">※ 원본 학습 데이터/고객 현장 식별정보/민감 운영 파라미터는 보안상 비공개입니다.</p>
-    </div>
+            <!-- 3. 검출 파이프라인 -->
+            <div class="pd-section">
+                <h2>검출 파이프라인</h2>
+                <p>YOLOv8 기반 5종 결함 분류와 CLAHE 전처리, FP16 가속, 배치 추론을 결합한 실시간 검출 파이프라인입니다.</p>
 
-    <div class="card">
-      <h2>서버/운영 상태 관점 (포트폴리오용)</h2>
-      <ul>
-        <li>현장 실행은 bootstrap/start 스크립트 기반으로 표준화</li>
-        <li>설정·카메라·알람 모듈을 분리해 문제구간 진단 속도 향상</li>
-        <li>업데이트 전후 체크리스트 운영으로 다운타임 리스크 완화</li>
-      </ul>
-    </div>
+                <div class="pd-flow pd-flow-4">
+                    <div class="pd-flow-step">
+                        <strong>입력 수집</strong>
+                        <span>멀티카메라 HAL<br/>핫플러그 모니터</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>전처리 + 추론</strong>
+                        <span>CLAHE + YOLOv8<br/>FP16 / 13ms</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>판정 + 액추에이션</strong>
+                        <span>OK/NG 분류<br/>GPIO/로봇암/웹훅</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>리포트 + 알림</strong>
+                        <span>Excel 7시트 자동생성<br/>Telegram 알림</span>
+                    </div>
+                </div>
 
-    <div class="card">
-      <h2>파일 트리/구조 (Sanitized)</h2>
-      <img src="../assets/images/projects/teflon-file-tree.svg" alt="Teflon Inspection 파일 트리 요약" loading="lazy" />
-    </div>
+                <div class="pd-kpi-row">
+                    <span class="pd-kpi-chip teal">black_spot</span>
+                    <span class="pd-kpi-chip teal">scratch</span>
+                    <span class="pd-kpi-chip teal">bubble</span>
+                    <span class="pd-kpi-chip teal">contamination</span>
+                    <span class="pd-kpi-chip teal">deformation</span>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>결론</h2>
-      <p>이 프로젝트의 성과는 정확도 숫자 하나가 아니라, 현장에서 반복 가능하고 유지 가능한 시스템으로 정착시킨 데 있습니다. PM 관점에서 기술·운영·배포를 하나로 묶는 설계 역량을 증명했습니다.</p>
-    </div>
-  </div>
+            <!-- 4. 소스 아키텍처 -->
+            <div class="pd-section">
+                <h2>소스 아키텍처 (20 모듈)</h2>
+                <p>SOLID 원칙 기반의 Hardware Abstraction Layer로 카메라/검출기/GPIO를 추상화하고, 각 모듈이 독립적으로 테스트 가능합니다.</p>
+
+                <table class="pd-table">
+                    <thead>
+                        <tr><th>모듈</th><th>라인</th><th>역할</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>web_server.py</td><td>5,061</td><td>Flask REST API (97 라우트) + MJPEG 스트리밍</td></tr>
+                        <tr><td>templates.py</td><td>10,759</td><td>17+ 웹 페이지 (대시보드, 설정, 갤러리, 분석, 관리자, 모바일)</td></tr>
+                        <tr><td>main.py</td><td>2,708</td><td>InspectionSystem 메인 애플리케이션</td></tr>
+                        <tr><td>camera.py</td><td>1,981</td><td>OpenCV/Basler/Hikrobot 멀티카메라 + BLE 스캐너</td></tr>
+                        <tr><td>database.py</td><td>1,099</td><td>SQLite WAL, 스레드 안전, 파티셔닝, 자동 아카이빙</td></tr>
+                        <tr><td>trainer.py</td><td>904</td><td>YOLOv8 학습: 데이터 수집, 라벨링 UI, 증강, 버전 관리</td></tr>
+                        <tr><td>gui.py</td><td>738</td><td>PyQt5 데스크톱 인터페이스</td></tr>
+                        <tr><td>actuation.py</td><td>607</td><td>액추에이터: GPIO, 로봇암, 웹훅 디스패칭</td></tr>
+                        <tr><td>detector.py</td><td>585</td><td>YOLOv8 추론, 350종 제품 변형 지원, GPU/CPU 자동 선택</td></tr>
+                        <tr><td>report_exporter.py</td><td>496</td><td>7-시트 Excel 리포트 자동 생성</td></tr>
+                    </tbody>
+                </table>
+                <p class="pd-muted">+ interfaces.py (HAL), robot_protocols.py (HTTP/Modbus/OPC-UA/Mock), telegram_notifier.py, upgrade_manager.py, error_guide.py (한글 현장 가이드) 등</p>
+            </div>
+
+            <!-- 5. 하드웨어 통합 -->
+            <div class="pd-section">
+                <h2>하드웨어 통합</h2>
+                <div class="pd-grid">
+                    <div class="pd-tile">
+                        <strong>카메라 (4종)</strong>
+                        <span>OpenCV USB/웹캠, Basler (pypylon), Hikrobot (MVS), Bluetooth BLE, macOS Continuity</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>로봇 프로토콜 (4종)</strong>
+                        <span>HTTP/REST, Modbus TCP, OPC-UA, Mock — 프로토콜 어댑터 패턴</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>GPIO 제어</strong>
+                        <span>Jetson.GPIO, RPi.GPIO + 시뮬레이션 폴백 — OK/NG 신호 출력</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>알림 체계</strong>
+                        <span>Telegram 비동기 (이미지 첨부), 일일 리포트, 웹훅 연동</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 운영 데이터 -->
+            <div class="pd-section">
+                <h2>실제 운영 데이터</h2>
+                <div class="pd-stat-grid">
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">14,551</div>
+                        <div class="pd-stat-label">단일 세션 검사 기록</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">13~14ms</div>
+                        <div class="pd-stat-label">프레임당 처리 시간</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">7</div>
+                        <div class="pd-stat-label">Excel 리포트 시트</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">30</div>
+                        <div class="pd-stat-label">자동 백업 아티팩트</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. DevOps & CI/CD -->
+            <div class="pd-section">
+                <h2>DevOps & 배포</h2>
+                <div class="pd-grid">
+                    <div class="pd-tile">
+                        <strong>Docker</strong>
+                        <span>멀티스테이지 빌드, 헬스체크, GPU 패스스루, 볼륨 퍼시스턴스</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>GitHub Actions CI</strong>
+                        <span>Python 3.9/3.11 매트릭스, flake8 + black + mypy + pytest --cov</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>systemd 자동 업데이트</strong>
+                        <span>20초 간격 폴링, OTA 원격 모델/설정 업데이트</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>크로스 플랫폼</strong>
+                        <span>Linux(Jetson/RPi) + macOS + Windows (원클릭 설치 스크립트)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 핵심 교훈 -->
+            <div class="pd-section">
+                <h2>핵심 교훈</h2>
+                <div class="pd-insight">
+                    <div class="pd-insight-title">"현장 동작"이 "실험 성공"보다 어렵다</div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag situation">Before</span>
+                        <span class="pd-insight-text">모델 정확도만 추구 → 카메라 연결 불안정, UI 혼란, 업데이트 시 다운타임</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">After</span>
+                        <span class="pd-insight-text">HAL 추상화 + 핫플러그 + 웹 UI + OTA 업데이트 + 현장 한글 에러 가이드</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag result">교훈</span>
+                        <span class="pd-insight-text">기술·운영·배포를 하나의 시스템으로 묶는 설계가 실제 현장 정착의 핵심</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 네비게이션 -->
+            <nav class="project-nav">
+                <a href="detail-aurora.html" class="btn btn-outline">&larr; AURORA 운영 자동화</a>
+                <a href="detail-pure-flon-website.html" class="btn btn-primary">Pure-Flon Website &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 최원혁. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

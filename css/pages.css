@@ -1737,3 +1737,265 @@
         font-size: 2rem;
     }
 }
+
+/* ==============================
+   PRIVATE DETAIL PAGES
+   ============================== */
+
+/* Stat Grid (KPI 수치 카드) */
+.pd-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.pd-stat-card {
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 16px;
+    background: #f8fbff;
+    text-align: center;
+}
+
+.pd-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.pd-stat-label {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Data Table */
+.pd-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+
+.pd-table th,
+.pd-table td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pd-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #334155;
+}
+
+.pd-table td code {
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+/* Flow Diagram */
+.pd-flow {
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pd-flow-3 {
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+}
+
+.pd-flow-4 {
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+}
+
+.pd-flow-step {
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    background: #f8fbff;
+    padding: 14px;
+    text-align: center;
+}
+
+.pd-flow-step strong {
+    display: block;
+    color: #1e40af;
+    margin-bottom: 4px;
+}
+
+.pd-flow-step span {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.pd-flow-arrow {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Tile Grid */
+.pd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.pd-tile {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    background: #fff;
+}
+
+.pd-tile strong {
+    color: #2563eb;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.pd-tile span {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* KPI Chips */
+.pd-kpi-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.pd-kpi-chip {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.pd-kpi-chip.teal {
+    background: #ecfeff;
+    color: #155e75;
+}
+
+.pd-kpi-chip.blue {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+/* Insight Card (현상 → 조치 → 결과) */
+.pd-insight {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+    margin: 16px 0;
+    border-left: 4px solid #2563eb;
+}
+
+.pd-insight-title {
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.pd-insight-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: baseline;
+}
+
+.pd-insight-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.pd-insight-tag.situation {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.pd-insight-tag.action {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.pd-insight-tag.result {
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.pd-insight-text {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Section divider */
+.pd-section {
+    margin-bottom: 36px;
+}
+
+.pd-section h2 {
+    font-size: 1.35rem;
+    color: #0f172a;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2563eb;
+}
+
+.pd-section > p {
+    color: #475569;
+    margin: 0 0 16px;
+    line-height: 1.7;
+}
+
+.pd-muted {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    margin-top: 8px;
+}
+
+/* Private Detail 반응형 */
+@media (max-width: 768px) {
+    .pd-flow-3,
+    .pd-flow-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-flow-arrow {
+        transform: rotate(90deg);
+    }
+
+    .pd-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .pd-stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-grid {
+        grid-template-columns: 1fr;
+    }
+}

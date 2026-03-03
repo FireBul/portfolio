@@ -1,209 +1,392 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURORA 운영 자동화 (Private Deep Summary) - 최원혁 Portfolio</title>
-  <meta name="description" content="AURORA 프로젝트의 운영 자동화/검증 게이트/데이터 규모/API 주기/RDBMS 구조를 민감정보 없이 정량 요약." />
-  <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;margin:0;background:#f8fafc;color:#0f172a}
-    .wrap{max-width:1080px;margin:0 auto;padding:24px}
-    .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:14px}
-    h1,h2,h3{margin:0 0 10px} .muted{color:#475569} .kpi{display:flex;gap:8px;flex-wrap:wrap}
-    .kpi span{background:#eef2ff;color:#3730a3;padding:6px 10px;border-radius:999px;font-size:.88rem}
-    img{width:100%;border-radius:10px;border:1px solid #e2e8f0}
-    a{color:#2563eb;text-decoration:none}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
-    .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
-    .flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
-    .flowstep{border:1px solid #dbeafe;border-radius:10px;background:#f8fbff;padding:10px;text-align:center;font-size:.9rem}
-    .flowarrow{text-align:center;color:#64748b;font-weight:700}
-    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
-    .stat-card{border:1px solid #dbeafe;border-radius:10px;padding:12px;background:#f8fbff}
-    .stat-label{font-size:.82rem;color:#475569}
-    .stat-value{font-size:1.2rem;font-weight:700;color:#0f172a;margin-top:4px}
-    .fact-table{width:100%;border-collapse:collapse;margin-top:10px}
-    .fact-table th,.fact-table td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;font-size:.9rem;vertical-align:top}
-    .fact-table th{background:#f8fafc}
-    ul{line-height:1.7}
-    @media (max-width: 720px){
-      .flowline{grid-template-columns:1fr}
-      .flowarrow{transform:rotate(90deg)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AURORA 정량 트레이딩 운영 자동화 - 92K 라인 Python, 14개 전략, 631K 백테스트, 4단계 승격 체계">
+
+    <link rel="canonical" href="https://firebul.github.io/portfolio/detail/detail-aurora.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="최원혁 Portfolio">
+    <meta property="og:title" content="AURORA 운영 자동화 - 최원혁 Portfolio">
+    <meta property="og:description" content="92K 라인 Python 코드베이스, 14개 전략, 631K 백테스트, 78개 API 엔드포인트의 정량 트레이딩 운영 시스템">
+    <meta property="og:url" content="https://firebul.github.io/portfolio/detail/detail-aurora.html">
+    <meta property="og:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
+    <title>AURORA 운영 자동화 - 최원혁 Portfolio</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "AURORA 운영 자동화 - 최원혁 Portfolio",
+      "url": "https://firebul.github.io/portfolio/detail/detail-aurora.html",
+      "author": {"@type": "Person", "name": "최원혁"}
     }
-  </style>
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-  <div class="wrap">
-    <p><a href="../projects.html">← Projects로 돌아가기</a></p>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-brand"><a href="../index.html">최원혁</a></div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="../about.html">소개</a></li>
+                <li><a href="../projects.html" class="active">프로젝트</a></li>
+                <li><a href="../leadership.html">리더십</a></li>
+                <li><a href="../contact.html">연락처</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </nav>
+    </header>
 
-    <div class="card">
-      <h1>AURORA 운영 자동화 (Private Deep Summary)</h1>
-      <p class="muted">민감정보를 제외한 운영·데이터·검증 중심 요약 (2026-03-03 스캔 기준)</p>
-      <div class="kpi">
-        <span>운영 흐름: 검증 → 제한 배포 → 운영 적용</span>
-        <span>API 표면: 총 78 routes ( /api 72 )</span>
-        <span>DB 인벤토리: 35 files / 1.85GB</span>
-        <span>핵심 데이터 행 수: 475,442+</span>
-      </div>
-    </div>
+    <main class="main-content">
+        <div class="container">
+            <nav class="breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../index.html">홈</a></li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item"><a href="../projects.html">프로젝트</a></li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-current">AURORA 운영 자동화</li>
+                </ol>
+            </nav>
 
-    <div class="card">
-      <h2>프로젝트 배경</h2>
-      <p>모델 실험 결과를 실서비스로 옮길 때 가장 큰 리스크는 “성능 수치만 믿고 운영 전환”하는 구간입니다. AURORA는 이 구간을 줄이기 위해, 실험·검증·운영을 분리하고 승격 조건을 명시하는 데 집중했습니다.</p>
-      <h3>핵심 문제</h3>
-      <ul>
-        <li>실험 결과와 운영 정책의 단절</li>
-        <li>run 단위 추적 키 누락 시 원인 분석 지연</li>
-        <li>승격 조건 불명확 시 과도한 리스크 노출</li>
-      </ul>
-    </div>
+            <!-- 히어로 -->
+            <section class="project-hero">
+                <h1 class="project-title">AURORA 운영 자동화</h1>
+                <p class="project-subtitle">
+                    ML 모델 실험부터 실거래 운영까지, 검증 게이트와 4단계 승격 체계로 안전하게 연결하는 정량 트레이딩 시스템
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <div class="meta-value">92K</div>
+                        <div class="meta-label">Python 코드 라인</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">14</div>
+                        <div class="meta-label">독립 전략 모듈</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">631K</div>
+                        <div class="meta-label">백테스트 실행</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-value">78</div>
+                        <div class="meta-label">API 엔드포인트</div>
+                    </div>
+                </div>
+            </section>
 
-    <div class="card">
-      <h2>핵심 운영 지표 (정량 스냅샷)</h2>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-label">Export CSV Bundle</div><div class="stat-value">818,917 rows</div></div>
-        <div class="stat-card"><div class="stat-label">Core DB Rows (3계층 합계)</div><div class="stat-value">475,442 rows</div></div>
-        <div class="stat-card"><div class="stat-label">Largest Table</div><div class="stat-value">combo_signals 403,452</div></div>
-        <div class="stat-card"><div class="stat-label">Live Dashboard API</div><div class="stat-value">54 /api routes</div></div>
-        <div class="stat-card"><div class="stat-label">R&D Dashboard API</div><div class="stat-value">18 /api routes</div></div>
-        <div class="stat-card"><div class="stat-label">SQLite Footprint</div><div class="stat-value">35 files / 1,854.56 MB</div></div>
-      </div>
-      <p class="muted">근거 파일: <code>/Users/ben/files/aurora/live/dashboard.py</code>, <code>/Users/ben/files/aurora/scripts/strategy_rd_dashboard.py</code>, <code>/Users/ben/files/aurora/live/*.db</code>, <code>/Users/ben/files/aurora/exports/**/*.csv</code></p>
-    </div>
+            <!-- 1. 프로젝트 배경 -->
+            <div class="pd-section">
+                <h2>프로젝트 배경</h2>
+                <p>ML 모델의 실험 성능과 실운영 성과 사이에는 큰 격차가 존재합니다. 백테스트에서 우수한 전략이 라이브 환경에서 실패하는 근본 원인은 모델 자체가 아니라 <strong>운영 전환 과정의 검증 부재</strong>입니다. AURORA는 이 격차를 줄이기 위해 실험→검증→운영을 분리하고, 각 단계에 자동화된 게이트를 배치했습니다.</p>
 
-    <div class="card">
-      <h2>실행 방식 (What we changed)</h2>
-      <div class="grid">
-        <div class="tile"><strong>승격 프로토콜</strong><br/>검증 → 제한 배포 → 운영 적용 단계 강제</div>
-        <div class="tile"><strong>검증 게이트</strong><br/>정책 위반/가드레일 누락 시 배포 차단</div>
-        <div class="tile"><strong>추적 체계</strong><br/>run_id 중심 전파와 로그 연결성 강화</div>
-        <div class="tile"><strong>운영 문서화</strong><br/>상태/판단/리스크/백테스트 기준 문서 고정</div>
-      </div>
-    </div>
+                <div class="pd-insight">
+                    <div class="pd-insight-title">핵심 인사이트</div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag situation">현상</span>
+                        <span class="pd-insight-text">모델 성능 수치만 믿고 운영 전환 시, run 단위 추적 키 누락으로 장애 원인 분석에 수 시간 소요</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">조치</span>
+                        <span class="pd-insight-text">run_id → pack_id → decision_uid 계층적 추적 체계 도입 + 4단계 승격 프로토콜 강제</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag result">결과</span>
+                        <span class="pd-insight-text">실험-운영 단절 해소, 장애 원인 분석 시간 단축, 무중단 전략 교체 가능</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>대규모 데이터셋 차트 (Sanitized)</h2>
-      <img src="../assets/images/projects/aurora-dataset-scale.svg" alt="AURORA 데이터셋 규모 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>Dataset</th><th>Rows</th><th>비고</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ensemble_combo_signals.csv</td><td>403,453</td><td>가장 큰 시그널 집계 파일</td></tr>
-          <tr><td>pinset_runs.csv</td><td>152,017</td><td>핀셋 실험 러닝 로그</td></tr>
-          <tr><td>mega_replay_trades.csv</td><td>33,753</td><td>리플레이 트레이드 스냅샷</td></tr>
-          <tr><td>trading_signals.csv</td><td>6,445</td><td>신호 스트림 누적</td></tr>
-        </tbody>
-      </table>
-    </div>
+            <!-- 2. 시스템 규모 -->
+            <div class="pd-section">
+                <h2>시스템 규모</h2>
+                <div class="pd-stat-grid">
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">140</div>
+                        <div class="pd-stat-label">Python 소스 파일</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">92,014</div>
+                        <div class="pd-stat-label">총 코드 라인</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">264</div>
+                        <div class="pd-stat-label">학습된 모델 아티팩트</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">43+</div>
+                        <div class="pd-stat-label">DB 테이블</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">1.85 GB</div>
+                        <div class="pd-stat-label">SQLite 데이터 총량</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">452</div>
+                        <div class="pd-stat-label">운영 문서 (Markdown)</div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>운영 플로우차트 (Sanitized)</h2>
-      <div class="flowline" role="img" aria-label="AURORA 운영 플로우">
-        <div class="flowstep"><strong>검증</strong><br/>정책/가드레일 확인</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>제한 배포</strong><br/>운영 리스크 점검</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>운영 적용</strong><br/>상태 모니터링/회고</div>
-      </div>
-    </div>
+            <!-- 3. 전략 아키텍처 -->
+            <div class="pd-section">
+                <h2>전략 아키텍처</h2>
+                <p>14개 독립 전략 모듈이 각자의 알파 신호를 생성하고, 앙상블 보팅 시스템이 이를 통합합니다. 각 전략은 39개 파일 / 30,677 라인으로 구성되며, 최신 S16v2는 MoE(Mixture of Experts) 구조를 채택했습니다.</p>
 
-    <div class="card">
-      <h2>API 표면 차트</h2>
-      <img src="../assets/images/projects/aurora-api-surface.svg" alt="AURORA API 표면 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>대시보드</th><th>Total Routes</th><th>/api Prefix</th><th>근거</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>live/dashboard.py</td><td>57</td><td>54</td><td><code>@app.route(...)</code> 데코레이터 파싱</td></tr>
-          <tr><td>strategy_rd_dashboard.py</td><td>21</td><td>18</td><td><code>@app.route(...)</code> 데코레이터 파싱</td></tr>
-          <tr><td><strong>합계</strong></td><td><strong>78</strong></td><td><strong>72</strong></td><td>포트폴리오용 공개 수치</td></tr>
-        </tbody>
-      </table>
-      <p class="muted">※ 도메인 특화 엔드포인트 의미는 노출하지 않고 운영 범주 단위로만 공개합니다.</p>
-    </div>
+                <table class="pd-table">
+                    <thead>
+                        <tr><th>전략</th><th>도메인</th><th>핵심 접근</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Funding Rate Arbitrage</td><td>파생상품</td><td>펀딩비 비대칭 포착</td></tr>
+                        <tr><td>Meta-Labeling</td><td>ML</td><td>방향 예측 + 확률 보정</td></tr>
+                        <tr><td>Information Bars</td><td>마이크로구조</td><td>정보량 기반 봉 생성</td></tr>
+                        <tr><td>Regime Detection</td><td>시장 상태</td><td>BOCD + HMM 레짐 분류</td></tr>
+                        <tr><td>OI Divergence</td><td>파생상품</td><td>미결제약정 발산 감지</td></tr>
+                        <tr><td>ETH/BTC Spread</td><td>크로스에셋</td><td>상대가치 스프레드</td></tr>
+                        <tr><td>Derivatives Micro</td><td>마이크로구조</td><td>호가창/체결 패턴</td></tr>
+                        <tr><td>On-chain Sentiment</td><td>온체인</td><td>네트워크 활동 신호</td></tr>
+                        <tr><td>Cross-Exchange</td><td>거래소간</td><td>가격 괴리 탐지</td></tr>
+                        <tr><td>Enhanced Funding Rate</td><td>파생상품</td><td>강화된 펀딩비 모델</td></tr>
+                        <tr><td>Seasonal Patterns</td><td>시계열</td><td>계절성 패턴 인식</td></tr>
+                        <tr><td>Liquidation Cascade</td><td>파생상품</td><td>청산 연쇄 예측</td></tr>
+                        <tr><td>Regime Ensemble (MoE v2)</td><td>ML 앙상블</td><td>전문가 혼합 게이팅</td></tr>
+                        <tr><td>Feature Selection</td><td>ML</td><td>특성 중요도 기반 필터</td></tr>
+                    </tbody>
+                </table>
 
-    <div class="card">
-      <h2>데이터 파이프라인 주기 차트 (UTC)</h2>
-      <img src="../assets/images/projects/aurora-pipeline-cadence.svg" alt="AURORA 파이프라인 주기 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>주기</th><th>설명</th><th>근거 파일</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>55~60초</td><td>신호 계산 캐시 TTL + 메인 체크 루프</td><td><code>live/signal_scorer.py</code>, <code>live/canary_trader.py</code></td></tr>
-          <tr><td>10~30초</td><td>DB/명령 폴링 루프</td><td><code>live/aurora_telegram_reporter.py</code></td></tr>
-          <tr><td>5분/15분/1시간/6시간</td><td>헬스체크/런타임가드/메모리스캔/파운드리 평가</td><td><code>live/catalyst.py</code></td></tr>
-          <tr><td>06:05→06:30→07:00→08:00</td><td>데이터 업데이트→재학습→팩빌드→섀도우/카나리</td><td><code>live/catalyst.py</code></td></tr>
-        </tbody>
-      </table>
-    </div>
+                <p class="pd-muted">MoE v2 서브모듈: BOCD, Elliott Wave, Wavelet Spectral, Hurst 지수, Drift Detector, Volume Profile, SMC Features, Price Structure</p>
+            </div>
 
-    <div class="card">
-      <h2>내부 데이터 구조 (Sanitized)</h2>
-      <div class="grid">
-        <div class="tile"><strong>Input Envelope</strong><br/>timestamp, run_id, source_tag</div>
-        <div class="tile"><strong>Feature Bundle</strong><br/>정규화된 지표 묶음(원본 비공개)</div>
-        <div class="tile"><strong>Decision Record</strong><br/>gate_result, reason_code, policy_version</div>
-        <div class="tile"><strong>Ops Snapshot</strong><br/>status, risk_level, rollback_key</div>
-      </div>
-      <p class="muted">※ 원본 데이터 포맷/도메인 특화 입력 값/수집 소스 상세는 공개하지 않고, 운영 구조만 추상화해 설명합니다.</p>
-    </div>
+            <!-- 4. 승격 체계 -->
+            <div class="pd-section">
+                <h2>4단계 승격 프로토콜</h2>
+                <p>전략이 실거래에 투입되기까지 반드시 4단계를 통과해야 합니다. 각 단계에서 자동화된 검증 게이트가 통과 조건을 강제합니다.</p>
 
-    <div class="card">
-      <h2>RDBMS 전체 맵 (Sanitized)</h2>
-      <img src="../assets/images/projects/aurora-rdbms-map.svg" alt="AURORA RDBMS 전체 맵" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>DB</th><th>Size</th><th>Tables</th><th>핵심 테이블/행수</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>live/trading.db</code></td><td>29.05 MB</td><td>7</td><td>trades 28,163 / signals 6,645 / account_snapshots 2,831</td></tr>
-          <tr><td><code>live/ensemble.db</code></td><td>218.38 MB</td><td>18</td><td>combo_signals 403,452 / ensemble_decisions 19,091 / foundry_runs 503</td></tr>
-          <tr><td><code>experiments/strategy_rd/strategy_research.db</code></td><td>6.55 MB</td><td>7</td><td>backtest_runs 9,488 / experiments 566 / experiment_results 415</td></tr>
-          <tr><td><strong>Inventory 합계</strong></td><td><strong>1,854.56 MB</strong></td><td><strong>35 files</strong></td><td>운영/실험/백업 DB 포함</td></tr>
-        </tbody>
-      </table>
-    </div>
+                <div class="pd-flow pd-flow-4">
+                    <div class="pd-flow-step">
+                        <strong>Draft</strong>
+                        <span>백테스트 통과<br/>생존율 검증</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>Shadow</strong>
+                        <span>실시간 시뮬레이션<br/>실거래 비교</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>Canary</strong>
+                        <span>소규모 실거래<br/>이상 감지</span>
+                    </div>
+                    <div class="pd-flow-arrow">→</div>
+                    <div class="pd-flow-step">
+                        <strong>Active</strong>
+                        <span>풀 운영<br/>상시 모니터링</span>
+                    </div>
+                </div>
 
-    <div class="card">
-      <h2>데이터 규모 & 학습/검증 깊이 (공개 가능 범위)</h2>
-      <ul>
-        <li><strong>코드베이스 관측 규모:</strong> Python 파일 약 160개, 문서 약 58개(로컬 스캔 기준)</li>
-        <li><strong>검증 방식:</strong> 정책/히스토리/스킬 거버넌스 검증 스크립트 기반</li>
-        <li><strong>학습 깊이:</strong> 단순 모델 튜닝이 아니라 운영 전환·리스크 통제까지 포함한 end-to-end 실험</li>
-        <li><strong>추가 리서치:</strong> 포트폴리오 고도화 과정에서 30,000개 안건 생성·점수화·합의 파이프라인 수행</li>
-      </ul>
-      <p class="muted">※ 민감한 원본 데이터 크기/정확한 정량 운영 지표/운영 키 값은 보안상 공개하지 않습니다.</p>
-    </div>
+                <div class="pd-insight">
+                    <div class="pd-insight-title">승격 게이트 조건</div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">생존율</span>
+                        <span class="pd-insight-text">S+A 티어 합계 ≥ 20, (S+A)/전체 ≥ 15%, 수익/전체 ≥ 50%</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">정합성</span>
+                        <span class="pd-insight-text">run_id 전파 검증, Phase 2/3 연결성, 캘리브레이션 C값 검증</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">안전장치</span>
+                        <span class="pd-insight-text">일일 최대 손실 한도, 포지션 상한, 자동 롤백 트리거</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="card">
-      <h2>서버/운영 상태 관점 (포트폴리오용)</h2>
-      <ul>
-        <li>운영 상태 점검 API/대시보드 기반으로 헬스체크 루프를 구성</li>
-        <li>실패 시 원인 구간을 좁힐 수 있는 검증 우선 구조 유지</li>
-        <li>운영 파라미터 변경 시 문서/대시보드 동기화 원칙 적용</li>
-      </ul>
-    </div>
+            <!-- 5. 데이터 파이프라인 -->
+            <div class="pd-section">
+                <h2>데이터 & 백테스트 규모</h2>
+                <div class="pd-stat-grid">
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">631,591</div>
+                        <div class="pd-stat-label">백테스트 파라미터 실행 (Pinset)</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">403,452</div>
+                        <div class="pd-stat-label">앙상블 콤보 시그널</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">28,163</div>
+                        <div class="pd-stat-label">실거래 기록</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">19,091</div>
+                        <div class="pd-stat-label">앙상블 의사결정 로그</div>
+                    </div>
+                </div>
 
-    <div class="card">
-      <h2>파일 트리/구조 (Sanitized)</h2>
-      <img src="../assets/images/projects/aurora-file-tree.svg" alt="AURORA 파일 트리 요약" loading="lazy" />
-    </div>
+                <table class="pd-table">
+                    <thead>
+                        <tr><th>데이터베이스</th><th>용량</th><th>테이블</th><th>주요 데이터</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>ensemble.db</td><td>218 MB</td><td>18</td><td>시그널, 의사결정, 트레이드, 팩, DNA, 메모리</td></tr>
+                        <tr><td>trading.db</td><td>29 MB</td><td>7</td><td>거래, 포지션, 신호, 계좌 스냅샷</td></tr>
+                        <tr><td>pinset_results.db</td><td>대규모</td><td>14</td><td>백테스트 결과, 생존 점수, 기간 통계</td></tr>
+                        <tr><td>autonomous.db</td><td>-</td><td>4</td><td>자율 진화: 모델 레지스트리, 교체 이력</td></tr>
+                        <tr><td>racs.db</td><td>-</td><td>-</td><td>RACS 서킷브레이커 상태</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <div class=”card”>
-      <h2>결론</h2>
-      <p>AURORA에서의 핵심은 “잘 맞는 모델”보다 “안전하게 운영되는 시스템”입니다. PM/운영 관점에서 실험-검증-승격-회복까지 닫힌 루프를 만드는 것이 실제 성과로 이어진다는 점을 검증했습니다.</p>
-    </div>
+            <!-- 6. 운영 인프라 -->
+            <div class="pd-section">
+                <h2>운영 인프라 (Catalyst 24/7 데몬)</h2>
+                <p>Catalyst는 1,722 라인의 24시간 운영 데몬으로, 헬스체크/자동 재학습/팩 빌드/섀도우 배포를 스케줄링합니다.</p>
 
-    <div class=”card” style=”text-align:center;”>
-      <h2>정량 분석 딥다이브</h2>
-      <p>96개 전략 × 22개 시장 구간 × 33,752건 거래의 체계적 분석과 28개 인터랙티브 차트를 확인하세요.</p>
-      <a href=”detail-aurora-analysis.html” style=”display:inline-block;background:#2563eb;color:#fff;padding:10px 24px;border-radius:8px;font-weight:600;margin-top:8px;”>분석 딥다이브 보기 →</a>
-    </div>
+                <table class="pd-table">
+                    <thead>
+                        <tr><th>주기</th><th>작업</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>55~60초</td><td>시그널 계산 + 메인 체크 루프</td></tr>
+                        <tr><td>10~30초</td><td>DB/명령 폴링 + 알림 전송</td></tr>
+                        <tr><td>5분~6시간</td><td>헬스체크 → 런타임 가드 → 메모리 스캔 → 파운드리 평가</td></tr>
+                        <tr><td>06:05 → 08:00</td><td>데이터 업데이트 → 재학습 → 팩 빌드 → 섀도우/카나리 배포</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <p style=”text-align:center;margin-top:16px;”><a href=”../projects.html”>← 전체 프로젝트로 돌아가기</a></p>
-  </div>
+            <!-- 7. 대시보드 & API -->
+            <div class="pd-section">
+                <h2>대시보드 & API 표면</h2>
+                <p>2개의 독립 대시보드가 운영과 연구를 분리합니다.</p>
+
+                <div class="pd-stat-grid">
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">57</div>
+                        <div class="pd-stat-label">운영 대시보드 라우트 (9,190 라인)</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">21</div>
+                        <div class="pd-stat-label">R&D 대시보드 라우트 (1,592 라인)</div>
+                    </div>
+                    <div class="pd-stat-card">
+                        <div class="pd-stat-value">78</div>
+                        <div class="pd-stat-label">총 API 엔드포인트</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 검증 & 거버넌스 -->
+            <div class="pd-section">
+                <h2>자동화된 검증 & 거버넌스</h2>
+                <p>20개의 AI 기반 검증 스킬이 코드 변경 시마다 자동으로 실행되어 정합성을 보장합니다.</p>
+
+                <div class="pd-grid">
+                    <div class="pd-tile">
+                        <strong>파이프라인 안전</strong>
+                        <span>recovery 파이프라인, 데이터 손실 방지, 아웃라이어 삭제 가드</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>핀셋 정합성</strong>
+                        <span>run_id 전파 검증, Phase 2/3 데이터 연결성</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>캘리브레이션</strong>
+                        <span>Platt C값 검증, 확률 임계치 설정 정합성</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>대시보드 모니터링</strong>
+                        <span>/healthz 엔드포인트 + Catalyst 모니터링 연동</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>REX/CATAL 거버넌스</strong>
+                        <span>게이트/추적키/승격경로 원칙 위반 검증</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>MoE 모델 품질</strong>
+                        <span>S16v2 MoE pkl 품질 + 학습 정합성 5-point 체크</span>
+                    </div>
+                </div>
+
+                <p class="pd-muted">검증 실패 시 자동으로 배포 차단 + CTO/PM 에스컬레이션 문서 생성</p>
+            </div>
+
+            <!-- 9. 기술 스택 -->
+            <div class="pd-section">
+                <h2>기술 스택</h2>
+                <div class="pd-grid">
+                    <div class="pd-tile">
+                        <strong>ML 프레임워크</strong>
+                        <span>XGBoost, CatBoost, LightGBM, HGB + MoE 앙상블 보팅</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>데이터 엔진</strong>
+                        <span>Python + NumPy + SciPy + Pandas + SQLite (WAL 모드)</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>시각화</strong>
+                        <span>Plotly (28개 인터랙티브 차트) + Flask 대시보드</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>운영 자동화</strong>
+                        <span>launchd 서비스, Telegram 알림, Catalyst 데몬</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>통계 검정</strong>
+                        <span>Mann-Whitney U, Wald-Wolfowitz, Spearman, 부트스트랩 CI</span>
+                    </div>
+                    <div class="pd-tile">
+                        <strong>리스크 관리</strong>
+                        <span>VaR/CVaR, 켈리 기준, 서킷브레이커 (RACS)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. 결론 -->
+            <div class="pd-section">
+                <h2>핵심 교훈</h2>
+                <div class="pd-insight">
+                    <div class="pd-insight-title">"잘 맞는 모델"보다 "안전하게 운영되는 시스템"</div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag situation">Before</span>
+                        <span class="pd-insight-text">성능 수치에 의존한 즉시 배포 → 운영 장애 시 원인 불명</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag action">After</span>
+                        <span class="pd-insight-text">4단계 승격 + 20개 자동 검증 + 추적 키 체계 → 무중단 전략 교체</span>
+                    </div>
+                    <div class="pd-insight-row">
+                        <span class="pd-insight-tag result">교훈</span>
+                        <span class="pd-insight-text">PM/운영 관점에서 실험-검증-승격-회복까지 닫힌 루프를 만드는 것이 실제 성과로 이어진다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 정량 분석 딥다이브 CTA -->
+            <div class="pd-section" style="text-align:center; padding: 32px; background: #f8fbff; border-radius: 12px; border: 1px solid #dbeafe;">
+                <h2 style="border: none; text-align: center;">정량 분석 딥다이브</h2>
+                <p style="color: #475569; margin-bottom: 20px;">96개 전략 &times; 22개 시장 구간 &times; 33,752건 거래의 체계적 분석과 28개 인터랙티브 차트</p>
+                <a href="detail-aurora-analysis.html" class="btn btn-primary">분석 딥다이브 보기 →</a>
+            </div>
+
+            <!-- 네비게이션 -->
+            <nav class="project-nav">
+                <a href="detail-teflon-private.html" class="btn btn-outline">&larr; Teflon 검사 자동화</a>
+                <a href="../projects.html" class="btn btn-primary">전체 프로젝트 &rarr;</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 최원혁. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
