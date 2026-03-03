@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURORA 운영 자동화 (Private Deep Summary) - 최원혁 Portfolio</title>
-  <meta name="description" content="AURORA 프로젝트의 운영 자동화/검증 게이트/데이터 규모/API 주기/RDBMS 구조를 민감정보 없이 정량 요약." />
+  <meta name="description" content="AURORA 프로젝트의 운영 자동화/검증 게이트/데이터·서버 관점 요약. 민감정보 제외, 실무 구조 중심." />
   <style>
     body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;margin:0;background:#f8fafc;color:#0f172a}
     .wrap{max-width:1080px;margin:0 auto;padding:24px}
@@ -15,21 +15,7 @@
     a{color:#2563eb;text-decoration:none}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
     .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
-    .flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
-    .flowstep{border:1px solid #dbeafe;border-radius:10px;background:#f8fbff;padding:10px;text-align:center;font-size:.9rem}
-    .flowarrow{text-align:center;color:#64748b;font-weight:700}
-    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
-    .stat-card{border:1px solid #dbeafe;border-radius:10px;padding:12px;background:#f8fbff}
-    .stat-label{font-size:.82rem;color:#475569}
-    .stat-value{font-size:1.2rem;font-weight:700;color:#0f172a;margin-top:4px}
-    .fact-table{width:100%;border-collapse:collapse;margin-top:10px}
-    .fact-table th,.fact-table td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;font-size:.9rem;vertical-align:top}
-    .fact-table th{background:#f8fafc}
     ul{line-height:1.7}
-    @media (max-width: 720px){
-      .flowline{grid-template-columns:1fr}
-      .flowarrow{transform:rotate(90deg)}
-    }
   </style>
 </head>
 <body>
@@ -38,12 +24,11 @@
 
     <div class="card">
       <h1>AURORA 운영 자동화 (Private Deep Summary)</h1>
-      <p class="muted">민감정보를 제외한 운영·데이터·검증 중심 요약 (2026-03-03 스캔 기준)</p>
+      <p class="muted">민감정보를 제외한 운영·데이터·검증 중심 요약</p>
       <div class="kpi">
-        <span>운영 흐름: 검증 → 제한 배포 → 운영 적용</span>
-        <span>API 표면: 총 78 routes ( /api 72 )</span>
-        <span>DB 인벤토리: 35 files / 1.85GB</span>
-        <span>핵심 데이터 행 수: 475,442+</span>
+        <span>운영 흐름: shadow → canary → active</span>
+        <span>검증 원칙: gate-first 운영</span>
+        <span>핵심 성과: 운영 안정성/재현성 향상</span>
       </div>
     </div>
 
@@ -59,112 +44,13 @@
     </div>
 
     <div class="card">
-      <h2>핵심 운영 지표 (정량 스냅샷)</h2>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-label">Export CSV Bundle</div><div class="stat-value">818,917 rows</div></div>
-        <div class="stat-card"><div class="stat-label">Core DB Rows (3계층 합계)</div><div class="stat-value">475,442 rows</div></div>
-        <div class="stat-card"><div class="stat-label">Largest Table</div><div class="stat-value">combo_signals 403,452</div></div>
-        <div class="stat-card"><div class="stat-label">Live Dashboard API</div><div class="stat-value">54 /api routes</div></div>
-        <div class="stat-card"><div class="stat-label">R&D Dashboard API</div><div class="stat-value">18 /api routes</div></div>
-        <div class="stat-card"><div class="stat-label">SQLite Footprint</div><div class="stat-value">35 files / 1,854.56 MB</div></div>
-      </div>
-      <p class="muted">근거 파일: <code>/Users/ben/files/aurora/live/dashboard.py</code>, <code>/Users/ben/files/aurora/scripts/strategy_rd_dashboard.py</code>, <code>/Users/ben/files/aurora/live/*.db</code>, <code>/Users/ben/files/aurora/exports/**/*.csv</code></p>
-    </div>
-
-    <div class="card">
       <h2>실행 방식 (What we changed)</h2>
       <div class="grid">
-        <div class="tile"><strong>승격 프로토콜</strong><br/>검증 → 제한 배포 → 운영 적용 단계 강제</div>
+        <div class="tile"><strong>승격 프로토콜</strong><br/>shadow → canary → active 단계 강제</div>
         <div class="tile"><strong>검증 게이트</strong><br/>정책 위반/가드레일 누락 시 배포 차단</div>
         <div class="tile"><strong>추적 체계</strong><br/>run_id 중심 전파와 로그 연결성 강화</div>
         <div class="tile"><strong>운영 문서화</strong><br/>상태/판단/리스크/백테스트 기준 문서 고정</div>
       </div>
-    </div>
-
-    <div class="card">
-      <h2>대규모 데이터셋 차트 (Sanitized)</h2>
-      <img src="assets/images/projects/aurora-dataset-scale.svg" alt="AURORA 데이터셋 규모 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>Dataset</th><th>Rows</th><th>비고</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ensemble_combo_signals.csv</td><td>403,453</td><td>가장 큰 시그널 집계 파일</td></tr>
-          <tr><td>pinset_runs.csv</td><td>152,017</td><td>핀셋 실험 러닝 로그</td></tr>
-          <tr><td>mega_replay_trades.csv</td><td>33,753</td><td>리플레이 트레이드 스냅샷</td></tr>
-          <tr><td>trading_signals.csv</td><td>6,445</td><td>신호 스트림 누적</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <h2>운영 플로우차트 (Sanitized)</h2>
-      <div class="flowline" role="img" aria-label="AURORA 운영 플로우">
-        <div class="flowstep"><strong>검증</strong><br/>정책/가드레일 확인</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>제한 배포</strong><br/>운영 리스크 점검</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>운영 적용</strong><br/>상태 모니터링/회고</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>API 표면 차트</h2>
-      <img src="assets/images/projects/aurora-api-surface.svg" alt="AURORA API 표면 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>대시보드</th><th>Total Routes</th><th>/api Prefix</th><th>근거</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>live/dashboard.py</td><td>57</td><td>54</td><td><code>@app.route(...)</code> 데코레이터 파싱</td></tr>
-          <tr><td>strategy_rd_dashboard.py</td><td>21</td><td>18</td><td><code>@app.route(...)</code> 데코레이터 파싱</td></tr>
-          <tr><td><strong>합계</strong></td><td><strong>78</strong></td><td><strong>72</strong></td><td>포트폴리오용 공개 수치</td></tr>
-        </tbody>
-      </table>
-      <p class="muted">※ 도메인 특화 엔드포인트 의미는 노출하지 않고 운영 범주 단위로만 공개합니다.</p>
-    </div>
-
-    <div class="card">
-      <h2>데이터 파이프라인 주기 차트 (UTC)</h2>
-      <img src="assets/images/projects/aurora-pipeline-cadence.svg" alt="AURORA 파이프라인 주기 차트" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>주기</th><th>설명</th><th>근거 파일</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>55~60초</td><td>신호 계산 캐시 TTL + 메인 체크 루프</td><td><code>live/signal_scorer.py</code>, <code>live/canary_trader.py</code></td></tr>
-          <tr><td>10~30초</td><td>DB/명령 폴링 루프</td><td><code>live/aurora_telegram_reporter.py</code></td></tr>
-          <tr><td>5분/15분/1시간/6시간</td><td>헬스체크/런타임가드/메모리스캔/파운드리 평가</td><td><code>live/catalyst.py</code></td></tr>
-          <tr><td>06:05→06:30→07:00→08:00</td><td>데이터 업데이트→재학습→팩빌드→섀도우/카나리</td><td><code>live/catalyst.py</code></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <h2>내부 데이터 구조 (Sanitized)</h2>
-      <div class="grid">
-        <div class="tile"><strong>Input Envelope</strong><br/>timestamp, run_id, source_tag</div>
-        <div class="tile"><strong>Feature Bundle</strong><br/>정규화된 지표 묶음(원본 비공개)</div>
-        <div class="tile"><strong>Decision Record</strong><br/>gate_result, reason_code, policy_version</div>
-        <div class="tile"><strong>Ops Snapshot</strong><br/>status, risk_level, rollback_key</div>
-      </div>
-      <p class="muted">※ 원본 데이터 포맷/도메인 특화 입력 값/수집 소스 상세는 공개하지 않고, 운영 구조만 추상화해 설명합니다.</p>
-    </div>
-
-    <div class="card">
-      <h2>RDBMS 전체 맵 (Sanitized)</h2>
-      <img src="assets/images/projects/aurora-rdbms-map.svg" alt="AURORA RDBMS 전체 맵" loading="lazy" />
-      <table class="fact-table">
-        <thead>
-          <tr><th>DB</th><th>Size</th><th>Tables</th><th>핵심 테이블/행수</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>live/trading.db</code></td><td>29.05 MB</td><td>7</td><td>trades 28,163 / signals 6,645 / account_snapshots 2,831</td></tr>
-          <tr><td><code>live/ensemble.db</code></td><td>218.38 MB</td><td>18</td><td>combo_signals 403,452 / ensemble_decisions 19,091 / foundry_runs 503</td></tr>
-          <tr><td><code>experiments/strategy_rd/strategy_research.db</code></td><td>6.55 MB</td><td>7</td><td>backtest_runs 9,488 / experiments 566 / experiment_results 415</td></tr>
-          <tr><td><strong>Inventory 합계</strong></td><td><strong>1,854.56 MB</strong></td><td><strong>35 files</strong></td><td>운영/실험/백업 DB 포함</td></tr>
-        </tbody>
-      </table>
     </div>
 
     <div class="card">
@@ -175,7 +61,7 @@
         <li><strong>학습 깊이:</strong> 단순 모델 튜닝이 아니라 운영 전환·리스크 통제까지 포함한 end-to-end 실험</li>
         <li><strong>추가 리서치:</strong> 포트폴리오 고도화 과정에서 30,000개 안건 생성·점수화·합의 파이프라인 수행</li>
       </ul>
-      <p class="muted">※ 민감한 원본 데이터 크기/정확한 정량 운영 지표/운영 키 값은 보안상 공개하지 않습니다.</p>
+      <p class="muted">※ 민감한 원본 데이터 크기/정확한 거래·자본 지표/운영 키 값은 보안상 공개하지 않습니다.</p>
     </div>
 
     <div class="card">

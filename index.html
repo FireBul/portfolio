@@ -7,7 +7,7 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="최원혁">
     <meta name="keywords" content="Product Strategy, AI/ML, PM, Growth, CRM, 포트폴리오, 최원혁">
-
+    
     <link rel="canonical" href="https://firebul.github.io/portfolio/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ko_KR">
@@ -22,11 +22,565 @@
     <meta name="twitter:title" content="최원혁 | Product Strategy · AI/ML · Growth Portfolio">
     <meta name="twitter:description" content="제품 전략, AI/ML, 실험 기반 의사결정으로 성과를 설계하는 PM 포트폴리오. 커머스·광고·CRM 고도화와 KPI 중심 케이스 스터디를 제공합니다.">
     <meta name="twitter:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
-    <title>최원혁 | Product Strategy · AI/ML · Growth Portfolio</title>
+<title>최원혁 | Product Strategy · AI/ML · Growth Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            
+            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pages.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 헤더 및 네비게이션 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .nav-brand a {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            background-color: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 히어로 섹션 */
+        .hero-section {
+            padding: calc(80px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--spacing-xl);
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+        }
+
+        .hero-photo {
+            width: 300px;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .quick-links-section { padding: var(--spacing-lg) 0; background: #fff; }
+        .quick-links-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:var(--spacing-md); }
+        .quick-link-card { border:1px solid var(--border); border-radius:12px; padding:14px; text-decoration:none; color:var(--text-primary); background:#fff; transition:var(--transition); }
+        .quick-link-card:hover { transform:translateY(-3px); box-shadow:var(--box-shadow); border-color:#bfdbfe; }
+        .quick-link-card strong { color:#1d4ed8; display:block; margin-bottom:6px; }
+
+        /* 핵심 역량 섹션 */
+        .core-competence {
+            padding: var(--spacing-xl) 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--text-primary);
+        }
+
+        .competence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .competence-card {
+            background: var(--surface);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .competence-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .competence-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .competence-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* 주요 프로젝트 미리보기 */
+        .featured-projects {
+            padding: var(--spacing-xl) 0;
+            background: var(--surface);
+        }
+
+        .project-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .project-preview-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .project-preview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-preview-content {
+            padding: var(--spacing-lg);
+        }
+
+        .project-preview-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .project-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+        }
+
+        .project-preview-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* 통계 섹션 */
+        .stats-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .blueprint-section,
+        .rd-highlights,
+        .intelligence-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .blueprint-section { background: #eef4ff; }
+        .rd-highlights { background: #ffffff; }
+        .intelligence-section { background: #f8fafc; }
+
+        .blueprint-grid,
+        .rd-grid,
+        .intel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .blueprint-card,
+        .rd-card,
+        .intel-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+        }
+
+        .blueprint-card h3,
+        .rd-card h3,
+        .intel-card h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: var(--spacing-sm);
+        }
+
+        .pill {
+            font-size: 0.85rem;
+            background: #e2e8f0;
+            color: #0f172a;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .insight-strip {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-top: var(--spacing-md);
+            display: inline-flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 0.92rem;
+        }
+
+        .chatbot-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1100;
+            border: none;
+            border-radius: 999px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 16px;
+            font-weight: 700;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .chatbot-modal {
+            position: fixed;
+            right: 20px;
+            bottom: 78px;
+            width: min(380px, calc(100vw - 30px));
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(2, 6, 23, 0.25);
+            z-index: 1200;
+            display: none;
+            overflow: hidden;
+        }
+
+        .chatbot-modal.active { display: block; }
+
+        .chatbot-head {
+            background: #0f172a;
+            color: #fff;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-body { padding: 12px; }
+
+        .chatbot-log {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            min-height: 130px;
+            max-height: 240px;
+            overflow: auto;
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-row { display: flex; gap: 8px; }
+        .chatbot-row input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 푸터 */
+        .site-footer {
+            background: var(--text-primary);
+            color: white;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                border-top: 1px solid var(--border);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-photo {
+                width: 250px;
+                height: 300px;
+                margin: 0 auto;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .project-preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero-section {
+                padding-left: var(--spacing-sm);
+                padding-right: var(--spacing-sm);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,13 +618,13 @@
                 <a href="index.html">최원혁</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">홈</a></li>
+                <li><a href="index.html">홈</a></li>
                 <li><a href="about.html">소개</a></li>
                 <li><a href="projects.html">프로젝트</a></li>
                 <li><a href="leadership.html">리더십</a></li>
                 <li><a href="contact.html">연락처</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
+            <button class="nav-toggle">☰</button>
         </nav>
     </header>
 
@@ -82,7 +636,7 @@
                         <h1>안녕하세요,<br><strong>최원혁</strong>입니다</h1>
                         <p class="subtitle">Product Strategy · AI/ML · Growth Execution</p>
                         <p class="description">
-                            데이터 기반 제품 전략으로 광고/커머스 성과를 만든 PM입니다.
+                            데이터 기반 제품 전략으로 광고/커머스 성과를 만든 PM입니다. 
                             인터파크에서 2025년 12월까지 핵심 프로젝트를 리드했고,
                             현재는 AI·ML 및 고난도 R&D 프로젝트까지 확장해 실무형 임팩트를 설계하고 있습니다.
                         </p>
@@ -92,9 +646,9 @@
                             <a href="contact.html" class="btn btn-secondary">연락하기</a>
                         </div>
                         <div class="insight-strip">
-                            <span>누적 페이지 조회: <strong id="viewCount">-</strong></span>
-                            <span>프로젝트 클릭: <strong id="projectClickCount">-</strong></span>
-                            <span>챗봇 질문: <strong id="chatQuestionCount">-</strong></span>
+                            <span>👀 누적 페이지 조회: <strong id="viewCount">-</strong></span>
+                            <span>🔎 프로젝트 클릭: <strong id="projectClickCount">-</strong></span>
+                            <span>💬 챗봇 질문: <strong id="chatQuestionCount">-</strong></span>
                         </div>
                     </div>
                     <div class="hero-photo">
@@ -234,16 +788,14 @@
                         <p>문의 유형·예산·일정·유입경로를 함께 수집해 실제 협업 의사결정에 활용할 수 있습니다.</p>
                     </article>
                 </div>
-                <div class="intel-card" style="margin-top:14px;">
-                    <h3 style="color:var(--primary-color);">현재 적용한 스택</h3>
+                <div style="margin-top:14px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;">
+                    <h3 style="margin-bottom:8px;color:#2563eb;">현재 적용한 스택</h3>
                     <div class="pill-row">
                         <span class="pill">SEO 기본 세팅(메타/OG/스키마/사이트맵)</span>
                         <span class="pill">CRM 문의 폼 + 리드 스코어링</span>
                         <span class="pill">전 페이지 챗봇 모달 + 지식 기반 응답</span>
                         <span class="pill">조회/클릭/검색/질문 이벤트 추적</span>
                         <span class="pill">프로젝트 검색·정렬·히트맵</span>
-                        <span class="pill">Vercel 배포 파이프라인</span>
-                        <span class="pill">ngrok 내부 점검 터널</span>
                     </div>
                 </div>
             </div>
@@ -253,7 +805,7 @@
             <div class="container">
                 <h2 class="section-title">주요 프로젝트</h2>
                 <div class="project-preview-grid">
-                    <a href="detail/detail-ads.html" class="project-preview-card">
+                    <div class="project-preview-card">
                         <div class="project-image">
                             <img src="assets/images/projects/ads-result.png" alt="광고 지면 개선 결과" loading="lazy">
                         </div>
@@ -261,11 +813,11 @@
                             <span class="project-tag">광고 최적화</span>
                             <h3>상품 최종 지면 광고 개선</h3>
                             <p>A/B 테스트를 통한 지면 개선으로 광고액 80% 상승, CTR 100% 상승을 달성한 프로젝트</p>
-                            <span class="tech-stack">A/B Testing · Data Analytics · UX</span>
+                            <a href="project-detail-ads.html" class="btn btn-secondary">자세히 보기</a>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="detail/detail-coupon.html" class="project-preview-card">
+                    <div class="project-preview-card">
                         <div class="project-image">
                             <img src="assets/images/projects/coupon-flow.png" alt="쿠폰 자동화 시스템 플로우" loading="lazy">
                         </div>
@@ -273,11 +825,11 @@
                             <span class="project-tag">자동화 시스템</span>
                             <h3>최저가 쿠폰 자동화</h3>
                             <p>네이버 EP API 활용과 데이터 기반 의사결정으로 월 50억원 거래액 쿠폰 시스템 구축</p>
-                            <span class="tech-stack">Naver EP API · Kafka · Automation</span>
+                            <a href="project-detail-coupon.html" class="btn btn-secondary">자세히 보기</a>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="leadership.html" class="project-preview-card">
+                    <div class="project-preview-card">
                         <div class="project-image">
                             <img src="assets/images/music/mode-ensemble.jpg" alt="모드앙상블 공연 사진" loading="lazy">
                         </div>
@@ -285,9 +837,9 @@
                             <span class="project-tag">리더십</span>
                             <h3>모드앙상블 창단 및 운영</h3>
                             <p>20명 규모의 자원봉사 음악 단체를 창단하고 체계적으로 운영하는 리더십 프로젝트</p>
-                            <span class="tech-stack">Team Building · Operations · Leadership</span>
+                            <a href="leadership.html" class="btn btn-secondary">자세히 보기</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -312,9 +864,7 @@
                     <p>Instagram: <a href="https://instagram.com/mode_ensemble">@mode_ensemble</a></p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 최원혁. All rights reserved.</p>
-            </div>
+            <p>&copy; 2025 최원혁. All rights reserved.</p>
         </div>
     </footer>
 
@@ -333,14 +883,56 @@
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
     <script>
-        // Analytics counters
+        // 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 메뉴 항목 클릭 시 모바일 메뉴 닫기
+        navMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // 스무스 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.site-header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Simple analytics counters (localStorage demo) =====
         const getNum = (k) => Number(localStorage.getItem(k) || '0');
         const setNum = (k, v) => localStorage.setItem(k, String(v));
+
         setNum('portfolio_view_count', getNum('portfolio_view_count') + 1);
 
-        document.querySelectorAll('.project-preview-card').forEach(a => {
+        document.querySelectorAll('.project-preview-content a').forEach(a => {
             a.addEventListener('click', () => {
                 setNum('portfolio_project_click_count', getNum('portfolio_project_click_count') + 1);
             });
@@ -356,7 +948,7 @@
         };
         renderCounters();
 
-        // Chatbot
+        // ===== Chatbot modal =====
         const chatbotFab = document.getElementById('chatbotFab');
         const chatbotModal = document.getElementById('chatbotModal');
         const chatbotClose = document.getElementById('chatbotClose');
@@ -367,22 +959,25 @@
         const answerPortfolio = (q) => {
             const text = (q || '').toLowerCase().trim();
             if (!text || text.length < 2) return '질문이 너무 짧아요. 예: "성과", "연락방법", "AI 프로젝트", "퇴사 시점"';
-            if (text.includes('성과') || text.includes('result') || text.includes('kpi')) return '핵심 성과는 광고액 80% 상승, CTR 100% 상승, 월 50억 거래액 쿠폰 시스템 구축입니다.';
+            if (text.includes('성과') || text.includes('result') || text.includes('kpi')) return '핵심 성과는 광고액 80% 상승, CTR 100% 상승, 월 50억 거래액 쿠폰 시스템 구축입니다. 프로젝트별 KPI는 계속 고도화 중입니다.';
             if (text.includes('퇴사') || text.includes('interpark') || text.includes('인터파크') || text.includes('경력')) return '인터파크는 2025년 12월에 퇴사했습니다. 현재는 독립 프로젝트와 포트폴리오 고도화에 집중하고 있습니다.';
             if (text.includes('ai') || text.includes('ml') || text.includes('머신')) return 'AI/ML 및 고급 R&D 프로젝트를 Private Highlights 섹션에 요약해두었고, 상세 범위는 보안 기준에 맞춰 공유합니다.';
+            if (text.includes('유전자') || text.includes('bio')) return '유전자공학/바이오 관련 프로젝트는 민감정보를 제외하고 문제정의·접근방법·성과 중심으로 큐레이션되어 있습니다.';
             if (text.includes('cpc') || text.includes('ctr') || text.includes('광고')) return '광고 프로젝트는 CPC/CTR/클릭/전환 KPI 중심으로 정리되어 있고, 프로젝트 페이지에서 지표형 설명을 강화 중입니다.';
-            if (text.includes('연락') || text.includes('contact') || text.includes('이메일') || text.includes('전화')) return 'Contact 페이지에서 바로 문의할 수 있고, CRM형 흐름으로 기록됩니다.';
+            if (text.includes('연락') || text.includes('contact') || text.includes('이메일') || text.includes('전화')) return 'Contact 페이지에서 바로 문의할 수 있고, CRM형 흐름(문의 유형·유입 경로·응답 관리)으로 기록됩니다.';
+            if (text.includes('법') || text.includes('legal') || text.includes('규정')) return '법률 자문은 제공하지 않지만, 프로젝트 거버넌스/정책 수립 경험은 포트폴리오의 정책/운영 사례로 확인할 수 있습니다.';
             return '좋은 질문이에요. 아래처럼 물어보면 더 정확히 답할 수 있어요: "성과", "연락방법", "AI 프로젝트", "퇴사 시점"';
         };
 
         const appendChat = (user, bot) => {
-            chatbotLog.innerHTML += '<hr style="border:none;border-top:1px solid #e2e8f0;margin:8px 0;"><div><strong>Q.</strong> ' + user + '</div><div style="margin-top:4px;"><strong>A.</strong> ' + bot + '</div>';
+            chatbotLog.innerHTML += `<hr style="border:none;border-top:1px solid #e2e8f0;margin:8px 0;"><div><strong>Q.</strong> ${user}</div><div style="margin-top:4px;"><strong>A.</strong> ${bot}</div>`;
             chatbotLog.scrollTop = chatbotLog.scrollHeight;
         };
 
         chatbotFab.addEventListener('click', () => {
             chatbotModal.classList.add('active');
             chatbotModal.setAttribute('aria-hidden', 'false');
+            setNum('portfolio_chat_open_count', getNum('portfolio_chat_open_count') + 1);
         });
         chatbotClose.addEventListener('click', () => {
             chatbotModal.classList.remove('active');
@@ -392,15 +987,17 @@
         const sendQuestion = () => {
             const q = (chatbotInput.value || '').trim();
             if (!q) return;
-            appendChat(q, answerPortfolio(q));
+            const a = answerPortfolio(q);
+            appendChat(q, a);
             chatbotInput.value = '';
             setNum('portfolio_chat_question_count', getNum('portfolio_chat_question_count') + 1);
             renderCounters();
         };
 
         chatbotSend.addEventListener('click', sendQuestion);
-        chatbotInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendQuestion(); });
+        chatbotInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') sendQuestion();
+        });
     </script>
-    <script src="assets/js/portfolio-analytics.js"></script>
 </body>
 </html>

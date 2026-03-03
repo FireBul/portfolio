@@ -15,14 +15,7 @@
     a{color:#2563eb;text-decoration:none}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
     .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
-    .flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
-    .flowstep{border:1px solid #cffafe;border-radius:10px;background:#f0fdff;padding:10px;text-align:center;font-size:.9rem}
-    .flowarrow{text-align:center;color:#64748b;font-weight:700}
     ul{line-height:1.7}
-    @media (max-width: 720px){
-      .flowline{grid-template-columns:1fr}
-      .flowarrow{transform:rotate(90deg)}
-    }
   </style>
 </head>
 <body>
@@ -58,28 +51,6 @@
         <div class="tile"><strong>업그레이드 체계</strong><br/>적용/해제/검증 흐름을 표준화</div>
         <div class="tile"><strong>알람 연동</strong><br/>telegram/webhook 등 후속 모듈 확장 가능</div>
       </div>
-    </div>
-
-    <div class="card">
-      <h2>운영 플로우차트</h2>
-      <div class="flowline" role="img" aria-label="Teflon 운영 플로우">
-        <div class="flowstep"><strong>입력 수집</strong><br/>카메라/설정 상태 확인</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>품질 판정</strong><br/>전처리 + 추론 + 판단</div>
-        <div class="flowarrow">→</div>
-        <div class="flowstep"><strong>운영 반영</strong><br/>리포트/알림/백업</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>현장 데이터 파이프라인 (Sanitized)</h2>
-      <div class="grid">
-        <div class="tile"><strong>Capture Layer</strong><br/>카메라 입력 + 장치 상태 체크</div>
-        <div class="tile"><strong>Inference Layer</strong><br/>전처리/추론/판정 규칙 적용</div>
-        <div class="tile"><strong>Action Layer</strong><br/>리포트 기록 + 알림 트리거</div>
-        <div class="tile"><strong>Ops Layer</strong><br/>백업/재시도/업데이트 관리</div>
-      </div>
-      <p class="muted">※ 라인 식별 정보/현장 식별자/원본 이미지 메타는 보안상 비공개입니다.</p>
     </div>
 
     <div class="card">
