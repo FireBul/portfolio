@@ -1,0 +1,60 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AURORA 파이프라인 주기 차트">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" rx="20" fill="url(#bg)"/>
+  <text x="56" y="80" fill="#E2E8F0" font-size="40" font-weight="700" font-family="Inter, Segoe UI, sans-serif">AURORA Pipeline Cadence (UTC)</text>
+  <text x="56" y="116" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">From catalyst.py / canary_trader.py / signal_scorer.py / aurora_telegram_reporter.py</text>
+
+  <rect x="56" y="152" width="1288" height="710" rx="16" fill="#0B1220" stroke="#334155"/>
+
+  <text x="96" y="208" fill="#E2E8F0" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">Realtime Loop</text>
+  <rect x="96" y="228" width="1180" height="96" rx="12" fill="#111827" stroke="#334155"/>
+  <rect x="126" y="252" width="180" height="48" rx="8" fill="#06B6D4"/>
+  <text x="145" y="283" fill="#0B1220" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">55s Cache TTL</text>
+  <rect x="342" y="252" width="180" height="48" rx="8" fill="#22D3EE"/>
+  <text x="369" y="283" fill="#0B1220" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">60s Check</text>
+  <rect x="558" y="252" width="180" height="48" rx="8" fill="#38BDF8"/>
+  <text x="587" y="283" fill="#0B1220" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">10s DB Poll</text>
+  <rect x="774" y="252" width="180" height="48" rx="8" fill="#67E8F9"/>
+  <text x="797" y="283" fill="#0B1220" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">30s Cmd Poll</text>
+  <rect x="990" y="252" width="256" height="48" rx="8" fill="#A5F3FC"/>
+  <text x="1016" y="283" fill="#0B1220" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">300s Balance Poll</text>
+
+  <text x="96" y="384" fill="#E2E8F0" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">Catalyst Interval Jobs</text>
+  <rect x="96" y="404" width="1180" height="112" rx="12" fill="#111827" stroke="#334155"/>
+  <text x="132" y="444" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">health_check: 5m</text>
+  <text x="422" y="444" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">runtime_guard: 15m</text>
+  <text x="742" y="444" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">memory_scan: 1h</text>
+  <text x="1022" y="444" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">foundry_eval: 6h</text>
+
+  <text x="96" y="576" fill="#E2E8F0" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">Daily Release Train (UTC)</text>
+  <rect x="96" y="596" width="1180" height="180" rx="12" fill="#111827" stroke="#334155"/>
+
+  <line x1="146" y1="706" x2="1226" y2="706" stroke="#475569" stroke-width="3"/>
+
+  <circle cx="296" cy="706" r="10" fill="#22D3EE"/>
+  <text x="250" y="680" fill="#A5F3FC" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">06:05</text>
+  <text x="224" y="742" fill="#CBD5E1" font-size="18" font-family="Inter, Segoe UI, sans-serif">data_update</text>
+
+  <circle cx="466" cy="706" r="10" fill="#38BDF8"/>
+  <text x="420" y="680" fill="#BFDBFE" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">06:30</text>
+  <text x="394" y="742" fill="#CBD5E1" font-size="18" font-family="Inter, Segoe UI, sans-serif">full_retrain</text>
+
+  <circle cx="676" cy="706" r="10" fill="#60A5FA"/>
+  <text x="640" y="680" fill="#BFDBFE" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">07:00</text>
+  <text x="630" y="742" fill="#CBD5E1" font-size="18" font-family="Inter, Segoe UI, sans-serif">pack_build</text>
+
+  <circle cx="886" cy="706" r="10" fill="#818CF8"/>
+  <text x="850" y="680" fill="#C7D2FE" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">08:00</text>
+  <text x="826" y="742" fill="#CBD5E1" font-size="18" font-family="Inter, Segoe UI, sans-serif">shadow_canary</text>
+
+  <circle cx="1096" cy="706" r="10" fill="#A78BFA"/>
+  <text x="1060" y="680" fill="#DDD6FE" font-size="20" font-weight="700" font-family="Inter, Segoe UI, sans-serif">22:00</text>
+  <text x="1042" y="742" fill="#CBD5E1" font-size="18" font-family="Inter, Segoe UI, sans-serif">forensic_check</text>
+
+  <text x="70" y="844" fill="#94A3B8" font-size="18" font-family="Inter, Segoe UI, sans-serif">* Weekly jobs also exist (evolution_round, lesson_review); chart highlights core operational cadence only.</text>
+</svg>

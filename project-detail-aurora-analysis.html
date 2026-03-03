@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURORA 정량 분석 딥다이브 - 최원혁 Portfolio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; background: #f8fafc; color: #0f172a; line-height: 1.6; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  nav { margin-bottom: 20px; }
+  nav a { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
+  nav a:hover { text-decoration: underline; }
+  header { text-align: center; margin-bottom: 40px; }
+  header h1 { font-size: 2.2rem; color: #0f172a; margin: 0 0 8px; }
+  .subtitle { color: #64748b; font-size: 1.1rem; margin: 0 0 24px; }
+  .kpi-grid { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .kpi { text-align: center; }
+  .kpi .num { display: block; font-size: 1.8rem; font-weight: 700; color: #2563eb; }
+  .kpi .label { font-size: 0.82rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+  section { margin-bottom: 48px; }
+  section h2 { font-size: 1.5rem; color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 8px; margin: 0 0 12px; }
+  section > p { color: #475569; margin: 0 0 20px; line-height: 1.6; }
+  .chart-embed { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .chart-embed iframe { width: 100%; height: 550px; border: none; display: block; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .chart-grid .chart-embed { margin-bottom: 0; }
+  .chart-grid .chart-embed iframe { height: 480px; }
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .tile { border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; background: #fff; }
+  .tile strong { color: #2563eb; }
+  .footer { text-align: center; padding: 32px 0 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.82rem; margin-top: 24px; }
+  @media (max-width: 768px) {
+    .chart-grid { grid-template-columns: 1fr; }
+    .chart-embed iframe { height: 400px; }
+    .chart-grid .chart-embed iframe { height: 400px; }
+    header h1 { font-size: 1.6rem; }
+    .kpi-grid { gap: 16px; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a href="projects.html">&larr; 프로젝트로 돌아가기</a> &middot;
+    <a href="project-detail-aurora.html">AURORA 운영 개요</a>
+  </nav>
+
+  <header>
+    <h1>AURORA 정량 분석 딥다이브</h1>
+    <p class="subtitle">96개 전략 &times; 22개 시장 구간 &times; 33,752건 거래의 체계적 분석</p>
+    <div class="kpi-grid">
+      <div class="kpi"><span class="num">96</span><span class="label">전략 변형</span></div>
+      <div class="kpi"><span class="num">22</span><span class="label">시장 구간</span></div>
+      <div class="kpi"><span class="num">33,752</span><span class="label">분석 거래</span></div>
+      <div class="kpi"><span class="num">52</span><span class="label">통계 분석</span></div>
+      <div class="kpi"><span class="num">8</span><span class="label">앙상블 멤버</span></div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: 분석 파이프라인 아키텍처 -->
+  <section>
+    <h2>1. 분석 파이프라인 아키텍처</h2>
+    <p>6단계 분석 파이프라인으로 52개 통계 분석을 43.7초 만에 실행합니다. 96개 전략 유니버스에서 최종 8-전략 앙상블까지 체계적 필터링을 수행합니다.</p>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/18_pipeline_phases.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/ensemble_selection.html" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- SECTION 2: 전략 유니버스 분석 -->
+  <section>
+    <h2>2. 전략 유니버스 탐색</h2>
+    <p>96개 전략의 상관구조, 클러스터링, 생존편향을 다각도로 검증합니다. 계층적 클러스터링과 네트워크 분석으로 전략 간 중복성과 분산 투자 기회를 식별합니다.</p>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/01_correlation_heatmap.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/06_dendrogram.html" loading="lazy"></iframe></div>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/25_cluster_network.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/05_survivorship_bias.html" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 레짐 & 안정성 분석 -->
+  <section>
+    <h2>3. 시장 레짐 &amp; 안정성</h2>
+    <p>13가지 시장 레짐에서의 성과와 전천후 안정성을 평가합니다. 레짐 전환 확률 행렬로 시장 상태 간 전이 패턴을 분석합니다.</p>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/03_regime_heatmap.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/08_all_weather_scores.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/20_regime_transition.html" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- SECTION 4: 거래 포렌식 -->
+  <section>
+    <h2>4. 거래 수준 포렌식</h2>
+    <p>33,752건 개별 거래의 손익 분포, 시간대, 보유기간, 연속 패턴을 분석합니다. 청산 사유 분포로 전략별 시그널 품질을 진단합니다.</p>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/02_pnl_distribution.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/12_exit_reason.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/13_time_of_day.html" loading="lazy"></iframe></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/14_consecutive_streaks.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/15_hold_duration.html" loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: 모델 & 시그널 감사 -->
+  <section>
+    <h2>5. 모델 &amp; 시그널 품질 감사</h2>
+    <p>과적합 검증, 확률 보정, 시그널 발화율, 특성 중요도를 감사합니다. 티어 시스템의 통계적 유의성을 Mann-Whitney U 검정으로 확인합니다.</p>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/04_auc_gap.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/16_signal_firing.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/17_probability_compression.html" loading="lazy"></iframe></div>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/19_feature_importance.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/07_tier_validation.html" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- SECTION 6: 앙상블 & 리스크 -->
+  <section>
+    <h2>6. 앙상블 설계 &amp; 리스크 관리</h2>
+    <p>최종 8-전략 앙상블의 성과, 위기 대응, 알파 감쇠, 수수료 민감도를 종합합니다. 22개 구간 전체에서 수익을 달성한 강건한 포트폴리오입니다.</p>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/ensemble_equity_curve.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/10_kelly_sizing.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/11_bootstrap_robustness.html" loading="lazy"></iframe></div>
+    </div>
+    <div class="chart-embed">
+      <iframe src="assets/aurora-viz/22_drawdown_scenarios.html" loading="lazy"></iframe>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/23_recovery_time.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/09_alpha_decay.html" loading="lazy"></iframe></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-embed"><iframe src="assets/aurora-viz/24_fee_sensitivity.html" loading="lazy"></iframe></div>
+      <div class="chart-embed"><iframe src="assets/aurora-viz/21_cross_asset.html" loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: 기술 스택 요약 -->
+  <section>
+    <h2>7. 기술 스택 &amp; 방법론</h2>
+    <div class="tech-grid">
+      <div class="tile"><strong>통계 검정</strong><br/>Mann-Whitney U, Wald-Wolfowitz, Spearman, 부트스트랩 CI</div>
+      <div class="tile"><strong>클러스터링</strong><br/>Ward 계층적 클러스터링, 덴드로그램, 상관 네트워크</div>
+      <div class="tile"><strong>리스크 관리</strong><br/>VaR/CVaR, 켈리 기준, 시나리오 분석, 스트레스 테스트</div>
+      <div class="tile"><strong>ML 파이프라인</strong><br/>XGBoost, CatBoost, LightGBM, HGB + 앙상블 voting</div>
+      <div class="tile"><strong>데이터 규모</strong><br/>631K 백테스트 행, 403K 시그널, 33K 거래</div>
+      <div class="tile"><strong>분석 엔진</strong><br/>Python + NumPy + SciPy + Plotly (52개 분석, 43.7초)</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    AURORA 정량 트레이딩 시스템 분석 &middot; Python + Plotly 생성
+  </div>
+
+</div>
+</body>
+</html>

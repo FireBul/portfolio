@@ -5,12 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teflon Inspection Automation (Private Deep Summary) - 최원혁 Portfolio</title>
   <meta name="description" content="Teflon Inspection Automation 프로젝트의 현장 적용/데이터 파이프라인/운영 서버 관점 요약." />
-
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR',sans-serif;margin:0;background:#f8fafc;color:#0f172a}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:14px}
+    h1,h2,h3{margin:0 0 10px} .muted{color:#475569} .kpi{display:flex;gap:8px;flex-wrap:wrap}
+    .kpi span{background:#ecfeff;color:#155e75;padding:6px 10px;border-radius:999px;font-size:.88rem}
+    img{width:100%;border-radius:10px;border:1px solid #e2e8f0}
+    a{color:#2563eb;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+    .tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfdff}
+    .flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
+    .flowstep{border:1px solid #cffafe;border-radius:10px;background:#f0fdff;padding:10px;text-align:center;font-size:.9rem}
+    .flowarrow{text-align:center;color:#64748b;font-weight:700}
+    ul{line-height:1.7}
+    @media (max-width: 720px){
+      .flowline{grid-template-columns:1fr}
+      .flowarrow{transform:rotate(90deg)}
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
+    <p><a href="../projects.html">← Projects로 돌아가기</a></p>
+
     <div class="card">
       <h1>Teflon Inspection Automation (Private Deep Summary)</h1>
       <p class="muted">민감정보를 제외한 현장 운영·구조 중심 요약</p>
@@ -43,6 +61,28 @@
     </div>
 
     <div class="card">
+      <h2>운영 플로우차트</h2>
+      <div class="flowline" role="img" aria-label="Teflon 운영 플로우">
+        <div class="flowstep"><strong>입력 수집</strong><br/>카메라/설정 상태 확인</div>
+        <div class="flowarrow">→</div>
+        <div class="flowstep"><strong>품질 판정</strong><br/>전처리 + 추론 + 판단</div>
+        <div class="flowarrow">→</div>
+        <div class="flowstep"><strong>운영 반영</strong><br/>리포트/알림/백업</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>현장 데이터 파이프라인 (Sanitized)</h2>
+      <div class="grid">
+        <div class="tile"><strong>Capture Layer</strong><br/>카메라 입력 + 장치 상태 체크</div>
+        <div class="tile"><strong>Inference Layer</strong><br/>전처리/추론/판정 규칙 적용</div>
+        <div class="tile"><strong>Action Layer</strong><br/>리포트 기록 + 알림 트리거</div>
+        <div class="tile"><strong>Ops Layer</strong><br/>백업/재시도/업데이트 관리</div>
+      </div>
+      <p class="muted">※ 라인 식별 정보/현장 식별자/원본 이미지 메타는 보안상 비공개입니다.</p>
+    </div>
+
+    <div class="card">
       <h2>데이터 규모 & 학습/검증 깊이 (공개 가능 범위)</h2>
       <ul>
         <li><strong>코드베이스 관측 규모:</strong> Python 파일 약 22개, 문서 약 11개(로컬 스캔 기준)</li>
@@ -71,21 +111,6 @@
       <h2>결론</h2>
       <p>이 프로젝트의 성과는 정확도 숫자 하나가 아니라, 현장에서 반복 가능하고 유지 가능한 시스템으로 정착시킨 데 있습니다. PM 관점에서 기술·운영·배포를 하나로 묶는 설계 역량을 증명했습니다.</p>
     </div>
-
-    <!-- Next Project Navigation -->
-    <section class="next-project-nav">
-        <div class="nav-row">
-            <a href="detail-aurora.html" class="nav-prev">
-                <span class="nav-label">이전 프로젝트</span>
-                <span class="nav-title">AURORA 운영 자동화</span>
-            </a>
-            <a href="../projects.html" class="nav-center">모든 프로젝트</a>
-            <a href="detail-ads.html" class="nav-next">
-                <span class="nav-label">다음 프로젝트</span>
-                <span class="nav-title">광고 지면 개선</span>
-            </a>
-        </div>
-    </section>
   </div>
 </body>
 </html>

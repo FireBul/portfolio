@@ -1,0 +1,51 @@
+<svg width="1400" height="980" viewBox="0 0 1400 980" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AURORA RDBMS 맵">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="980" rx="20" fill="url(#bg)"/>
+  <text x="56" y="78" fill="#E2E8F0" font-size="40" font-weight="700" font-family="Inter, Segoe UI, sans-serif">AURORA RDBMS Topology (SQLite, Sanitized)</text>
+  <text x="56" y="114" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">Primary operational DBs + table volume snapshot</text>
+
+  <rect x="64" y="150" width="1272" height="770" rx="16" fill="#0F172A" stroke="#334155"/>
+
+  <rect x="108" y="230" width="360" height="250" rx="14" fill="#111827" stroke="#3B82F6"/>
+  <text x="132" y="270" fill="#BFDBFE" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">live/trading.db</text>
+  <text x="132" y="306" fill="#E2E8F0" font-size="20" font-family="Inter, Segoe UI, sans-serif">Size: 29.05 MB / tables: 7</text>
+  <text x="132" y="344" fill="#93C5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">trades: 28,163</text>
+  <text x="132" y="376" fill="#93C5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">signals: 6,645</text>
+  <text x="132" y="408" fill="#93C5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">account_snapshots: 2,831</text>
+  <text x="132" y="440" fill="#64748B" font-size="18" font-family="Inter, Segoe UI, sans-serif">(+ positions / summary / deployments)</text>
+
+  <rect x="520" y="200" width="360" height="310" rx="14" fill="#111827" stroke="#22C55E"/>
+  <text x="544" y="240" fill="#BBF7D0" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">live/ensemble.db</text>
+  <text x="544" y="276" fill="#E2E8F0" font-size="20" font-family="Inter, Segoe UI, sans-serif">Size: 218.38 MB / tables: 18</text>
+  <text x="544" y="314" fill="#86EFAC" font-size="20" font-family="Inter, Segoe UI, sans-serif">combo_signals: 403,452</text>
+  <text x="544" y="346" fill="#86EFAC" font-size="20" font-family="Inter, Segoe UI, sans-serif">ensemble_decisions: 19,091</text>
+  <text x="544" y="378" fill="#86EFAC" font-size="20" font-family="Inter, Segoe UI, sans-serif">s16v2_shadow_signals: 2,741</text>
+  <text x="544" y="410" fill="#86EFAC" font-size="20" font-family="Inter, Segoe UI, sans-serif">adaptive_state: 1,434</text>
+  <text x="544" y="442" fill="#86EFAC" font-size="20" font-family="Inter, Segoe UI, sans-serif">foundry_runs: 503</text>
+
+  <rect x="932" y="230" width="360" height="250" rx="14" fill="#111827" stroke="#A78BFA"/>
+  <text x="956" y="270" fill="#DDD6FE" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">strategy_research.db</text>
+  <text x="956" y="306" fill="#E2E8F0" font-size="20" font-family="Inter, Segoe UI, sans-serif">Size: 6.55 MB / tables: 7</text>
+  <text x="956" y="344" fill="#C4B5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">backtest_runs: 9,488</text>
+  <text x="956" y="376" fill="#C4B5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">experiments: 566</text>
+  <text x="956" y="408" fill="#C4B5FD" font-size="20" font-family="Inter, Segoe UI, sans-serif">experiment_results: 415</text>
+  <text x="956" y="440" fill="#64748B" font-size="18" font-family="Inter, Segoe UI, sans-serif">(+ strategies / comparisons)</text>
+
+  <line x1="468" y1="352" x2="520" y2="352" stroke="#38BDF8" stroke-width="4"/>
+  <polygon points="520,344 536,352 520,360" fill="#38BDF8"/>
+  <line x1="880" y1="352" x2="932" y2="352" stroke="#22C55E" stroke-width="4"/>
+  <polygon points="932,344 948,352 932,360" fill="#22C55E"/>
+
+  <rect x="108" y="560" width="1184" height="300" rx="14" fill="#111827" stroke="#334155"/>
+  <text x="140" y="604" fill="#E2E8F0" font-size="28" font-weight="700" font-family="Inter, Segoe UI, sans-serif">RDBMS Inventory Summary</text>
+  <text x="140" y="648" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">Total SQLite files detected: 35</text>
+  <text x="140" y="684" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">Total DB footprint: 1,854.56 MB</text>
+  <text x="140" y="720" fill="#93C5FD" font-size="22" font-family="Inter, Segoe UI, sans-serif">Largest files: pinset_results.db / phase2_backup.db / ensemble.db</text>
+  <text x="140" y="756" fill="#CBD5E1" font-size="20" font-family="Inter, Segoe UI, sans-serif">Operational read path (sanitized): Ingestion → Ensemble Decisioning → Trade Snapshot → Dashboard API</text>
+  <text x="140" y="792" fill="#64748B" font-size="18" font-family="Inter, Segoe UI, sans-serif">* Table columns and payload details are partially redacted for portfolio safety.</text>
+</svg>

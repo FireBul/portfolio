@@ -26,7 +26,6 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pages.css">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -420,9 +419,19 @@
                         </header>
                         <p class="project-description">
                             모델 실험 결과를 운영 단계로 안전하게 넘기기 위해 검증 게이트와 승격 체계를 정비한 프로젝트입니다.
-                            shadow → canary → active 흐름을 명확히 하고, run 단위 추적·리스크 통제를 강화해
+                            검증 → 제한 배포 → 운영 적용 흐름을 명확히 하고, run 단위 추적·리스크 통제를 강화해
                             운영 안정성과 의사결정 속도를 동시에 개선했습니다.
                         </p>
+                        <div class="mini-flow" aria-label="AURORA 운영 플로우">
+                            <div class="mini-flow-title">AURORA 운영 플로우 (Sanitized)</div>
+                            <div class="mini-flow-track">
+                                <div class="mini-flow-step">검증 단계</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">제한 배포</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">운영 적용</div>
+                            </div>
+                        </div>
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "속도보다 운영 안전성"</div>
                             <div class="lessons-content">
@@ -459,6 +468,16 @@
                             검사 자동화를 모델 성능 중심이 아니라 현장 배포 관점으로 확장한 프로젝트입니다.
                             카메라 연결 안정화, 운영 UI 구조, 업그레이드 흐름까지 함께 설계해 실사용성을 높였습니다.
                         </p>
+                        <div class="mini-flow" aria-label="Teflon 운영 플로우">
+                            <div class="mini-flow-title">Teflon 운영 플로우</div>
+                            <div class="mini-flow-track">
+                                <div class="mini-flow-step">입력 수집</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">품질 판정</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">리포트/운영 반영</div>
+                            </div>
+                        </div>
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "현장은 모델만으로 돌아가지 않는다"</div>
                             <div class="lessons-content">
@@ -473,6 +492,46 @@
                         <footer class="project-footer">
                             <span class="impact-badge">Private: 현장형 자동화 성과</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
+                        </footer>
+                    </div>
+                </article>
+
+                <!-- 프로젝트 카드 11: Pure-Flon Website 운영 고도화 -->
+                <article class="project-card" data-category="private">
+                    <div class="project-image">
+                        <img src="assets/images/projects/pure-flon-ops-placeholder.svg" alt="Pure-Flon website 운영 아키텍처" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <header class="project-header">
+                            <h3 class="project-title">Pure-Flon Website 운영 고도화 (Private Summary)</h3>
+                            <div class="project-tags">
+                                <span class="project-tag tag-automation">Web Ops</span>
+                                <span class="project-tag tag-data">SEO</span>
+                                <span class="project-tag tag-pm">PM</span>
+                            </div>
+                        </header>
+                        <p class="project-description">
+                            메인 페이지 중심으로 공개 범위를 최소화하고, 운영 자동화 흐름과 배포 스택을 재정의한 프로젝트입니다.
+                            Vercel 배포, ngrok 기반 내부 검증, 정적 SEO 규격을 하나의 운영 루프로 묶어 관리했습니다.
+                        </p>
+                        <div class="mini-flow" aria-label="Pure-Flon 운영 플로우">
+                            <div class="mini-flow-title">Pure-Flon 운영 플로우</div>
+                            <div class="mini-flow-track">
+                                <div class="mini-flow-step">메인 페이지 정리</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">자동화 검증</div>
+                                <div class="mini-flow-arrow">→</div>
+                                <div class="mini-flow-step">배포/모니터링</div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="detail-item"><div class="detail-label">배포</div><div class="detail-value">Vercel</div></div>
+                            <div class="detail-item"><div class="detail-label">검증</div><div class="detail-value">ngrok + 로컬</div></div>
+                            <div class="detail-item"><div class="detail-label">운영 기준</div><div class="detail-value">핵심 페이지 최소 공개</div></div>
+                        </div>
+                        <footer class="project-footer">
+                            <span class="impact-badge">Private: 운영 스택 표준화</span>
+                            <a href="detail/detail-pure-flon-website.html" class="btn btn-outline">상세 보기</a>
                         </footer>
                     </div>
                 </article>
