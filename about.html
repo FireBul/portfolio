@@ -7,7 +7,7 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="최원혁">
     <meta name="keywords" content="Product Strategy, AI/ML, PM, Growth, CRM, 포트폴리오, 최원혁">
-    
+
     <link rel="canonical" href="https://firebul.github.io/portfolio/about.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ko_KR">
@@ -22,431 +22,11 @@
     <meta name="twitter:title" content="About | 최원혁 Product Strategy & AI Profile">
     <meta name="twitter:description" content="최원혁의 Product Strategy·AI/ML 실행 역량, 리더십, KPI 기반 의사결정 방식과 커리어 스토리를 정리한 전문가 프로필 페이지.">
     <meta name="twitter:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
-<title>About | 최원혁 Product Strategy & AI Profile</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #64748b;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --background: #ffffff;
-            --surface: #f8fafc;
-            --border: #e2e8f0;
-            --accent: #3b82f6;
-            
-            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-bold: 700;
-            
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            
-            --border-radius: 12px;
-            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    <title>About | 최원혁 Product Strategy & AI Profile</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
 
-        body {
-            font-family: var(--font-primary);
-            font-weight: var(--font-weight-normal);
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        /* 헤더 및 네비게이션 */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        .main-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--spacing-sm) var(--spacing-md);
-        }
-
-        .nav-brand a {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-lg);
-        }
-
-        .nav-menu a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary-color);
-            background-color: var(--surface);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* 메인 콘텐츠 */
-        .main-content {
-            padding-top: calc(80px + var(--spacing-xl));
-            padding-bottom: var(--spacing-xl);
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: var(--font-weight-bold);
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-            color: var(--text-primary);
-        }
-
-        /* About Hero 섹션 */
-        .about-hero {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-            align-items: start;
-        }
-
-        .about-photo {
-            width: 300px;
-            height: 400px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-
-        .about-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content h2 {
-            font-size: 2rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--primary-color);
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, #a7f3d0 0%, #10b981 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: var(--font-weight-bold);
-        }
-
-        /* 경력 섹션 */
-        .experience-section {
-            margin: var(--spacing-xl) 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-xl);
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: var(--spacing-lg);
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 1rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: var(--spacing-xl);
-            padding-left: var(--spacing-lg);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -0.5rem;
-            top: 0.5rem;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background: var(--primary-color);
-        }
-
-        .timeline-period {
-            color: var(--primary-color);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .timeline-company {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .timeline-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* 스킬 섹션 */
-        .skills-section {
-            background: var(--surface);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-xl);
-        }
-
-        .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--primary-color);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-xs);
-        }
-
-        .skill-tag {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: var(--font-weight-medium);
-        }
-
-        .skill-tag.highlight {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #333;
-            font-weight: var(--font-weight-bold);
-        }
-
-        /* 교육 섹션 */
-        .education-section {
-            margin: var(--spacing-xl) 0;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .education-card {
-            background: white;
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .education-card h3 {
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .education-period {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* 음악 여정 섹션 */
-        .music-journey {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .music-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .music-milestone {
-            background: white;
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: var(--box-shadow);
-        }
-
-        .music-milestone h4 {
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .music-milestone .age {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: var(--spacing-sm);
-            display: inline-block;
-        }
-
-        /* 이미지 갤러리 섹션 */
-        .gallery-section {
-            margin: var(--spacing-xl) 0;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .gallery-item {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: var(--spacing-md);
-                border-top: 1px solid var(--border);
-                box-shadow: var(--box-shadow);
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            .nav-toggle {
-                display: block;
-            }
-
-            .about-hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-photo {
-                width: 250px;
-                height: 300px;
-                margin: 0 auto;
-            }
-
-            .timeline {
-                padding-left: var(--spacing-md);
-            }
-
-            .timeline-item {
-                padding-left: var(--spacing-md);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -454,9 +34,7 @@
       "name": "최원혁",
       "url": "https://firebul.github.io/portfolio/",
       "jobTitle": "Product Strategy & AI PM",
-      "sameAs": [
-        "https://github.com/FireBul"
-      ]
+      "sameAs": ["https://github.com/FireBul"]
     }
     </script>
 </head>
@@ -473,7 +51,7 @@
                 <li><a href="leadership.html">리더십</a></li>
                 <li><a href="contact.html">연락처</a></li>
             </ul>
-            <button class="nav-toggle">☰</button>
+            <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
         </nav>
     </header>
 
@@ -491,36 +69,36 @@
                 <div class="about-content">
                     <h2>데이터와 사람, 그 연결점에서 가치를 만드는 PM</h2>
                     <p>
-                        안녕하세요, 최원혁입니다. <span class="highlight">"Ben Leads Project"</span>라는 이름에는 영화 "인턴"의 주인공 Ben Whittaker에서 영감을 받은 저의 철학이 담겨 있습니다. 
+                        안녕하세요, 최원혁입니다. <span class="highlight">"Ben Leads Project"</span>라는 이름에는 영화 "인턴"의 주인공 Ben Whittaker에서 영감을 받은 저의 철학이 담겨 있습니다.
                         Ben처럼 상대방의 의견에 귀 기울이고 소통의 가치를 중시하며, 프로젝트를 이끌고 팀을 관리하는 리더가 되고자 합니다.
                     </p>
                     <p>
-                        인터파크 SRM팀에서 Product Manager로 재직하며, <span class="highlight">데이터 기반 의사결정</span>과 
+                        인터파크 SRM팀에서 Product Manager로 재직하며, <span class="highlight">데이터 기반 의사결정</span>과
                         <span class="highlight">사용자 중심 설계</span>를 통해 실질적인 성과를 만들었습니다.
                         상품 최종 지면 A/B 테스트로 광고액 80% 상승과 CTR 100% 상승을 달성했고,
                         월 50억원 거래액 규모의 자동화 쿠폰 시스템을 기획·운영했습니다.
                         (2025년 12월 퇴사)
                     </p>
                     <p>
-                        업무 외에는 20명 규모의 자원봉사 음악 단체 <span class="highlight">"모드앙상블"</span>을 창단하고 운영하며, 
-                        조직 리더십과 사회적 가치 창출에도 열정을 쏟고 있습니다. 
+                        업무 외에는 20명 규모의 자원봉사 음악 단체 <span class="highlight">"모드앙상블"</span>을 창단하고 운영하며,
+                        조직 리더십과 사회적 가치 창출에도 열정을 쏟고 있습니다.
                         제품을 만드는 PM의 사고방식으로 조직을 운영하고, 팀원들의 성장과 목표 달성을 돕는 것이 저의 또 다른 즐거움입니다.
                     </p>
                 </div>
             </section>
 
-            <section style="background:#eef4ff;border:1px solid #dbeafe;border-radius:12px;padding:14px;margin-bottom:1.2rem;">
-                <h2 style="font-size:1.2rem;margin-bottom:8px;">면접관이 먼저 확인하면 좋은 포인트</h2>
-                <ul style="padding-left:1rem;line-height:1.7;">
+            <section class="interview-pointer">
+                <h2>면접관이 먼저 확인하면 좋은 포인트</h2>
+                <ul>
                     <li>성과를 숫자로 설명할 수 있는 PM 경험 (광고액/CTR/거래액)</li>
                     <li>기획-실행-검증을 끝까지 연결하는 운영형 업무 방식</li>
                     <li>제품 성과와 조직 운영(리더십)을 함께 만든 실제 사례</li>
                 </ul>
-                <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;">
-                    <span style="background:#dbeafe;color:#1e3a8a;border-radius:999px;padding:6px 10px;font-size:.86rem;">성과 지표 설계</span>
-                    <span style="background:#dcfce7;color:#166534;border-radius:999px;padding:6px 10px;font-size:.86rem;">운영 프로세스 개선</span>
-                    <span style="background:#ede9fe;color:#5b21b6;border-radius:999px;padding:6px 10px;font-size:.86rem;">데이터 기반 의사결정</span>
-                    <span style="background:#fee2e2;color:#991b1b;border-radius:999px;padding:6px 10px;font-size:.86rem;">협업/리더십</span>
+                <div class="pointer-tags">
+                    <span class="pointer-tag" style="background:#dbeafe;color:#1e3a8a;">성과 지표 설계</span>
+                    <span class="pointer-tag" style="background:#dcfce7;color:#166534;">운영 프로세스 개선</span>
+                    <span class="pointer-tag" style="background:#ede9fe;color:#5b21b6;">데이터 기반 의사결정</span>
+                    <span class="pointer-tag" style="background:#fee2e2;color:#991b1b;">협업/리더십</span>
                 </div>
             </section>
 
@@ -532,7 +110,7 @@
                         <div class="timeline-title">Product Manager</div>
                         <div class="timeline-company">인터파크커머스 / SRM팀</div>
                         <div class="timeline-description">
-                            판매자 관계 관리(SRM) 시스템의 PM으로서 광고, 쿠폰, 제휴 등 다양한 도메인의 제품을 기획하고 운영합니다. 
+                            판매자 관계 관리(SRM) 시스템의 PM으로서 광고, 쿠폰, 제휴 등 다양한 도메인의 제품을 기획하고 운영합니다.
                             특히 데이터 분석을 통한 사용자 행동 패턴 파악과 A/B 테스팅을 통한 개선점 도출에 집중하고 있습니다.
                             <br><br>
                             <strong>주요 성과:</strong><br>
@@ -548,7 +126,7 @@
                         <div class="timeline-title">DT University 운영</div>
                         <div class="timeline-company">하나금융티아이 / DT University팀</div>
                         <div class="timeline-description">
-                            전사 직원 대상 디지털 트랜스포메이션(DT) 교육 시스템을 운영하며 DT의 필요성과 
+                            전사 직원 대상 디지털 트랜스포메이션(DT) 교육 시스템을 운영하며 DT의 필요성과
                             다양한 인사 체계에 대한 이해를 얻었습니다. 직원들의 DT 관련 문의 대응을 통해 업무 효율성 개선 방법을 학습했습니다.
                         </div>
                     </div>
@@ -659,38 +237,12 @@
                     <div class="gallery-item">
                         <img src="assets/images/music/instruments.jpg" alt="플룻과 비올라 연주" loading="lazy">
                     </div>
-
                 </div>
             </section>
         </div>
     </main>
 
-    <script>
-        // 네비게이션 토글
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // 메뉴 항목 클릭 시 모바일 메뉴 닫기
-        navMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // 스크롤 시 헤더 스타일 변경
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.site-header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/portfolio-analytics.js"></script>
     <script src="assets/js/portfolio-chatbot-global.js"></script>
 </body>
