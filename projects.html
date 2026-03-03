@@ -7,7 +7,7 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="최원혁">
     <meta name="keywords" content="Product Strategy, AI/ML, PM, Growth, CRM, 포트폴리오, 최원혁">
-    
+
     <link rel="canonical" href="https://firebul.github.io/portfolio/projects.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ko_KR">
@@ -22,393 +22,11 @@
     <meta name="twitter:title" content="Projects | KPI-Driven Case Studies - 최원혁">
     <meta name="twitter:description" content="광고·커머스·CRM·데이터·AI/ML 프로젝트를 KPI 중심으로 정리한 최원혁의 핵심 케이스 스터디 모음.">
     <meta name="twitter:image" content="https://firebul.github.io/portfolio/assets/images/profile.jpg">
-<title>Projects | KPI-Driven Case Studies - 최원혁</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Projects | KPI-Driven Case Studies - 최원혁</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #64748b;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --background: #ffffff;
-            --surface: #f8fafc;
-            --border: #e2e8f0;
-            --accent: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            
-            --font-primary: 'Noto Sans KR', -apple-system, sans-serif;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-bold: 700;
-            
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            
-            --border-radius: 12px;
-            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            font-weight: var(--font-weight-normal);
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        /* 헤더 및 네비게이션 */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        .main-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--spacing-sm) var(--spacing-md);
-        }
-
-        .nav-brand a {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-lg);
-        }
-
-        .nav-menu a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary-color);
-            background-color: var(--surface);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* 메인 콘텐츠 */
-        .main-content {
-            padding-top: calc(80px + var(--spacing-xl));
-            padding-bottom: var(--spacing-xl);
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: var(--font-weight-bold);
-            text-align: center;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-primary);
-        }
-
-        .page-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-bottom: var(--spacing-xl);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 필터 섹션 */
-        .filter-section {
-            margin-bottom: var(--spacing-xl);
-            text-align: center;
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--border);
-            background: white;
-            color: var(--text-secondary);
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: var(--font-weight-medium);
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* 프로젝트 그리드 */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: var(--spacing-xl);
-        }
-
-        .project-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: var(--spacing-lg);
-        }
-
-        .project-header {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-primary);
-        }
-
-        .project-tags {
-            display: flex;
-            gap: var(--spacing-xs);
-            flex-wrap: wrap;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .project-tag {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: var(--font-weight-medium);
-        }
-
-        .tag-pm { background: #dbeafe; color: #1d4ed8; }
-        .tag-data { background: #d1fae5; color: #065f46; }
-        .tag-ux { background: #fef3c7; color: #92400e; }
-        .tag-automation { background: #e0e7ff; color: #3730a3; }
-        .tag-leadership { background: #fce7f3; color: #be185d; }
-        .tag-admin { background: #f3e8ff; color: #7c3aed; }
-        .tag-crm { background: #ecfdf5; color: #047857; }
-        .tag-policy { background: #fef2f2; color: #dc2626; }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.7;
-        }
-
-        .project-lessons {
-            background: var(--surface);
-            padding: var(--spacing-md);
-            border-radius: 8px;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .lessons-title {
-            font-weight: var(--font-weight-bold);
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
-            font-size: 0.9rem;
-        }
-
-        .lessons-content {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .project-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .detail-item {
-            text-align: center;
-        }
-
-        .detail-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
-        }
-
-        .detail-value {
-            font-weight: var(--font-weight-bold);
-            color: var(--primary-color);
-        }
-
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 1.5rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-            font-size: 0.9rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .impact-badge {
-            background: var(--success);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: var(--font-weight-bold);
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: var(--spacing-md);
-                border-top: 1px solid var(--border);
-                box-shadow: var(--box-shadow);
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            .nav-toggle {
-                display: block;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .project-details {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-
-            .filter-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .project-footer {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                align-items: stretch;
-            }
-        }
-    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -416,9 +34,7 @@
       "name": "최원혁",
       "url": "https://firebul.github.io/portfolio/",
       "jobTitle": "Product Strategy & AI PM",
-      "sameAs": [
-        "https://github.com/FireBul"
-      ]
+      "sameAs": ["https://github.com/FireBul"]
     }
     </script>
 </head>
@@ -435,7 +51,7 @@
                 <li><a href="leadership.html">리더십</a></li>
                 <li><a href="contact.html">연락처</a></li>
             </ul>
-            <button class="nav-toggle">☰</button>
+            <button class="nav-toggle" aria-label="메뉴 열기">☰</button>
         </nav>
     </header>
 
@@ -497,39 +113,26 @@
                                 <span class="project-tag tag-ux">UX 개선</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            상품 최종 지면에 새로운 광고 영역을 추가하는 프로젝트를 진행했습니다. 
-                            A/B 테스트를 통해 사용자 경험을 해치지 않으면서도 
+                            상품 최종 지면에 새로운 광고 영역을 추가하는 프로젝트를 진행했습니다.
+                            A/B 테스트를 통해 사용자 경험을 해치지 않으면서도
                             광고액 80% 상승과 CTR 100% 상승을 달성했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "데이터 기반 의사결정의 중요성"</div>
                             <div class="lessons-content">
-                                A/B 테스트를 통한 체계적인 검증 과정이 얼마나 중요한지 깨달았습니다. 
+                                A/B 테스트를 통한 체계적인 검증 과정이 얼마나 중요한지 깨달았습니다.
                                 가설만으로는 예측할 수 없었던 사용자 반응을 데이터로 확인할 수 있었습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">광고액</div>
-                                <div class="detail-value">80% ↑</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">CTR</div>
-                                <div class="detail-value">100% ↑</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">기간</div>
-                                <div class="detail-value">3개월</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">광고액</div><div class="detail-value">80% ↑</div></div>
+                            <div class="detail-item"><div class="detail-label">CTR</div><div class="detail-value">100% ↑</div></div>
+                            <div class="detail-item"><div class="detail-label">기간</div><div class="detail-value">3개월</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">광고 성과 대폭 개선</span>
-                            <a href="project-detail-ads.html" class="btn btn-outline">상세 보기</a>
+                            <a href="detail/detail-ads.html" class="btn btn-outline">상세 보기</a>
                         </footer>
                     </div>
                 </article>
@@ -548,45 +151,32 @@
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            네이버, 에누리, 다나와 등 가격 비교 채널에서 실시간 자동화 쿠폰을 기획했습니다. 
-                            네이버 EP API를 활용하여 데이터 기반 의사결정으로 월 50억원 거래액 수준의 
+                            네이버, 에누리, 다나와 등 가격 비교 채널에서 실시간 자동화 쿠폰을 기획했습니다.
+                            네이버 EP API를 활용하여 데이터 기반 의사결정으로 월 50억원 거래액 수준의
                             대규모 쿠폰 시스템을 구축했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "자동화 시스템의 가치"</div>
                             <div class="lessons-content">
-                                반복적인 업무를 자동화함으로써 업무 효율성을 크게 향상시킬 수 있었고, 
+                                반복적인 업무를 자동화함으로써 업무 효율성을 크게 향상시킬 수 있었고,
                                 데이터 기반의 실시간 의사결정이 비즈니스에 미치는 임팩트를 경험했습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">월 거래액</div>
-                                <div class="detail-value">50억원</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">YoY 성장</div>
-                                <div class="detail-value">30%</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">수익성</div>
-                                <div class="detail-value">20% ↑</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">월 거래액</div><div class="detail-value">50억원</div></div>
+                            <div class="detail-item"><div class="detail-label">YoY 성장</div><div class="detail-value">30%</div></div>
+                            <div class="detail-item"><div class="detail-label">수익성</div><div class="detail-value">20% ↑</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">월 50억 거래액</span>
-                            <a href="project-detail-coupon.html" class="btn btn-outline">상세 보기</a>
+                            <a href="detail/detail-coupon.html" class="btn btn-outline">상세 보기</a>
                         </footer>
                     </div>
                 </article>
 
-                <!-- 프로젝트 카드 3: 바이럴 광고 실적 관리 시스템 -->
-                               <article class="project-card" data-category="data">
+                <!-- 프로젝트 카드 3: 바이럴 광고 CPS 모델 도입 -->
+                <article class="project-card" data-category="data">
                     <div class="project-image">
                         <img src="assets/images/projects/viral-ads-system.png" alt="바이럴 광고 CPS 모델 도입" loading="lazy">
                     </div>
@@ -599,38 +189,25 @@
                                 <span class="project-tag tag-crm">백어드민</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            11시11분, 커넥트온, 쿠차, 와이즈버즈 등 제휴사의 바이럴 광고에 
-                            <strong>CPS(Cost Per Sale) 모델을 새롭게 도입</strong>하여 수익 모델을 다변화했습니다. 
-                            백어드민 시스템 설계부터 정산 프로세스 표준화까지 
+                            11시11분, 커넥트온, 쿠차, 와이즈버즈 등 제휴사의 바이럴 광고에
+                            <strong>CPS(Cost Per Sale) 모델을 새롭게 도입</strong>하여 수익 모델을 다변화했습니다.
+                            백어드민 시스템 설계부터 정산 프로세스 표준화까지
                             <strong>전체 비즈니스 프로세스를 재설계</strong>했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "기존 서비스의 비즈니스 모델 혁신"</div>
                             <div class="lessons-content">
-                                기존 바이럴 광고 서비스에 CPS 모델을 도입함으로써 
-                                새로운 수익 창출이 가능하며, 기존 서비스도 새로운 시각에서 
+                                기존 바이럴 광고 서비스에 CPS 모델을 도입함으로써
+                                새로운 수익 창출이 가능하며, 기존 서비스도 새로운 시각에서
                                 혁신적으로 발전시킬 수 있다는 것을 경험했습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">혁신</div>
-                                <div class="detail-value">CPS 모델</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">시스템</div>
-                                <div class="detail-value">백어드민</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">제휴사</div>
-                                <div class="detail-value">4개사</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">혁신</div><div class="detail-value">CPS 모델</div></div>
+                            <div class="detail-item"><div class="detail-label">시스템</div><div class="detail-value">백어드민</div></div>
+                            <div class="detail-item"><div class="detail-label">제휴사</div><div class="detail-value">4개사</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">비즈니스 모델 혁신</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
@@ -652,36 +229,23 @@
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            Braze와 GA를 연동하여 개인화 푸시 광고 및 배너 광고를 기획하고 운영했습니다. 
-                            사용자 행동 데이터를 분석하여 맞춤형 광고 시나리오를 설계하고 
+                            Braze와 GA를 연동하여 개인화 푸시 광고 및 배너 광고를 기획하고 운영했습니다.
+                            사용자 행동 데이터를 분석하여 맞춤형 광고 시나리오를 설계하고
                             CPC 시나리오를 통해 광고 효율을 개선했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "개인화의 힘"</div>
                             <div class="lessons-content">
-                                사용자 세분화와 개인화된 메시지가 광고 성과에 미치는 영향을 직접 확인했고, 
+                                사용자 세분화와 개인화된 메시지가 광고 성과에 미치는 영향을 직접 확인했고,
                                 데이터 기반 마케팅의 중요성을 깊이 이해하게 되었습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">도구</div>
-                                <div class="detail-value">Braze, GA</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">유형</div>
-                                <div class="detail-value">푸시/배너</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">성과</div>
-                                <div class="detail-value">개인화</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">도구</div><div class="detail-value">Braze, GA</div></div>
+                            <div class="detail-item"><div class="detail-label">유형</div><div class="detail-value">푸시/배너</div></div>
+                            <div class="detail-item"><div class="detail-label">성과</div><div class="detail-value">개인화</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">개인화 광고</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
@@ -689,7 +253,7 @@
                     </div>
                 </article>
 
-                <!-- 프로젝트 카드 5: 외부 채널 추가 프로젝트 -->
+                <!-- 프로젝트 카드 5: 외부 채널 추가 -->
                 <article class="project-card" data-category="advertising">
                     <div class="project-image">
                         <img src="assets/images/projects/external-channel.png" alt="외부 채널 연동 구조" loading="lazy">
@@ -702,39 +266,26 @@
                                 <span class="project-tag tag-ux">채널 관리</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            넥스트페이퍼, 노티플러스 등 신규 외부 채널을 추가하는 프로젝트를 담당했습니다. 
-                            각 채널의 특성을 분석하고 최적의 연동 방안을 설계하여 
+                            넥스트페이퍼, 노티플러스 등 신규 외부 채널을 추가하는 프로젝트를 담당했습니다.
+                            각 채널의 특성을 분석하고 최적의 연동 방안을 설계하여
                             광고 채널 다변화를 통한 수익 확대를 달성했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "채널 다변화의 중요성"</div>
                             <div class="lessons-content">
-                                다양한 채널과의 협업을 통해 리스크를 분산시키고 
+                                다양한 채널과의 협업을 통해 리스크를 분산시키고
                                 새로운 비즈니스 기회를 창출할 수 있음을 경험했습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">신규 채널</div>
-                                <div class="detail-value">2개</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">기간</div>
-                                <div class="detail-value">4개월</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">성과</div>
-                                <div class="detail-value">채널 확장</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">신규 채널</div><div class="detail-value">2개</div></div>
+                            <div class="detail-item"><div class="detail-label">기간</div><div class="detail-value">4개월</div></div>
+                            <div class="detail-item"><div class="detail-label">성과</div><div class="detail-value">채널 확장</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">채널 다변화</span>
-                            <a href="project-detail-external-channel.html" class="btn btn-outline">상세 보기</a>
+                            <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
                         </footer>
                     </div>
                 </article>
@@ -753,36 +304,24 @@
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
-<p class="project-description">
-    판매자 광고 센터의 <strong>운영 체계를 총괄 기획</strong>하며 서비스 안정성과 수익성을 동시에 확보했습니다. 
-    소프트웨어 등 고위험 광고에 대한 <strong>품질 관리 프로세스를 설계</strong>하고 
-    RTB 과금 최적화 및 채널별 광고액 관리 정책 등 <strong>핵심 비즈니스 정책을 수립</strong>했습니다.
-</p>
-
-<div class="project-lessons">
-    <div class="lessons-title">핵심 인사이트: "플랫폼 거버넌스와 정책 설계의 중요성"</div>
-    <div class="lessons-content">
-        확장 가능한 플랫폼을 위해서는 체계적인 거버넌스 프레임워크와 
-        데이터 기반의 정책 설계가 핵심이며, PM은 이러한 시스템 사고를 통해 
-        서비스의 지속가능성을 보장해야 함을 깨달았습니다.
-    </div>
-</div>
-
-<div class="project-details">
-    <div class="detail-item">
-        <div class="detail-label">총괄기획</div>
-        <div class="detail-value">ADMIN 운영</div>
-    </div>
-    <div class="detail-item">
-        <div class="detail-label">시스템설계</div>
-        <div class="detail-value">품질관리</div>
-    </div>
-    <div class="detail-item">
-        <div class="detail-label">정책수립</div>
-        <div class="detail-value">RTB, CAP</div>
-    </div>
-</div>
+                        <p class="project-description">
+                            판매자 광고 센터의 <strong>운영 체계를 총괄 기획</strong>하며 서비스 안정성과 수익성을 동시에 확보했습니다.
+                            소프트웨어 등 고위험 광고에 대한 <strong>품질 관리 프로세스를 설계</strong>하고
+                            RTB 과금 최적화 및 채널별 광고액 관리 정책 등 <strong>핵심 비즈니스 정책을 수립</strong>했습니다.
+                        </p>
+                        <div class="project-lessons">
+                            <div class="lessons-title">핵심 인사이트: "플랫폼 거버넌스와 정책 설계의 중요성"</div>
+                            <div class="lessons-content">
+                                확장 가능한 플랫폼을 위해서는 체계적인 거버넌스 프레임워크와
+                                데이터 기반의 정책 설계가 핵심이며, PM은 이러한 시스템 사고를 통해
+                                서비스의 지속가능성을 보장해야 함을 깨달았습니다.
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <div class="detail-item"><div class="detail-label">총괄기획</div><div class="detail-value">ADMIN 운영</div></div>
+                            <div class="detail-item"><div class="detail-label">시스템설계</div><div class="detail-value">품질관리</div></div>
+                            <div class="detail-item"><div class="detail-label">정책수립</div><div class="detail-value">RTB, CAP</div></div>
+                        </div>
                         <footer class="project-footer">
                             <span class="impact-badge">ADMIN 운영</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
@@ -804,36 +343,23 @@
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            기존 데이터 수집 구조의 한계를 개선하기 위해 Kafka 신규 topic을 생성하고 
-                            수집 구조를 변경했습니다. 이를 통해 YoY 월평균 거래액 30% 증가를 달성했으며, 
+                            기존 데이터 수집 구조의 한계를 개선하기 위해 Kafka 신규 topic을 생성하고
+                            수집 구조를 변경했습니다. 이를 통해 YoY 월평균 거래액 30% 증가를 달성했으며,
                             더욱 안정적이고 확장 가능한 데이터 인프라를 구축했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "인프라 개선의 임팩트"</div>
                             <div class="lessons-content">
-                                기반 인프라의 개선이 전체 비즈니스 성과에 미치는 영향을 직접 확인했고, 
+                                기반 인프라의 개선이 전체 비즈니스 성과에 미치는 영향을 직접 확인했고,
                                 기술적 투자의 중요성을 깊이 이해하게 되었습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">YoY 성장</div>
-                                <div class="detail-value">30%</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">기술</div>
-                                <div class="detail-value">Kafka</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">안정성</div>
-                                <div class="detail-value">향상</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">YoY 성장</div><div class="detail-value">30%</div></div>
+                            <div class="detail-item"><div class="detail-label">기술</div><div class="detail-value">Kafka</div></div>
+                            <div class="detail-item"><div class="detail-label">안정성</div><div class="detail-value">향상</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">거래액 30% 증가</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
@@ -854,36 +380,23 @@
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
                         <p class="project-description">
-                            기존 쿠폰 정산 방식의 문제점을 해결하기 위해 정산 로직을 개선했습니다. 
-                            할인 전 판매가액 기준으로 수수료를 부과하는 방식으로 변경하여 
+                            기존 쿠폰 정산 방식의 문제점을 해결하기 위해 정산 로직을 개선했습니다.
+                            할인 전 판매가액 기준으로 수수료를 부과하는 방식으로 변경하여
                             판매자와 플랫폼 모두에게 공정한 정산 구조를 구축했습니다.
                         </p>
-
                         <div class="project-lessons">
                             <div class="lessons-title">핵심 인사이트: "공정한 정책의 중요성"</div>
                             <div class="lessons-content">
-                                정책 변경 시 모든 이해관계자를 고려한 공정한 기준 수립이 
+                                정책 변경 시 모든 이해관계자를 고려한 공정한 기준 수립이
                                 장기적인 파트너십 유지에 얼마나 중요한지 깨달았습니다.
                             </div>
                         </div>
-
                         <div class="project-details">
-                            <div class="detail-item">
-                                <div class="detail-label">정산 방식</div>
-                                <div class="detail-value">개선</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">공정성</div>
-                                <div class="detail-value">향상</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">만족도</div>
-                                <div class="detail-value">증가</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">정산 방식</div><div class="detail-value">개선</div></div>
+                            <div class="detail-item"><div class="detail-label">공정성</div><div class="detail-value">향상</div></div>
+                            <div class="detail-item"><div class="detail-label">만족도</div><div class="detail-value">증가</div></div>
                         </div>
-
                         <footer class="project-footer">
                             <span class="impact-badge">정산 체계 개선</span>
                             <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
@@ -891,7 +404,7 @@
                     </div>
                 </article>
 
-                <!-- 프로젝트 카드 9: AURORA 운영 자동화 (Private Summary) -->
+                <!-- 프로젝트 카드 9: AURORA (Private) -->
                 <article class="project-card" data-category="private">
                     <div class="project-image">
                         <img src="assets/images/projects/data-structure.png" alt="AURORA 운영 자동화" loading="lazy">
@@ -923,12 +436,12 @@
                         </div>
                         <footer class="project-footer">
                             <span class="impact-badge">Private: 운영 안정성 중심 성과</span>
-                            <a href="project-detail-aurora.html" class="btn btn-outline">상세 보기</a>
+                            <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
                         </footer>
                     </div>
                 </article>
 
-                <!-- 프로젝트 카드 10: Teflon Inspection Automation (Private Summary) -->
+                <!-- 프로젝트 카드 10: Teflon Inspection (Private) -->
                 <article class="project-card" data-category="private">
                     <div class="project-image">
                         <img src="assets/images/projects/seller-admin.png" alt="Teflon Inspection Automation" loading="lazy">
@@ -959,21 +472,16 @@
                         </div>
                         <footer class="project-footer">
                             <span class="impact-badge">Private: 현장형 자동화 성과</span>
-                            <a href="project-detail-teflon-private.html" class="btn btn-outline">상세 보기</a>
+                            <a href="projects.html" class="btn btn-outline">프로젝트 목록</a>
                         </footer>
                     </div>
                 </article>
-
             </section>
         </div>
     </main>
 
+    <script src="assets/js/main.js"></script>
     <script>
-        // 네비게이션 토글
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
-
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = Array.from(document.querySelectorAll('.project-card'));
         const projectsGrid = document.querySelector('.projects-grid');
@@ -1030,7 +538,6 @@
             renderCounters();
         });
 
-        // 프로젝트 클릭 heatmap
         projectCards.forEach(card => {
             const title = card.querySelector('.project-title')?.innerText?.trim() || 'untitled';
             const key = 'project_click_' + title;
@@ -1068,27 +575,9 @@
             renderHeatmap();
         }
 
-        // 스크롤 시 헤더 스타일 변경
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.site-header');
-            header.style.background = window.scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
-        });
-
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-8px) scale(1.02)');
-            card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
-        });
-
         applyFilterSearchSort();
         renderCounters();
     </script>
-
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
     <script src="assets/js/portfolio-analytics.js"></script>
     <script src="assets/js/portfolio-chatbot-global.js"></script>
 </body>

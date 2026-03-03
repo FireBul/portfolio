@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURORA 운영 자동화 (Private Deep Summary) - 최원혁 Portfolio</title>
+  <meta name="description" content="AURORA 프로젝트의 운영 자동화/검증 게이트/데이터·서버 관점 요약. 민감정보 제외, 실무 구조 중심." />
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <div class="wrap">
+    <p><a href="../projects.html">← Projects로 돌아가기</a></p>
+
+    <div class="card">
+      <h1>AURORA 운영 자동화 (Private Deep Summary)</h1>
+      <p class="muted">민감정보를 제외한 운영·데이터·검증 중심 요약</p>
+      <div class="kpi">
+        <span>운영 흐름: shadow → canary → active</span>
+        <span>검증 원칙: gate-first 운영</span>
+        <span>핵심 성과: 운영 안정성/재현성 향상</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>프로젝트 배경</h2>
+      <p>모델 실험 결과를 실서비스로 옮길 때 가장 큰 리스크는 “성능 수치만 믿고 운영 전환”하는 구간입니다. AURORA는 이 구간을 줄이기 위해, 실험·검증·운영을 분리하고 승격 조건을 명시하는 데 집중했습니다.</p>
+      <h3>핵심 문제</h3>
+      <ul>
+        <li>실험 결과와 운영 정책의 단절</li>
+        <li>run 단위 추적 키 누락 시 원인 분석 지연</li>
+        <li>승격 조건 불명확 시 과도한 리스크 노출</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>실행 방식 (What we changed)</h2>
+      <div class="grid">
+        <div class="tile"><strong>승격 프로토콜</strong><br/>shadow → canary → active 단계 강제</div>
+        <div class="tile"><strong>검증 게이트</strong><br/>정책 위반/가드레일 누락 시 배포 차단</div>
+        <div class="tile"><strong>추적 체계</strong><br/>run_id 중심 전파와 로그 연결성 강화</div>
+        <div class="tile"><strong>운영 문서화</strong><br/>상태/판단/리스크/백테스트 기준 문서 고정</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>데이터 규모 & 학습/검증 깊이 (공개 가능 범위)</h2>
+      <ul>
+        <li><strong>코드베이스 관측 규모:</strong> Python 파일 약 160개, 문서 약 58개(로컬 스캔 기준)</li>
+        <li><strong>검증 방식:</strong> 정책/히스토리/스킬 거버넌스 검증 스크립트 기반</li>
+        <li><strong>학습 깊이:</strong> 단순 모델 튜닝이 아니라 운영 전환·리스크 통제까지 포함한 end-to-end 실험</li>
+        <li><strong>추가 리서치:</strong> 포트폴리오 고도화 과정에서 30,000개 안건 생성·점수화·합의 파이프라인 수행</li>
+      </ul>
+      <p class="muted">※ 민감한 원본 데이터 크기/정확한 거래·자본 지표/운영 키 값은 보안상 공개하지 않습니다.</p>
+    </div>
+
+    <div class="card">
+      <h2>서버/운영 상태 관점 (포트폴리오용)</h2>
+      <ul>
+        <li>운영 상태 점검 API/대시보드 기반으로 헬스체크 루프를 구성</li>
+        <li>실패 시 원인 구간을 좁힐 수 있는 검증 우선 구조 유지</li>
+        <li>운영 파라미터 변경 시 문서/대시보드 동기화 원칙 적용</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>파일 트리/구조 (Sanitized)</h2>
+      <img src="../assets/images/projects/aurora-file-tree.svg" alt="AURORA 파일 트리 요약" loading="lazy" />
+    </div>
+
+    <div class="card">
+      <h2>결론</h2>
+      <p>AURORA에서의 핵심은 “잘 맞는 모델”보다 “안전하게 운영되는 시스템”입니다. PM/운영 관점에서 실험-검증-승격-회복까지 닫힌 루프를 만드는 것이 실제 성과로 이어진다는 점을 검증했습니다.</p>
+    </div>
+  </div>
+</body>
+</html>
