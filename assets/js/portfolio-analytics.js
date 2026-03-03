@@ -130,4 +130,44 @@
       pushEvent('portfolio_scroll_depth_75', { session_id: sessionId });
     }
   }, { passive: true });
+
+  // Evidence Drawer 토글 이벤트 추적
+  document.querySelectorAll('.evidence-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target') || '';
+      const drawer = document.getElementById(targetId);
+      if (!drawer) return;
+      const isOpening = !drawer.classList.contains('is-open');
+      drawer.classList.toggle('is-open');
+      drawer.setAttribute('aria-hidden', isOpening ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
+      btn.textContent = isOpening ? '증거 닫기' : '증거 보기';
+      if (isOpening) {
+        pushEvent('evidence_drawer_open', { target: targetId, session_id: sessionId });
+      }
+    });
+  });
+
+  // Contact CTA 클릭 추적
+  document.querySelectorAll('a[href="contact.html"], a[href*="contact"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      pushEvent('contact_cta_click', {
+        cta_text: (a.textContent || '').trim().slice(0, 80),
+        source_page: location.pathname,
+        session_id: sessionId
+      });
+    });
+  });
+
+  // Project card click 추적 (V2 카드)
+  document.querySelectorAll('.project-card-v2 a').forEach((a) => {
+    a.addEventListener('click', () => {
+      setNum(KEY.projectClick, getNum(KEY.projectClick) + 1);
+      pushEvent('project_card_click', {
+        href: a.getAttribute('href') || '',
+        card_title: a.closest('.project-card-v2')?.querySelector('.project-card-v2__title')?.textContent || '',
+        session_id: sessionId
+      });
+    });
+  });
 })();

@@ -27,7 +27,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="assets/css/styles.css">
+
     <style>
         :root {
             --primary-color: #2563eb;
@@ -453,6 +454,48 @@
                 협업/채용/컨설팅 문의를 남겨주세요. 우선순위와 맥락이 명확한 문의일수록 더 빠르게 응답합니다.
             </p>
 
+            <!-- 문의 플로우 안내 패널 -->
+            <section class="contact-flow" aria-label="문의 진행 흐름">
+                <h2 class="contact-flow__title">문의 진행 흐름</h2>
+                <div class="contact-flow__stages">
+                    <div class="contact-flow__stage">
+                        <div class="contact-flow__stage-number">1</div>
+                        <div>
+                            <div class="contact-flow__stage-label">접수</div>
+                            <div class="contact-flow__stage-desc">문의 폼 제출</div>
+                        </div>
+                    </div>
+                    <div class="contact-flow__connector"></div>
+                    <div class="contact-flow__stage">
+                        <div class="contact-flow__stage-number">2</div>
+                        <div>
+                            <div class="contact-flow__stage-label">확인</div>
+                            <div class="contact-flow__stage-desc">24~48h 내 회신</div>
+                        </div>
+                    </div>
+                    <div class="contact-flow__connector"></div>
+                    <div class="contact-flow__stage">
+                        <div class="contact-flow__stage-number">3</div>
+                        <div>
+                            <div class="contact-flow__stage-label">범위 합의</div>
+                            <div class="contact-flow__stage-desc">목표·일정·예산 조율</div>
+                        </div>
+                    </div>
+                    <div class="contact-flow__connector"></div>
+                    <div class="contact-flow__stage">
+                        <div class="contact-flow__stage-number">4</div>
+                        <div>
+                            <div class="contact-flow__stage-label">실행</div>
+                            <div class="contact-flow__stage-desc">프로젝트 착수</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-flow__meta">
+                    <span>평균 첫 응답: <strong>24~48시간</strong></span>
+                    <span>우선순위: <strong>채용 > 프로젝트 > 컨설팅</strong></span>
+                </div>
+            </section>
+
             <section class="contact-section">
                 <div class="contact-grid">
                     <div class="contact-item">
@@ -535,17 +578,30 @@
             }
         });
 
-        // 카드 호버 애니메이션
-        const cards = document.querySelectorAll('.contact-item, .social-link');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-4px)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
+        // CTA 클릭 이벤트 추적
+        document.querySelectorAll('.btn, [data-cta]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'contact_cta_click',
+                    cta_text: (btn.textContent || '').trim().slice(0, 80),
+                    cta_href: btn.getAttribute('href') || '',
+                    ts: new Date().toISOString()
+                });
             });
         });
+
+        // 폼 제출 성공 이벤트 추적
+        const crmForm = document.getElementById('crmContactForm');
+        if (crmForm) {
+            crmForm.addEventListener('submit', () => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'contact_submit',
+                    ts: new Date().toISOString()
+                });
+            });
+        }
     </script>
     <script src="assets/js/portfolio-analytics.js"></script>
     <script src="assets/js/portfolio-crm.js"></script>

@@ -593,3 +593,556 @@ textarea:focus {
 .text-secondary { color: var(--text-secondary); }
 .text-success { color: var(--success); }
 .text-primary-color { color: var(--primary-color); }
+
+/* ===================================
+   정보 신뢰도 강화 컴포넌트
+   - 기존 디자인 결 유지, 정보 밀도 향상
+   ================================== */
+
+/* --- 추가 디자인 토큰 --- */
+:root {
+    --text-tertiary: #94a3b8;
+    --metric-positive: #059669;
+    --metric-warning: #d97706;
+    --metric-bg: #f0fdf4;
+    --metric-warning-bg: #fffbeb;
+    --confidence-high: #059669;
+    --confidence-medium: #d97706;
+    --confidence-exploratory: #6366f1;
+    --card-inner-sm: 12px;
+    --card-inner-md: 16px;
+    --card-inner-lg: 20px;
+}
+
+/* --- MetricChip 컴포넌트 --- */
+.metric-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: var(--metric-bg);
+    border: 1px solid #d1fae5;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+}
+
+.metric-chip--warning {
+    background: var(--metric-warning-bg);
+    border-color: #fde68a;
+}
+
+.metric-chip__value {
+    font-weight: var(--font-weight-bold);
+    color: var(--metric-positive);
+    font-size: 1rem;
+}
+
+.metric-chip--warning .metric-chip__value {
+    color: var(--metric-warning);
+}
+
+.metric-chip__label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.metric-chip__detail {
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+}
+
+/* --- Provenance Tag (데이터 출처 배지) --- */
+.provenance-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background: #f1f5f9;
+    color: var(--text-tertiary);
+    border: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.provenance-tag--production { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.provenance-tag--ab-test { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.provenance-tag--interview { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.provenance-tag--benchmark { background: #f3e8ff; color: #7c3aed; border-color: #ddd6fe; }
+
+/* --- Confidence Label --- */
+.confidence-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.confidence-label--high { background: #ecfdf5; color: var(--confidence-high); }
+.confidence-label--medium { background: #fffbeb; color: var(--confidence-medium); }
+.confidence-label--exploratory { background: #eef2ff; color: var(--confidence-exploratory); }
+
+.confidence-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* --- 프로젝트 카드 V2 (4블록 구조) --- */
+.project-card-v2 {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card-v2:hover {
+    border-color: #bfdbfe;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.project-card-v2__image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-card-v2__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card-v2__body {
+    padding: var(--card-inner-lg);
+}
+
+.project-card-v2__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: var(--card-inner-md);
+}
+
+.project-card-v2__title {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.project-card-v2__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--card-inner-md);
+}
+
+/* 4블록: Problem → Execution → Outcome → Evidence */
+.project-card-v2__block {
+    margin-bottom: var(--card-inner-md);
+    padding-bottom: var(--card-inner-sm);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.project-card-v2__block:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project-card-v2__block-label {
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+}
+
+.project-card-v2__block-content {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.project-card-v2__block-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-card-v2__block-content ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+}
+
+.project-card-v2__block-content ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Outcome 블록 내 MetricChip 그리드 */
+.project-card-v2__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 카드 하단 CTA + Evidence Toggle */
+.project-card-v2__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--card-inner-md) var(--card-inner-lg);
+    border-top: 1px solid #f1f5f9;
+    background: #fafbfc;
+}
+
+/* --- Evidence Drawer --- */
+.evidence-drawer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+}
+
+.evidence-drawer.is-open {
+    max-height: 600px;
+}
+
+.evidence-drawer__content {
+    padding: var(--card-inner-lg);
+}
+
+.evidence-drawer__section {
+    margin-bottom: var(--card-inner-md);
+}
+
+.evidence-drawer__section:last-child {
+    margin-bottom: 0;
+}
+
+.evidence-drawer__section-title {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+}
+
+.evidence-drawer__links {
+    list-style: none;
+    padding: 0;
+}
+
+.evidence-drawer__links li {
+    margin-bottom: 6px;
+}
+
+.evidence-drawer__links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
+}
+
+.evidence-drawer__links a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.evidence-drawer__links a::before {
+    content: '→';
+    font-size: 0.75rem;
+}
+
+.evidence-drawer__note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: white;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    line-height: 1.5;
+}
+
+.evidence-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-primary);
+}
+
+.evidence-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.evidence-toggle[aria-expanded="true"] {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- Contact Flow Panel --- */
+.contact-flow {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+}
+
+.contact-flow__title {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-flow__stages {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.contact-flow__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    padding: 0 8px;
+}
+
+.contact-flow__stage-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-flow__stage-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+}
+
+.contact-flow__stage-desc {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+.contact-flow__connector {
+    flex: 0.5;
+    height: 2px;
+    background: var(--border);
+    align-self: flex-start;
+    margin-top: 15px;
+    min-width: 20px;
+}
+
+.contact-flow__meta {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.contact-flow__meta strong {
+    color: var(--text-primary);
+}
+
+/* --- Hero KPI Strip (정량 지표 영역) --- */
+.hero-kpi-strip {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+.hero-kpi-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+}
+
+.hero-kpi-item__value {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.hero-kpi-item__label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.hero-kpi-item__detail {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+/* --- 역량 카드 (문제 해결 모듈 관점) --- */
+.capability-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: var(--card-inner-lg);
+    transition: border-color 0.2s;
+}
+
+.capability-card:hover {
+    border-color: #bfdbfe;
+}
+
+.capability-card__title {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.capability-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.capability-card__evidence {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    padding-top: 8px;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* --- 반응형: 새 컴포넌트 --- */
+@media (max-width: 768px) {
+    .project-card-v2__body {
+        padding: var(--card-inner-md);
+    }
+
+    .project-card-v2__footer {
+        padding: var(--card-inner-sm) var(--card-inner-md);
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .project-card-v2__metrics {
+        flex-direction: column;
+    }
+
+    .evidence-drawer__content {
+        padding: var(--card-inner-md);
+    }
+
+    .contact-flow__stages {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .contact-flow__connector {
+        width: 2px;
+        height: 16px;
+        align-self: center;
+        margin-top: 0;
+        min-width: 2px;
+    }
+
+    .contact-flow__stage {
+        flex-direction: row;
+        text-align: left;
+        gap: 12px;
+        padding: 8px 0;
+    }
+
+    .contact-flow__stage-number {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .hero-kpi-strip {
+        gap: 8px;
+    }
+
+    .hero-kpi-item {
+        min-width: 100px;
+        padding: 10px 12px;
+    }
+
+    .hero-kpi-item__value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-kpi-strip {
+        flex-direction: column;
+    }
+
+    .metric-chip {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+
+    .contact-flow__meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

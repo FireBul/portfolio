@@ -28,7 +28,8 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="assets/css/styles.css">
+
     <style>
         :root {
             --primary-color: #2563eb;
@@ -486,7 +487,7 @@
                 <!-- 프로젝트 카드 1: 상품 최종 지면 광고 개선 -->
                 <article class="project-card" data-category="advertising">
                     <div class="project-image">
-                        <img src="assets/images/projects/ads-result.png" alt="광고 지면 A/B 테스트 결과" loading="lazy">
+                        <img src="assets/images/projects/ads-result.png" alt="상품 최종 지면 광고 개선 A/B 테스트 결과" loading="lazy">
                     </div>
                     <div class="project-content">
                         <header class="project-header">
@@ -497,29 +498,33 @@
                                 <span class="project-tag tag-ux">UX 개선</span>
                             </div>
                         </header>
-                        
-                        <p class="project-description">
-                            상품 최종 지면에 새로운 광고 영역을 추가하는 프로젝트를 진행했습니다. 
-                            A/B 테스트를 통해 사용자 경험을 해치지 않으면서도 
-                            광고액 80% 상승과 CTR 100% 상승을 달성했습니다.
-                        </p>
 
-                        <div class="project-lessons">
-                            <div class="lessons-title">핵심 인사이트: "데이터 기반 의사결정의 중요성"</div>
-                            <div class="lessons-content">
-                                A/B 테스트를 통한 체계적인 검증 과정이 얼마나 중요한지 깨달았습니다. 
-                                가설만으로는 예측할 수 없었던 사용자 반응을 데이터로 확인할 수 있었습니다.
+                        <div class="project-card-v2__block">
+                            <div class="project-card-v2__block-label">Problem</div>
+                            <div class="project-card-v2__block-content">
+                                기존 광고 지면 CTR이 정체되어 신규 수익원이 필요했고, 추가 지면 설계 시 사용자 경험 훼손 리스크가 있었습니다.
+                            </div>
+                        </div>
+
+                        <div class="project-card-v2__block">
+                            <div class="project-card-v2__block-label">Execution</div>
+                            <div class="project-card-v2__block-content">
+                                <ul>
+                                    <li>사용자 동선 분석 후 최종 영역에 광고 지면 설계</li>
+                                    <li>A/B 테스트 설계·3개월 실행·검증</li>
+                                    <li>이탈률 변화 없음 확인 후 전체 적용</li>
+                                </ul>
                             </div>
                         </div>
 
                         <div class="project-details">
                             <div class="detail-item">
                                 <div class="detail-label">광고액</div>
-                                <div class="detail-value">80% ↑</div>
+                                <div class="detail-value">+80%</div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">CTR</div>
-                                <div class="detail-value">100% ↑</div>
+                                <div class="detail-value">+100%</div>
                             </div>
                             <div class="detail-item">
                                 <div class="detail-label">기간</div>
@@ -528,7 +533,8 @@
                         </div>
 
                         <footer class="project-footer">
-                            <span class="impact-badge">광고 성과 대폭 개선</span>
+                            <span class="provenance-tag provenance-tag--ab-test">A/B Test</span>
+                            <span class="confidence-label confidence-label--high">High</span>
                             <a href="project-detail-ads.html" class="btn btn-outline">상세 보기</a>
                         </footer>
                     </div>
@@ -537,29 +543,33 @@
                 <!-- 프로젝트 카드 2: 최저가 쿠폰 자동화 시스템 -->
                 <article class="project-card" data-category="automation">
                     <div class="project-image">
-                        <img src="assets/images/projects/coupon-flow.png" alt="쿠폰 자동화 시스템 플로우" loading="lazy">
+                        <img src="assets/images/projects/coupon-flow.png" alt="최저가 쿠폰 자동화 시스템 데이터 흐름도" loading="lazy">
                     </div>
                     <div class="project-content">
                         <header class="project-header">
                             <h3 class="project-title">최저가 쿠폰 자동화 시스템</h3>
                             <div class="project-tags">
                                 <span class="project-tag tag-automation">자동화</span>
-                                <span class="project-tag tag-data">빅데이터</span>
+                                <span class="project-tag tag-data">데이터</span>
                                 <span class="project-tag tag-pm">PM</span>
                             </div>
                         </header>
-                        
-                        <p class="project-description">
-                            네이버, 에누리, 다나와 등 가격 비교 채널에서 실시간 자동화 쿠폰을 기획했습니다. 
-                            네이버 EP API를 활용하여 데이터 기반 의사결정으로 월 50억원 거래액 수준의 
-                            대규모 쿠폰 시스템을 구축했습니다.
-                        </p>
 
-                        <div class="project-lessons">
-                            <div class="lessons-title">핵심 인사이트: "자동화 시스템의 가치"</div>
-                            <div class="lessons-content">
-                                반복적인 업무를 자동화함으로써 업무 효율성을 크게 향상시킬 수 있었고, 
-                                데이터 기반의 실시간 의사결정이 비즈니스에 미치는 임팩트를 경험했습니다.
+                        <div class="project-card-v2__block">
+                            <div class="project-card-v2__block-label">Problem</div>
+                            <div class="project-card-v2__block-content">
+                                수동 쿠폰 운영으로 네이버 최저가 기준 실시간 대응이 불가능했고, 가격 경쟁력 확보가 느렸습니다.
+                            </div>
+                        </div>
+
+                        <div class="project-card-v2__block">
+                            <div class="project-card-v2__block-label">Execution</div>
+                            <div class="project-card-v2__block-content">
+                                <ul>
+                                    <li>네이버 EP API 연동 실시간 최저가 비교 로직 설계</li>
+                                    <li>소카테고리 등급 기반 자동 쿠폰 발행 구축</li>
+                                    <li>Kafka topic 신설로 거래 데이터 수집 구조 개선</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -569,17 +579,18 @@
                                 <div class="detail-value">50억원</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">YoY 성장</div>
-                                <div class="detail-value">30%</div>
+                                <div class="detail-label">YoY 거래액</div>
+                                <div class="detail-value">+30%</div>
                             </div>
                             <div class="detail-item">
-                                <div class="detail-label">수익성</div>
-                                <div class="detail-value">20% ↑</div>
+                                <div class="detail-label">YoY 수익성</div>
+                                <div class="detail-value">+20%</div>
                             </div>
                         </div>
 
                         <footer class="project-footer">
-                            <span class="impact-badge">월 50억 거래액</span>
+                            <span class="provenance-tag provenance-tag--production">Production</span>
+                            <span class="confidence-label confidence-label--high">High</span>
                             <a href="project-detail-coupon.html" class="btn btn-outline">상세 보기</a>
                         </footer>
                     </div>
